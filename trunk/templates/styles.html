@@ -1,0 +1,23 @@
+{% if settings.DEBUG %}
+
+    {# Uncompressed for debugging #}
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/extjs/resources/css/ext-all.css">
+    <!--link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/ext20/resources/css/xtheme-gray.css"-->
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/ext-overrides-2.0.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/catalis.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/search.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/edition.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/toolbars.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/dialogs.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}common/css/aacr.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}common/css/wh.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}common/css/complete.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}common/css/etiquetado.css">
+    
+{% else %}
+
+    {# Compressed for production use #}
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="{{ settings.MEDIA_URL }}catalis/css/catalis-all-min.css">
+    
+{% endif %}

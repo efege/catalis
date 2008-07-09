@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- DOCTYPE HTML 4.01 Transitional (strict mode) arruina el form de edición en ambos browsers (con la versión vieja de Catalis) -->
+<!-- El autoajuste de textareas en IE funciona de manera óptima en quirks mode -->
+
+<!-- 
+    (c) 2003-2008  Fernando J. Gómez - CONICET - INMABB
+-->
+
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ settings.MEDIA_URL }}catalis/img/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS -->
+    {% include 'styles.html' %}
+</head>
+
+<body scroll="no">  <!-- FIXME: scroll="no" is OK? -->
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

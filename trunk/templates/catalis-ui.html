@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ settings.TITLE }}{% endblock %}
+
+{% block content %}
+    <!-- loading mask -->
+    <div id="loading-mask"></div>
+    <div id="loading">
+        <div class="loading-indicator">
+            <img src="{{ settings.MEDIA_URL }}catalis/img/large-loading.gif" width="32" height="32" style="margin-right:8px;" align="absmiddle"/>{{ settings.LOADING_MESSAGE_SPA }}
+        </div>
+    </div>
+    
+    <!-- SCRIPTS -->    
+    <!-- include all JS after the loading indicator (following the example at http://extjs.com/deploy/ext-2.0-alpha1/docs/) -->
+    {% include 'scripts.html' %}
+    
+    <!-- markup for search panel -->
+    {% include 'search-panel.html' %}
+    
+    <!-- markup for edit panel -->
+    {% include 'edition-panel.html' %}
+    
+    <!-- markup for Ext dialogs -->
+    {% include 'dialogs.html' %}
+    
+    
+    <!-- TO-DO: we are using this form, but do we need it to logout? -->
+    <!-- p(v2005) => failed login -->
+    <form id="logoutForm" action="/accounts/logout/" method="post">
+        <input type="hidden" name="next_page" value="/pepe">
+    </form>
+{% endblock %}
