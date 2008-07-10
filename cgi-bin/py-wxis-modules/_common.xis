@@ -1,0 +1,10 @@
+<!--
+    Code shared by several of the scripts.
+-->
+
+<!-- Displays an error message -->
+<function name="error" action="replace" tag="1">
+	<display><pft>'{"error":"', v1,'"}'</pft></display>
+	<flow action="exit">1</flow>
+</function>
+

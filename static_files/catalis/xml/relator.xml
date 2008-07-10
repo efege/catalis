@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<relatorCodes>
+
+	<relator code="act" name="Actor" />
+	<relator code="adp" name="Adapter" />
+	<relator code="aft" name="Author of afterword, colophon, etc." />
+	<relator code="ann" name="Annotator" />
+	<relator code="ant" name="Bibliographic antecedent" />
+	<relator code="app" name="Applicant" />
+	<relator code="aqt" name="Author in quotations or text abstracts" />
+	<relator code="arc" name="Architect" />
+	<relator code="arr" name="Arranger" />
+	<relator code="art" name="Artist" />
+	<relator code="asg" name="Assignee" />
+	<relator code="asn" name="Associated name" />
+	<relator code="att" name="Attributed name" />
+	<relator code="auc" name="Auctioneer" />
+	<relator code="aud" name="Author of dialog" />
+	<relator code="aui" name="Author of introduction" />
+	<relator code="aus" name="Author of screenplay" />
+	<relator code="aut" name="Author" />
+	<relator code="bdd" name="Binding designer" />
+	<relator code="bjd" name="Bookjacket designer" />
+	<relator code="bkd" name="Book designer" />
+	<relator code="bkp" name="Book producer" />
+	<relator code="bnd" name="Binder" />
+	<relator code="bpd" name="Bookplate designer" />
+	<relator code="bsl" name="Bookseller" />
+	<relator code="ccp" name="Conceptor" />
+	<relator code="chr" name="Choreographer" />
+	<relator code="clb" name="Collaborator" />
+	<relator code="cli" name="Client" />
+	<relator code="cll" name="Calligrapher" />
+	<relator code="clt" name="Collotyper" />
+	<relator code="cmm" name="Commentator" />
+	<relator code="cmp" name="Composer" />
+	<relator code="cmt" name="Compositor" />
+	<relator code="cnd" name="Conductor" />
+	<relator code="cns" name="Censor" />
+	<relator code="coe" name="Contestant-appellee" />
+	<relator code="col" name="Collector" />
+	<relator code="com" name="Compiler" />
+	<relator code="cos" name="Contestant" />
+	<relator code="cot" name="Contestant-appellant" />
+	<relator code="cov" name="Cover designer" />
+	<relator code="cpc" name="Copyright claimant" />
+	<relator code="cpe" name="Complainant-appellee" />
+	<relator code="cph" name="Copyright holder" />
+	<relator code="cpl" name="Complainant" />
+	<relator code="cpt" name="Complainant-appellant" />
+	<relator code="cre" name="Creator" />
+	<relator code="crp" name="Correspondent" />
+	<relator code="crr" name="Corrector" />
+	<relator code="csl" name="Consultant" />
+	<relator code="csp" name="Consultant to a project" />
+	<relator code="cst" name="Costume designer" />
+	<relator code="ctb" name="Contributor" />
+	<relator code="cte" name="Contestee-appellee" />
+	<relator code="ctg" name="Cartographer" />
+	<relator code="ctr" name="Contractor" />
+	<relator code="cts" name="Contestee" />
+	<relator code="ctt" name="Contestee-appellant" />
+	<relator code="cur" name="Curator" />
+	<relator code="cwt" name="Commentator for written text" />
+	<relator code="dfd" name="Defendant" />
+	<relator code="dfe" name="Defendant-appellee" />
+	<relator code="dft" name="Defendant-appellant" />
+	<relator code="dgg" name="Degree grantor" />
+	<relator code="dis" name="Dissertant" />
+	<relator code="dln" name="Delineator" />
+	<relator code="dnc" name="Dancer" />
+	<relator code="dnr" name="Donor" />
+	<relator code="dpc" name="Depicted" />
+	<relator code="dpt" name="Depositor" />
+	<relator code="drm" name="Draftsman" />
+	<relator code="drt" name="Director" />
+	<relator code="dsr" name="Designer" />
+	<relator code="dst" name="Distributor" />
+	<relator code="dte" name="Dedicatee" />
+	<relator code="dto" name="Dedicator" />
+	<relator code="dub" name="Dubious author" />
+	<relator code="edt" name="Editor" />
+	<relator code="egr" name="Engraver" />
+	<relator code="elt" name="Electrotyper" />
+	<relator code="eng" name="Engineer" />
+	<relator code="etr" name="Etcher" />
+	<relator code="exp" name="Expert" />
+	<relator code="fac" name="Facsimilist" />
+	<relator code="flm" name="Film editor" />
+	<relator code="fmo" name="Former owner" />
+	<relator code="fnd" name="Funder" />
+	<relator code="fpy" name="First party" />
+	<relator code="frg" name="Forger" />
+	<relator code="-grt" name="Graphic technician" />
+	<relator code="hnr" name="Honoree" />
+	<relator code="hst" name="Host" />
+	<relator code="ill" name="Illustrator" />
+	<relator code="ilu" name="Illuminator" />
+	<relator code="ins" name="Inscriber" />
+	<relator code="inv" name="Inventor" />
+	<relator code="itr" name="Instrumentalist" />
+	<relator code="ive" name="Interviewee" />
+	<relator code="ivr" name="Interviewer" />
+	<relator code="lbt" name="Librettist" />
+	<relator code="lee" name="Libelee-appellee" />
+	<relator code="lel" name="Libelee" />
+	<relator code="len" name="Lender" />
+	<relator code="let" name="Libelee-appellant" />
+	<relator code="lie" name="Libelant-appellee" />
+	<relator code="lil" name="Libelant" />
+	<relator code="lit" name="Libelant-appellant" />
+	<relator code="lsa" name="Landscape architect" />
+	<relator code="lse" name="Licensee" />
+	<relator code="lso" name="Licensor" />
+	<relator code="ltg" name="Lithographer" />
+	<relator code="lyr" name="Lyricist" />
+	<relator code="mdc" name="Metadata contact" />
+	<relator code="mod" name="Moderator" />
+	<relator code="mon" name="Monitor" />
+	<relator code="mrk" name="Markup editor" />
+	<relator code="mte" name="Metal-engraver" />
+	<relator code="mus" name="Musician" />
+	<relator code="nrt" name="Narrator" />
+	<relator code="opn" name="Opponent" />
+	<relator code="org" name="Originator" />
+	<relator code="orm" name="Organizer of meeting" />
+	<relator code="oth" name="Other" />
+	<relator code="own" name="Owner" />
+	<relator code="pat" name="Patron" />
+	<relator code="pbd" name="Publishing director" />
+	<relator code="pbl" name="Publisher" />
+	<relator code="pfr" name="Proofreader" />
+	<relator code="pht" name="Photographer" />
+	<relator code="plt" name="Platemaker" />
+	<relator code="pop" name="Printer of plates" />
+	<relator code="ppm" name="Papermaker" />
+	<relator code="prc" name="Process contact" />
+	<relator code="prd" name="Production personnel" />
+	<relator code="prf" name="Performer" />
+	<relator code="prg" name="Programmer" />
+	<relator code="prm" name="Printmaker" />
+	<relator code="pro" name="Producer" />
+	<relator code="prt" name="Printer" />
+	<relator code="pta" name="Patent applicant" />
+	<relator code="pte" name="Plaintiff-appellee" />
+	<relator code="ptf" name="Plaintiff" />
+	<relator code="pth" name="Patent holder" />
+	<relator code="ptt" name="Plaintiff-appellant" />
+	<relator code="rbr" name="Rubricator" />
+	<relator code="rce" name="Recording engineer" />
+	<relator code="rcp" name="Recipient" />
+	<relator code="red" name="Redactor" />
+	<relator code="ren" name="Renderer" />
+	<relator code="res" name="Researcher" />
+	<relator code="rev" name="Reviewer" />
+	<relator code="rpt" name="Reporter" />
+	<relator code="rpy" name="Responsible party" />
+	<relator code="rse" name="Respondent-appellee" />
+	<relator code="rsp" name="Respondent" />
+	<relator code="rst" name="Respondent-appellant" />
+	<relator code="rth" name="Research team head" />
+	<relator code="rtm" name="Research team member" />
+	<relator code="sad" name="Scientific advisor" />
+	<relator code="sce" name="Scenarist" />
+	<relator code="scl" name="Sculptor" />
+	<relator code="scr" name="Scribe" />
+	<relator code="sec" name="Secretary" />
+	<relator code="sgn" name="Signer" />
+	<relator code="sng" name="Singer" />
+	<relator code="spk" name="Speaker" />
+	<relator code="spn" name="Sponsor" />
+	<relator code="spy" name="Second party" />
+	<relator code="srv" name="Surveyor" />
+	<relator code="stl" name="Storyteller" />
+	<relator code="stn" name="Standards body" />
+	<relator code="str" name="Stereotyper" />
+	<relator code="ths" name="Thesis advisor" />
+	<relator code="trc" name="Transcriber" />
+	<relator code="trl" name="Translator" />
+	<relator code="tyd" name="Type designer" />
+	<relator code="tyg" name="Typographer" />
+	<relator code="voc" name="Vocalist" />
+	<relator code="wam" name="Writer of accompanying material" />
+	<relator code="wdc" name="Woodcutter" />
+	<relator code="wde" name="Wood-engraver" />
+	<relator code="wit" name="Witness" />
+
+</relatorCodes>

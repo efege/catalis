@@ -1,0 +1,64 @@
+/* Hoja de estilo para la impresión de listados de registros */
+
+* {
+    background-color: white;
+    color: black;
+    font-size: 11pt;
+    font-family: arial, helvetica, sans-serif;            /* verdana no es apropiada para imprimir */
+    border-color: rgb(180,180,180) !important;            /* bordes suavizados */
+}
+
+@media print {
+    * {
+        background-color: rgb(255,255,255) !important;    /* fondo blanco */
+    }
+}
+
+/* Quitamos el borde de los botones */
+button {
+    border-width: 0 !important;
+}
+
+
+h1 {
+    font-weight: normal;
+}
+h1, h1 * {
+    font-size: 18px;
+}
+
+/* Omitimos el resaltado */
+/* ATENCION: quizás sería más sencillo omitir el resaltado (de manera condicional)
+    en la hoja de estilo original */
+.hl {
+    padding: 0;
+    font-weight: inherit;
+}
+
+/* En Firefox se ve el subrayado aun en modo "Print Preview"! */
+a:hover {
+    text-decoration: none !important;
+}
+
+td:first-child {    /* ignorado por IE6 */
+    /*font-style: italic;*/
+}
+
+table {
+    border: 1px solid #999;
+    border-top: none;
+    border-right: none;
+}
+
+td {
+    border: 1px solid #999;
+    border-left: 0 !important;
+    border-bottom: 0 !important;
+    padding: 0.3em;
+    vertical-align: top;
+}
+
+/* Quisiéramos evitar los saltos de página en medio de un registro */
+tr.whOdd, tr.whEven {
+    page-break-inside: avoid; /* IE6 y Mozilla 1.x lo ignoran, pero igual, dejémoslo para el futuro... */
+}

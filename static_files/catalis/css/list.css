@@ -1,0 +1,63 @@
+/**
+ * Listas de registros (DataView).
+ */
+table#record-list-container {
+    margin-bottom: 0.5em; /* para evitar que el borde inferior del último registro choque con el borde del panel */
+    /*width: 99.9%;*/  /* removed since it adds a horizontal toolbar in IE */
+}
+.brief-record.x-view-over {
+    background-color: #F3F3F3;
+    cursor: default;
+}
+.brief-record.x-view-selected>td {   /* FIXME: this selector does not work in IE  */
+    background: #DFE8F6; /*#FFF8DC;*/
+}
+.brief-record>td {  /* FIXME: this selector does not work in IE  */
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #CCC;
+    padding: 0.4em;
+    vertical-align: top;
+}
+.brief-record .x-btn-wrap {
+    margin: auto;
+}
+.brief-record .brief-recordID {
+    border-left: none;
+    text-align: center;
+    width: 5em;
+}
+.brief-record .brief-main-entry {
+    font-style: italic;
+    margin-bottom: 0.25em;
+}
+.brief-record .brief-description {
+    margin-left: 1em;
+}
+.brief-record .brief-date {
+    text-align: center;
+    white-space: nowrap;
+    /*width: 5em;*/
+}
+.brief-record .brief-callNo {
+    /*width: 7em;*/
+}
+
+
+/* header for the list of records */
+.catalis-list-header .x-panel-header {
+    /*background: #D0DEF0 url(../images/default/toolbar/bg.gif) repeat-x scroll left top;*/ /* copied from x-toolbar */
+    /*background: #FFF;*/
+    border-color: #A9BFD3;  /* copied from x-toolbar */
+    border-bottom: none;
+    font-weight: normal;
+}
+
+/* fix */
+.catalis-list-paging-toolbar {
+    border-top: none !important;
+}
+
+/* search history, query cell */
+.x-grid3-col-query {
+    font-weight: bold;
+}

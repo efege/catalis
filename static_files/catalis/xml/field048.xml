@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<field048>
+
+	<option code="ba"  name="Brass--Horn" />
+	<option code="bb"  name="Brass--Trumpet" />
+	<option code="bc"  name="Brass--Cornet" />
+	<option code="bd"  name="Brass--Trombone" />
+	<option code="be"  name="Brass--Tuba" />
+	<option code="bf"  name="Brass--Baritone" />
+	<option code="bn"  name="Brass--Unspecified" />
+	<option code="bu"  name="Brass--Unknown" />
+	<option code="by"  name="Brass--Ethnic" />
+	<option code="bz"  name="Brass--Other" />
+	<option code="ca"  name="Choruses--Mixed" />
+	<option code="cb"  name="Choruses--Women's" />
+	<option code="cc"  name="Choruses--Men's" />
+	<option code="cd"  name="Choruses--Children's" />
+	<option code="cn"  name="Choruses--Unspecified" />
+	<option code="cu"  name="Choruses--Unknown" />
+	<option code="cy"  name="Choruses--Ethnic" />
+	<option code="ea"  name="Electronic--Synthesizer" />
+	<option code="eb"  name="Electronic--Tape" />
+	<option code="ec"  name="Electronic--Computer" />
+	<option code="ed"  name="Electronic--Ondes Martinot" />
+	<option code="en"  name="Electronic--Unspecified" />
+	<option code="eu"  name="Electronic--Unknown" />
+	<option code="ez"  name="Electronic--Other" />
+	<option code="ka"  name="Keyboard--Piano" />
+	<option code="kb"  name="Keyboard--Organ" />
+	<option code="kc"  name="Keyboard--Harpsichord" />
+	<option code="kd"  name="Keyboard--Clavichord" />
+	<option code="ke"  name="Keyboard--Continuo" />
+	<option code="kf"  name="Keyboard--Celeste" />
+	<option code="kn"  name="Keyboard--Unspecified" />
+	<option code="ku"  name="Keyboard--Unknown" />
+	<option code="ky"  name="Keyboard--Ethnic" />
+	<option code="kz"  name="Keyboard--Other" />
+	<option code="oa"  name="Larger ensemble--Full orchestra" />
+	<option code="ob"  name="Larger ensemble--Chamber orch." />
+	<option code="oc"  name="Larger ensemble--String orchestra" />
+	<option code="od"  name="Larger ensemble--Band" />
+	<option code="oe"  name="Larger ensemble--Dance orchestra" />
+	<option code="of"  name="Larger ensemble--Brass band (Brass with some doubling, with or without percussion)" />
+	<option code="on"  name="Larger ensemble--Unspecified" />
+	<option code="ou"  name="Larger ensemble--Unknown" />
+	<option code="oy"  name="Larger ensemble--Ethnic" />
+	<option code="oz"  name="Larger ensemble--Other" />
+	<option code="pa"  name="Percussion--Timpani" />
+	<option code="pb"  name="Percussion--Xylophone" />
+	<option code="pc"  name="Percussion--Marimba" />
+	<option code="pd"  name="Percussion--Drum" />
+	<option code="pn"  name="Percussion--Unspecified" />
+	<option code="pu"  name="Percussion--Unknown" />
+	<option code="py"  name="Percussion--Ethnic" />
+	<option code="pz"  name="Percussion--Other" />
+	<option code="sa"  name="Strings, bowed--Violin" />
+	<option code="sb"  name="Strings, bowed--Viola" />
+	<option code="sc"  name="Strings, bowed--Violoncello" />
+	<option code="sd"  name="Strings, bowed--Double bass" />
+	<option code="se"  name="Strings, bowed--Viol" />
+	<option code="sf"  name="Strings, bowed--Viola d'amore" />
+	<option code="sg"  name="Strings, bowed--Viola da gamba" />
+	<option code="sn"  name="Strings, bowed--Unspecified" />
+	<option code="su"  name="Strings, bowed--Unknown" />
+	<option code="sy"  name="Strings, bowed--Ethnic" />
+	<option code="sz"  name="Strings, bowed--Other" />
+	<option code="ta"  name="Strings, plucked--Harp" />
+	<option code="tb"  name="Strings, plucked--Guitar" />
+	<option code="tc"  name="Strings, plucked--Lute" />
+	<option code="td"  name="Strings, plucked--Mandolin" />
+	<option code="tn"  name="Strings, plucked--Unspecified" />
+	<option code="tu"  name="Strings, plucked--Unknown" />
+	<option code="ty"  name="Strings, plucked--Ethnic" />
+	<option code="tz"  name="Strings, plucked--Other" />
+	<option code="va"  name="Voices--Soprano" />
+	<option code="vb"  name="Voices--Mezzo Soprano" />
+	<option code="vc"  name="Voices--Alto" />
+	<option code="vd"  name="Voices--Tenor" />
+	<option code="ve"  name="Voices--Baritone" />
+	<option code="vf"  name="Voices--Bass" />
+	<option code="vg"  name="Voices--Counter tenor" />
+	<option code="vh"  name="Voices--High voice" />
+	<option code="vi"  name="Voices--Medium voice" />
+	<option code="vj"  name="Voices--Low voice" />
+	<option code="vn"  name="Voices--Unspecified" />
+	<option code="vu"  name="Voices--Unknown" />
+	<option code="vy"  name="Voices--Ethnic" />
+	<option code="wa"  name="Woodwinds--Flute" />
+	<option code="wb"  name="Woodwinds--Oboe" />
+	<option code="wc"  name="Woodwinds--Clarinet" />
+	<option code="wd"  name="Woodwinds--Bassoon" />
+	<option code="we"  name="Woodwinds--Piccolo" />
+	<option code="wf"  name="Woodwinds--English horn" />
+	<option code="wg"  name="Woodwinds--Bass clarinet" />
+	<option code="wh"  name="Woodwinds--Recorder" />
+	<option code="wi"  name="Woodwinds--Saxophone" />
+	<option code="wn"  name="Woodwinds--Unspecified" />
+	<option code="wu"  name="Woodwinds--Unknown" />
+	<option code="wy"  name="Woodwinds--Ethnic" />
+	<option code="wz"  name="Woodwinds--Other" />
+	<option code="zn"  name="Unspecified instruments" />
+	<option code="zu"  name="Unknown" />
+
+</field048>

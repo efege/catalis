@@ -1,0 +1,14 @@
+# Local settings
+# Save a copy of this file as settings_local.py, and use it to override global
+# settings defined in settings.py.
+
+# used for the LC proxy
+PROXY_HOST = 'proxy.uns.edu.ar'
+PROXY_PORT = 1280
+
+# Host, port and path to access wxis via HTTP.
+WXIS_HOST = '127.0.0.1'
+WXIS_PORT = '81'
+WXIS_PATH ='/catalis/cgi-bin/wxis'
+
+DEFAULT_LANGUAGE = 'es'

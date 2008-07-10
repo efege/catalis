@@ -1,0 +1,154 @@
+/* CSS para el panel de búsquedas */
+
+
+
+/**
+ * Listas de registros (DataView).
+ */
+table#record-list-container {
+    margin-bottom: 0.5em; /* para evitar que el borde inferior del último registro choque con el borde del panel */
+    /*width: 99.9%;*/  /* removed since it adds a horizontal toolbar in IE */
+}
+.brief-record.x-view-over {
+    background-color: #F3F3F3;
+    cursor: default;
+}
+.brief-record.x-view-selected>td {   /* FIXME: this selector does not work in IE  */
+    background: #DFE8F6; /*#FFF8DC;*/
+}
+.brief-record>td {  /* FIXME: this selector does not work in IE  */
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #CCC;
+    padding: 0.4em;
+    vertical-align: top;
+}
+.brief-record .x-btn-wrap {
+    margin: auto;
+}
+.brief-record .brief-recordID {
+    border-left: none;
+    text-align: center;
+    width: 5em;
+}
+.brief-record .brief-main-entry {
+    font-style: italic;
+    margin-bottom: 0.25em;
+}
+.brief-record .brief-description {
+    margin-left: 1em;
+}
+.brief-record .brief-date {
+    text-align: center;
+    white-space: nowrap;
+    /*width: 5em;*/
+}
+.brief-record .brief-callNo {
+    /*width: 7em;*/
+}
+
+/* Resaltado de términos. ATENCION: para que coincida con el OPAC, usar un .css externo */
+span.hl {
+    background: #888;
+    color: #F0F0F0;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+
+/**
+ * Search history
+ */
+.search-history table {
+    width:100%
+}
+.search-history .hits {
+    color: #999;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    text-align: right;
+    width: 2.6em
+}
+.search-history .query {
+    font-weight: bold;
+}
+.search-history .x-combo-selected {
+    background-color: #EEE;
+}
+
+/**
+ * Listas de términos del diccionario (DataView).
+ */
+.dictionary {
+    /*background-color: #EEE;*/
+    /*border-bottom: 2px solid #CCC;*/
+    margin: 0.3em 0;
+    width: 99.5%;
+}
+.dictionary td {
+    border-bottom:1px solid #DDDDDD;
+    /*font-weight: bold;*/
+    padding: 0.1em 3px;
+}
+.dictionary .postings {
+    color: #777;
+    font-weight: normal;
+    text-align: right;
+    width: 1.7em;
+}
+.dictionary .term {
+    padding-left: 4px;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+.dictionary .x-view-over {
+    background-color: #EEE;
+    cursor: pointer;
+    /*text-decoration: underline;*/
+}
+/*.dictionary .x-view-selected {
+}*/
+
+/* hide unnecessary toolbar items (better not to render them at all!) */
+.dictionaryToolbar .x-tbar-page-number, .dictionaryToolbar .ytb-text, .dictionaryToolbar .ytb-sep, .dictionaryToolbar .x-tbar-loading {
+    display: none;
+}
+.dictionaryToolbar input {
+    /*width: 70px !important;*/
+}
+
+
+/**
+ *
+ */
+
+/* solución a un problema con Firefox */
+/*#searchFormPanel input {
+    height: 18px !important;
+    width: 120px !important;
+}*/
+
+.recordDetailsToolbar .x-btn-wrap {
+    float: right;
+    margin: 0.3em 0;
+}
+
+
+
+/* header for the list of records */
+.catalis-list-header .x-panel-header {
+    /*background: #D0DEF0 url(../images/default/toolbar/bg.gif) repeat-x scroll left top;*/ /* copied from x-toolbar */
+    /*background: #FFF;*/
+    border-color: #A9BFD3;  /* copied from x-toolbar */
+    border-bottom: none;
+    font-weight: normal;
+}
+
+/* fix */
+.catalis-list-paging-toolbar {
+    border-top: none !important;
+}
+
+/* search history, query cell */
+.x-grid3-col-query {
+    font-weight: bold;
+}

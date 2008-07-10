@@ -1,0 +1,41 @@
+/**
+ * Listas de términos del diccionario (DataView).
+ */
+.dictionary {
+    /*background-color: #EEE;*/
+    /*border-bottom: 2px solid #CCC;*/
+    margin: 0.3em 0;
+    width: 99.5%;
+}
+.dictionary td {
+    border-bottom:1px solid #DDDDDD;
+    /*font-weight: bold;*/
+    padding: 0.1em 3px;
+}
+.dictionary .postings {
+    color: #777;
+    font-weight: normal;
+    text-align: right;
+    width: 1.7em;
+}
+.dictionary .term {
+    padding-left: 4px;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+.dictionary .x-view-over {
+    background-color: #EEE;
+    cursor: pointer;
+    /*text-decoration: underline;*/
+}
+.dictionary .x-view-selected {
+    background-color: #DFE8F6;
+}
+
+/* hide unnecessary toolbar items (better not to render them at all!) */
+.dictionaryToolbar .x-tbar-page-number, .dictionaryToolbar .ytb-text, .dictionaryToolbar .ytb-sep, .dictionaryToolbar .x-tbar-loading {
+    display: none;
+}
+.dictionaryToolbar input {
+    /*width: 70px !important;*/
+}

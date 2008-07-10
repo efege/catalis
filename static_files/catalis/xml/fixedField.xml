@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<marcControlFields>
+
+
+<!-- ======================================================================= -->
+<marcLeader name="Cabecera" label-eng="Leader">
+<!-- ======================================================================= -->
+
+  <dataElement pos="L_05" name="LDR/05 · Status" label-eng="Record status">
+    <option code="a"   name="Aumento en el nivel de codificación" /> 
+    <option code="c"   name="Corregido o revisado" /> 
+    <option code="d"   name="Borrado" /> 
+    <option code="n"   name="Nuevo" /> 
+    <option code="p"   name="Aumento en el nivel de codif. from prepub." /> 
+  </dataElement>
+
+  <dataElement pos="L_06" name="LDR/06 · Tipo de registro" label-eng="Type of record">
+    <option code="a"   name="Language material" />
+    <option code="c"   name="Notated music" />
+    <option code="d"   name="Manuscript notated music" />
+    <option code="e"   name="Cartographic material" />
+    <option code="f"   name="Manuscript cartographic material" />
+    <option code="g"   name="Projected medium" />
+    <option code="i"   name="Nonmusical sound recording" />
+    <option code="j"   name="Musical sound recording" />
+    <option code="k"   name="2-D nonprojectable graphic" />
+    <option code="m"   name="Computer file" />
+    <option code="o"   name="Kit" />
+    <option code="p"   name="Mixed material" />
+    <option code="r"   name="3-D artifact or naturally occurring object" />
+    <option code="t"   name="Manuscript language material" />
+  </dataElement>
+
+  <dataElement pos="L_07" name="LDR/07 · Nivel bibliográfico" label-eng="Bibliographic level">
+    <option code="a"   name="Monographic component part (uses field 773)" /> 
+    <option code="b"   name="Serial component part (uses field 773)" />
+    <option code="c"   name="Collection" />
+    <option code="d"   name="Subunit" />
+    <option code="i"   name="Integrating resource" /> <!-- new 2002 -->
+    <option code="m"   name="Monograph/item" />
+    <option code="s"   name="Serial" />
+  </dataElement>
+
+  <dataElement pos="L_17" name="LDR/17 · Nivel de codificación" label-eng="Encoding level">
+    <option code="#"   name="Full level" /> 
+    <option code="1"   name="Full level, material not examined" /> 
+    <option code="2"   name="Less-than-full level, material not examined" /> 
+    <option code="3"   name="Abbreviated level" /> 
+    <option code="4"   name="Core level" /> 
+    <option code="5"   name="Partial (preliminary) level" /> 
+    <option code="7"   name="Minimal level" /> 
+    <option code="8"   name="Prepublication level" /> 
+    <option code="u"   name="Desconocido" /> 
+    <option code="z"   name="Not applicable" />
+  </dataElement>
+
+  <dataElement pos="L_18" name="LDR/18 · Forma de catalogación descriptiva" label="Descriptive cataloging form">
+    <option code="a"   name="AACR 2" name-spa="AACR2" />
+    <option code="#"   name="Non-ISBD" name-spa="No ISBD" /> 
+    <option code="i"   name="ISBD" name-spa="ISBD" /> 
+    <option code="u"   name="Unknown" name-spa="Desconocido" />
+  </dataElement>
+
+  <dataElement pos="L_19" name="LDR/19 · Registro relacionado" label-eng="Linked record requirement">
+    <option code="#"   name="No requerido" />
+    <option code="r"   name="Requerido" />
+  </dataElement>
+
+</marcLeader>
+
+<!-- ======================================================================= -->
+<marc008-all name="008 [general]" label-eng="008 [all materials]">
+<!-- ======================================================================= -->
+
+  <!-- 00-05 · Date entered on file : dato generado por el sistema -->
+
+  <dataElement pos="f008_06" name="008/06 · Tipo de fecha/Estado de la publicación" label-eng="Type of date/Publication status">
+    <option code="b"   name="No dates given; B.C. date involved" /> 
+    <option code="c"   name="Recurso continuo, se sigue publicando" name-eng="Continuing resource currently published" /> 
+    <option code="d"   name="Recurso continuo, dejó de publicarse" name-eng="Continuing resource ceased publication" /> 
+    <option code="e"   name="Fecha detallada" name-eng="Detailed date" /> 
+    <option code="i"   name="Inclusive dates of collection" /> 
+    <option code="k"   name="Range of years of bulk of collection" /> 
+    <option code="m"   name="Fechas múltiples" name-eng="Multiple dates" /> 
+    <option code="n"   name="Fechas desconocidas" /> 
+    <option code="p"   name="Date of distribution/release/issue and..." /> 
+    <option code="q"   name="Fecha dudosa" name-eng="Questionable date" /> 
+    <option code="r"   name="Reprint/reissue date and original date" /> 
+    <option code="s"   name="Fecha única conocida/fecha probable" name-eng="Single known date/probable date" /> 
+    <option code="t"   name="Fecha de publicación y fecha de copyright" name-eng="Publication date and copyright date" /> 
+    <option code="u"   name="Recurso continuo, estado desconocido" name-eng="Continuing resource status unknown" /> 
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+  <dataElement pos="f008_38" name="008/38 · Modificaciones en el registro" label-eng="Modified record">
+    <option code="#"   name="No modificado" name-eng="Not modified" /> 
+    <option code="d"   name="Dashed-on information omitted" /> 
+    <option code="o"   name="Completely romanized/printed cards romanized" /> 
+    <option code="r"   name="Completely romanized/printed cards in script" /> 
+    <option code="s"   name="Abreviado" name-eng="Shortened" />
+    <option code="x"   name="Caracteres faltantes" name-eng="Missing characters" /> 
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+  <dataElement pos="f008_39" name="008/39 · Fuente de la catalogación" label-eng="Cataloging source">
+    <option code="#"   name="Agencia bibliográfica nacional" name-eng="National bibliographic agency" />
+    <option code="c"   name="Programa de catalogación cooperativa" name-eng="Cooperative cataloging program" />
+    <option code="d"   name="Otro" name-eng="Other" />
+    <option code="u"   name="Desconocido" />
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+</marc008-all>
+
+
+<!-- ======================================================================= -->
+<marc008-books name="008 [para libros]" label-eng="008 [books]">
+<!-- ======================================================================= -->
+
+  <dataElement pos="f008_BK_18_21" name="008/18-21 · Ilustraciones" label-eng="Illustrations" multiple="multiple" maxcodes="4">
+    <option code="#"   name="Sin ilustraciones" name-eng="No illustrations" />
+    <option code="a"   name="Ilustraciones" name-eng="Illustrations" />
+    <option code="b"   name="Mapas" name-eng="Maps" />
+    <option code="c"   name="Retratos" name-eng="Portraits" />
+    <option code="d"   name="Charts (?)" name-eng="Charts" />
+    <option code="e"   name="Planos" name-eng="Plans" />
+    <option code="f"   name="Láminas" name-eng="Plates" />
+    <option code="g"   name="Música" name-eng="Music" />
+    <option code="h"   name="Facsímiles" name-eng="Facsimiles" />
+    <option code="i"   name="Escudos de armas" name-eng="Coats of arms" />
+    <option code="j"   name="Tablas genealógicas" name-eng="Genealogical tables" />
+    <option code="k"   name="Formularios" name-eng="Forms" />
+    <option code="l"   name="Muestras" name-eng="Samples" />
+    <option code="m"   name="Phonodisc, phonowire, etc. (?)" name-eng="Phonodisc, phonowire, etc." />
+    <option code="o"   name="Fotografías" name-eng="Photographs" />
+    <option code="p"   name="Iluminaciones" name-eng="Illuminations" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />
+  </dataElement>
+
+  <dataElement pos="f008_BK_22" name="008/22 · Audiencia" label="Target audience">
+    <option code="#"   name="Desconocida o no especificada" /> 
+    <option code="a"   name="Preescolar" /> 
+    <option code="b"   name="Primaria" /> 
+    <option code="c"   name="Preadolescente" /> 
+    <option code="d"   name="Adolescente" /> 
+    <option code="e"   name="Adulta" /> 
+    <option code="f"   name="Especializada" /> 
+    <option code="g"   name="General" /> 
+    <option code="j"   name="Juvenil" name-eng="Juvenile" /> 
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+  <dataElement pos="f008_BK_23" name="008/23 · Forma del ítem" label-eng="Form of item">
+    <option code="#"   name="Ninguno de los siguientes" name-eng="None of the following" /> 
+    <option code="a"   name="Microfilm" /> 
+    <option code="b"   name="Microficha" name-eng="Microfiche" /> 
+    <option code="c"   name="Microopaque" /> 
+    <option code="d"   name="Large print" /> 
+    <option code="f"   name="Braille" /> 
+    <option code="r"   name="Regular print reproduction" /> 
+    <option code="s"   name="Electrónico" name-eng="Electronic" /> 
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+  <dataElement pos="f008_BK_24_27" name="008/24-27 · Naturaleza del contenido" label-eng="Nature of contents" multiple="multiple" maxcodes="4">	
+    <option code="#"   name="No se especifica" />
+    <option code="a"   name="Resúmenes/sumarios" />
+    <option code="b"   name="Bibliografías" />
+    <option code="c"   name="Catálogos" /> 
+    <option code="d"   name="Diccionarios" /> 
+    <option code="e"   name="Enciclopedias" />
+    <option code="f"   name="Handbooks" /> 
+    <option code="g"   name="Legal articles" />
+    <option code="i"   name="Índices" /> 
+    <option code="j"   name="Patent document" />
+    <option code="k"   name="Discografías" /> 
+    <option code="l"   name="Legislación" />
+    <option code="m"   name="Theses" />
+    <option code="n"   name="Surveys of literature in a subject area" />
+    <option code="o"   name="Reviews" /> 
+    <option code="p"   name="Programmed texts" />
+    <option code="q"   name="Filmografías" /> 
+    <option code="r"   name="Directorios" />
+    <option code="s"   name="Estadísticas" /> 
+    <option code="t"   name="Informes técnicos" />
+    <option code="u"   name="Standards/specifications" />
+    <option code="v"   name="Legal cases and case notes" /> 
+    <option code="w"   name="Law reports and digests" />
+    <option code="z"   name="Tratados" /> 
+    <option code="|"   name="No se codifica" />
+  </dataElement>
+
+  <dataElement pos="f008_BK_28" name="008/28 · Publicación gubernamental" label-eng="Government publication">
+    <option code="#"   name="No es publicación gubernamental" name-eng="Not a government publication" /> 
+    <option code="a"   name="Autonomous or semi-autonomous component" /> 
+    <option code="c"   name="Multilocal" /> 
+    <option code="f"   name="Federal/nacional" name-eng="Federal/national" /> 
+    <option code="i"   name="International intergovernmental" /> 
+    <option code="l"   name="Local" /> 
+    <option code="m"   name="Multistate" /> 
+    <option code="o"   name="Government publication--level undetermined" /> 
+    <option code="s"   name="State, provincial, territorial, dependent, etc." />
+    <option code="u"   name="Se desconoce si es publicación gubernamental" name-eng="Unknown if item is government publication" />
+    <option code="z"   name="Otro" name-eng="Other" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />				
+  </dataElement>
+
+  <dataElement pos="f008_BK_29" name="008/29 · Publicación de conferencia" label-eng="Conference publication">
+    <option code="0"   name="Not a conference publication" /> 
+    <option code="1"   name="Conference publication" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />				
+  </dataElement>
+
+  <dataElement pos="f008_BK_30" name="008/30 · Homenaje" label-eng="Festschrift">
+    <option code="0"   name="No es homenaje" name-eng="Not a festschrift" /> 
+    <option code="1"   name="Es homenaje" name-eng="Festschrift" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />				
+  </dataElement>
+
+  <dataElement pos="f008_BK_31" name="008/31 · Índice" label-eng="Index">
+    <option code="0"   name="Sin índice" name-eng="No index" /> 
+    <option code="1"   name="Con índice" name-eng="Index present" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />				
+  </dataElement>
+
+  <dataElement pos="f008_BK_33" name="008/33 · Forma literaria" label-eng="Literary form">
+    <option code="0"   name="No ficción (sin especificar)" name-eng="Not fiction (not further specified)" /> 
+    <option code="1"   name="Ficción (sin especificar)" name-eng="Fiction (not further specified)" />
+    <option code="c"   name="Tiras cómicas (?)" name-eng="Comic strips" />
+    <option code="d"   name="Dramas" />
+    <option code="e"   name="Ensayos" name-eng="Essays" />
+    <option code="f"   name="Novelas" name-eng="Novels" />
+    <option code="h"   name="Humor, sátiras, etc." name-eng="Humor, satires, etc." />
+    <option code="i"   name="Correspondencia" name-eng="Letters" />
+    <option code="j"   name="Cuentos" name-eng="Short stories" />
+    <option code="m"   name="Formas mixtas" name-eng="Mixed forms" />
+    <option code="p"   name="Poesía" name-eng="Poetry" /> 
+    <option code="s"   name="Discursos" name-eng="Speeches" /> 
+    <option code="u"   name="Desconocido" name-eng="Unknown" /> 
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />				
+  </dataElement>
+
+  <dataElement pos="f008_BK_34" name="008/34 · Biografía" label-eng="Biography">
+    <option code="#"   name="Sin material biográfico" name-eng="No biographical material" /> 
+    <option code="a"   name="Autobiografía" name-eng="Autobiography" />
+    <option code="b"   name="Biografía individual" name-eng="Individual biography" />
+    <option code="c"   name="Biografía colectiva" name-eng="Collective biography" />
+    <option code="d"   name="Contiene información biográfica" name-eng="Contains biographical information" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />
+  </dataElement>
+
+</marc008-books>
+
+
+<!-- ======================================================================= -->
+<marc008-visual name="008 [para materiales visuales]" label-eng="008 [visual materials]">
+<!-- ======================================================================= -->
+
+  <dataElement pos="f008_VM_18_20" name="008/18-20 · Duración" label-eng="Running time for motion pictures and videorecordings">
+    <option code="000"    name="Running time exceeds three characters" />
+    <option code="---"    name="Running time unknown" />
+    <option code="nnn"    name="Not applicable" />
+    <option code="|||"    name="No se codifica" name-eng="No attempt to code" />
+  </dataElement>
+
+  <dataElement pos="f008_VM_33" name="008/33 · Tipo de material visual" label-eng="Type of visual material">
+    <option code="a"   name="Art original" /> 
+    <option code="b"   name="Kit" />
+    <option code="c"   name="Art reproduction" /> 
+    <option code="d"   name="Diorama" />
+    <option code="f"   name="Filmstrip" />
+    <option code="g"   name="Game" />
+    <option code="i"   name="Picture" />
+    <option code="k"   name="Graphic" />
+    <option code="l"   name="Technical drawing" /> 
+    <option code="m"   name="Motion picture" />
+    <option code="n"   name="Chart" />
+    <option code="o"   name="Flash card" /> 
+    <option code="p"   name="Microscope slide" /> 
+    <option code="q"   name="Model" />
+    <option code="r"   name="Realia" />
+    <option code="s"   name="Slide" />
+    <option code="t"   name="Transparency" /> 
+    <option code="v"   name="Videograbación" name-eng="Videorecording" />
+    <option code="w"   name="Juguete" name-eng="Toy" />
+    <option code="z"   name="Otro" name-eng="Other" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />
+  </dataElement>
+
+  <dataElement pos="f008_VM_34" name="008/34 · Técnica" label-eng="Technique">
+    <option code="a"   name="Animación" name-eng="Animation" />
+    <option code="c"   name="Animation and live action" />
+    <option code="l"   name="Live action" />
+    <option code="n"   name="No es aplicable" name-eng="Not applicable" />
+    <option code="u"   name="Desconocido" name-eng="Unknown" />
+    <option code="z"   name="Otra técnica" name-eng="Other technique" />
+    <option code="|"   name="No se codifica" name-eng="No attempt to code" />
+  </dataElement>
+
+</marc008-visual>
+
+
+<!-- ======================================================================= -->
+<marc008-music name="008 [para musica]" label-eng="008 [music]">
+<!-- ======================================================================= -->
+
+  <dataElement pos="f008_MU_18_19" name="008/18-19 · Forma de composición" label-eng="Form of composition">
+    <option code="an"    name="Anthems" /> 
+    <option code="bd"    name="Ballads" />
+    <option code="bg"    name="Bluegrass music" /> 
+    <option code="bl"    name="Blues" />
+    <option code="bt"    name="Ballets" />
+    <option code="ca"    name="Chaconnes" />
+    <option code="cb"    name="Chants, Other religions" /> 
+    <option code="cc"    name="Chant, Christian" />
+    <option code="cg"    name="Concerti grossi" />
+    <option code="ch"    name="Chorales" />
+    <option code="cl"    name="Chorale preludes" /> 
+    <option code="cn"    name="Canons and rounds" />
+    <option code="co"    name="Concertos" /> 
+    <option code="cp"    name="Chansons, polyphonic" /> 
+    <option code="cr"    name="Carols" /> 
+    <option code="cs"    name="Chance compositions" /> 
+    <option code="ct"    name="Cantatas" /> 
+    <option code="cy"    name="Country music" /> 
+    <option code="cz"    name="Canzonas" /> 
+    <option code="df"    name="Dance forms" />
+    <option code="dv"    name="Divertimentos, serenades, cassations, divertissements, notturni" /> 
+    <option code="fg"    name="Fugues" /> 
+    <option code="fm"    name="Folk music" /> 
+    <option code="ft"    name="Fantasias" /> 
+    <option code="gm"    name="Gospel music" /> 
+    <option code="hy"    name="Hymns" /> 
+    <option code="jz"    name="Jazz" /> 
+    <option code="mc"    name="Musical revues and comedies" /> 
+    <option code="md"    name="Madrigals" /> 
+    <option code="mi"    name="Minuets" /> 
+    <option code="mo"    name="Motets" /> 
+    <option code="mp"    name="Motion picture music" /> 
+    <option code="mr"    name="Marches" /> 
+    <option code="ms"    name="Masses" /> 
+    <option code="mu"    name="Multiple forms" /> 
+    <option code="mz"    name="Mazurkas" /> 
+    <option code="nc"    name="Nocturnes" /> 
+    <option code="nn"    name="Not applicable" /> 
+    <option code="op"    name="Operas" /> 
+    <option code="or"    name="Oratorios" /> 
+    <option code="ov"    name="Overtures" /> 
+    <option code="pg"    name="Program music" /> 
+    <option code="pm"    name="Passion music" /> 
+    <option code="po"    name="Polonaises" /> 
+    <option code="pp"    name="Popular music" /> 
+    <option code="pr"    name="Preludes" /> 
+    <option code="ps"    name="Passacaglias" /> 
+    <option code="pt"    name="Part-songs" /> 
+    <option code="pv"    name="Pavans" /> 
+    <option code="rc"    name="Rock music" /> 
+    <option code="rd"    name="Rondos" /> 
+    <option code="rg"    name="Ragtime music" /> 
+    <option code="ri"    name="Ricercars" /> 
+    <option code="rp"    name="Rhapsodies" /> 
+    <option code="rq"    name="Requiems" /> 
+    <option code="sd"    name="Square dance music" /> 
+    <option code="sg"    name="Songs" /> 
+    <option code="sn"    name="Sonatas" /> 
+    <option code="sp"    name="Symphonic poems" /> 
+    <option code="st"    name="Studies and exercises" /> 
+    <option code="su"    name="Suites" /> 
+    <option code="sy"    name="Symphonies" /> 
+    <option code="tc"    name="Toccatas" /> 
+    <option code="ts"    name="Trio-sonatas" /> 
+    <option code="uu"    name="Unknown" /> 
+    <option code="vr"    name="Variations" /> 
+    <option code="wz"    name="Waltzes" /> 
+    <option code="zz"    name="Other" /> 
+    <option code="||"    name="No attempt to code" /> 
+  </dataElement>
+
+  <dataElement pos="f008_MU_20" name="008/20 · Formato musical" label-eng="Format of music">
+    <option code="a"    name="Full score" /> 
+    <option code="b"    name="Full score, miniature or study size" /> 
+    <option code="c"    name="Accompaniment reduced for keyboard" /> 
+    <option code="d"    name="Voice score" /> 
+    <option code="e"    name="Condensed score or piano-conductor score" /> 
+    <option code="g"    name="Close score" /> 
+    <option code="m"    name="Multiple score formats" /> 
+    <option code="n"    name="Not applicable" /> 
+    <option code="u"    name="Unknown" /> 
+    <option code="z"    name="Other" /> 
+    <option code="|"    name="No attempt to code" /> 
+  </dataElement>
+
+  <dataElement pos="f008_MU_21" name="008/21 · Partes" label-eng="Music parts">
+    <option code="#"    name="No parts in hand or not specified" /> 
+    <option code="d"    name="Instrumental and vocal parts" /> 
+    <option code="e"    name="Instrumental parts" /> 
+    <option code="f"    name="Vocal parts" /> 
+    <option code="n"    name="Not applicable" /> 
+    <option code="u"    name="Unknown" /> 
+    <option code="|"    name="No attempt to code" /> 
+  </dataElement>
+
+  <dataElement pos="f008_MU_24_29" name="008/24-29 · Material complementario" label-eng="Accompanying matter" multiple="multiple" maxcodes="6">
+    <option code="#"   name="No accompanying matter" /> 
+    <option code="a"   name="Discography" /> 
+    <option code="b"   name="Bibliography" /> 
+    <option code="c"   name="Thematic index" /> 
+    <option code="d"   name="Libretto or text" /> 
+    <option code="e"   name="Biography of composer or author" /> 
+    <option code="f"   name="Biography of performer or history of ensemble" /> 
+    <option code="g"   name="Technical and/or historical information on instruments" /> 
+    <option code="h"   name="Technical information on music" /> 
+    <option code="i"   name="Historical information" /> 
+    <option code="k"   name="Ethnological information" /> 
+    <option code="r"   name="Instructional materials" /> 
+    <option code="s"   name="Music" /> 
+    <option code="z"   name="Other" /> 
+    <option code="|"   name="No attempt to code" /> 
+  </dataElement>
+
+  <dataElement pos="f008_MU_30_31" name="008/30-31 · Texto literario para grabaciones sonoras" label-eng="Literary text for sound recordings" multiple="multiple" maxcodes="2">
+    <option code="#"   name="Item is a musical sound recording" /> 
+    <option code="a"   name="Autobiography" /> 
+    <option code="b"   name="Biography" /> 
+    <option code="c"   name="Conference proceedings" /> 
+    <option code="d"   name="Drama" /> 
+    <option code="e"   name="Essays" /> 
+    <option code="f"   name="Fiction" /> 
+    <option code="g"   name="Reporting" /> 
+    <option code="h"   name="History" /> 
+    <option code="i"   name="Instruction" /> 
+    <option code="j"   name="Language instruction" /> 
+    <option code="k"   name="Comedy" /> 
+    <option code="l"   name="Lectures, speeches" /> 
+    <option code="m"   name="Memoirs" /> 
+    <option code="n"   name="Not applicable" /> 
+    <option code="o"   name="Folktales" /> 
+    <option code="p"   name="Poetry" /> 
+    <option code="r"   name="Rehearsals" /> 
+    <option code="s"   name="Sounds" /> 
+    <option code="t"   name="Interviews" /> 
+    <option code="z"   name="Other" /> 
+    <option code="|"   name="No attempt to code" /> 
+  </dataElement>
+
+  <dataElement pos="f008_MU_33" name="008/33 · Trasposición y arreglo" label-eng="Transposition and arrangement">
+    <option code="#"   name="Not arrangement or transposition or not specified" /> 
+    <option code="a"   name="Transposition" /> 
+    <option code="b"   name="Arrangement" /> 
+    <option code="c"   name="Both transposed and arranged" /> 
+    <option code="n"   name="Not applicable" /> 
+    <option code="u"   name="Unknown" /> 
+    <option code="|"   name="No attempt to code" /> 
+  </dataElement>
+
+</marc008-music>
+
+
+<!-- ======================================================================= -->
+<marc008-CF name="008 [para computer files]" label-eng="008 [computer files]">
+<!-- ======================================================================= -->
+
+  <dataElement pos="f008_CF_26" name="008/26 · Tipo de archivo de computadora" label-eng="Type of computer file">
+    <option code="a"   name="Numeric data" /> 
+    <option code="b"   name="Computer program" /> 
+    <option code="c"   name="Representational" /> 
+    <option code="d"   name="Document" /> 
+    <option code="e"   name="Bibliographic data" /> 
+    <option code="f"   name="Font" /> 
+    <option code="g"   name="Game" /> 
+    <option code="h"   name="Sound" /> 
+    <option code="i"   name="Interactive multimedia" /> 
+    <option code="j"   name="Online system or service" /> 
+    <option code="m"   name="Combination" /> 
+    <option code="u"   name="Unknown" /> 
+    <option code="z"   name="Other" /> 
+    <option code="|"   name="No attempt to code" /> 
+  </dataElement>
+  
+</marc008-CF>
+
+
+<!-- ======================================================================= -->
+<marc008-MAP name="008 [para mapas]" label-eng="008 [maps]">
+<!-- ======================================================================= -->
+
+	<dataElement pos="f008_MP_18_21" name="008/18-21 · Relieve" label-eng="Relief" multiple="multiple" maxcodes="4">
+		<option code="#"   name="No relief shown" />
+		<option code="a"   name="Contours" />
+		<option code="b"   name="Shading" />
+		<option code="c"   name="Gradient and bathymetric tints" />
+		<option code="d"   name="Hachures" />
+		<option code="e"   name="Bathymetry/soundings" />
+		<option code="f"   name="Form lines" />
+		<option code="g"   name="Spot heights" />
+		<option code="i"   name="Pictorially" />
+		<option code="j"   name="Land forms" />
+		<option code="k"   name="Bathymetry/isolines" />
+		<option code="m"   name="Rock drawings" />
+		<option code="z"   name="Other relief type" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+	
+	<!-- ATENCION: revisar los valores especiales "#" y "|" -->
+	<dataElement pos="f008_MP_22_23" name="008/22-23 · Proyección" label-eng="Projection">
+		<option code="##"   name="Projection not specified" />
+		<option code="aa"   name="Aitoff" />
+		<option code="ab"   name="Gnomic" />
+		<option code="ac"   name="Lambert's azimuthal equal area" />
+		<option code="ad"   name="Orthographic" />
+		<option code="ae"   name="Azimuthal equidistant" />
+		<option code="af"   name="Stereographic" />
+		<option code="ag"   name="General vertical near-sided" />
+		<option code="am"   name="Modified stereographic for Alaska" />
+		<option code="an"   name="Chamberlin trimetric" />
+		<option code="ap"   name="Polar stereographic" />
+		<option code="au"   name="Azimuthal, specific type unknown" />
+		<option code="az"   name="Azimuthal, other" />
+		<option code="ba"   name="Gall" />
+		<option code="bb"   name="Goode's homolographic" />
+		<option code="bc"   name="Lambert's cylindrical equal area" />
+		<option code="bd"   name="Mercator" />
+		<option code="be"   name="Miller" />
+		<option code="bf"   name="Mollweide" />
+		<option code="bg"   name="Sinusoidal" />
+		<option code="bh"   name="Transverse Mercator" />
+		<option code="bi"   name="Gauss-Kruger" />
+		<option code="bj"   name="Equirectangular" />
+		<option code="bo"   name="Oblique Mercator" />
+		<option code="br"   name="Robinson" />
+		<option code="bs"   name="Space oblique Mercator" />
+		<option code="bu"   name="Cylindrical, specific type unknown" />
+		<option code="bz"   name="Cylindrical, other" />
+		<option code="ca"   name="Alber's equal area" />
+		<option code="cb"   name="Bonne" />
+		<option code="cc"   name="Lambert's conformal conic" />
+		<option code="ce"   name="Equidistant conic" />
+		<option code="cp"   name="Polyconic" />
+		<option code="cu"   name="Conic, specific type unknown" />
+		<option code="cz"   name="Conic, other" />
+		<option code="da"   name="Armadillo" />
+		<option code="db"   name="Butterfly" />
+		<option code="dc"   name="Eckert" />
+		<option code="dd"   name="Goode's homolosine" />
+		<option code="de"   name="Miller's bipolar oblique conformal conic" />
+		<option code="df"   name="Van Der Grinten" />
+		<option code="dg"   name="Dimaxion" />
+		<option code="dh"   name="Cordiform" />
+		<option code="dl"   name="Lambert conformal" />
+		<option code="zz"   name="Other" />
+		<option code="|"    name="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_MP_25" name="008/25 · Tipo de material cartográfico" label-eng="Type of cartographic material">
+		<option code="a"   name="Single map" />
+		<option code="b"   name="Map series" />
+		<option code="c"   name="Map serial" /> 
+		<option code="d"   name="Globe" /> 
+		<option code="e"   name="Atlas" /> 
+		<option code="f"   name="Separate map supplement to another work" /> 
+		<option code="g"   name="Map bound as part of another work" /> 
+		<option code="u"   name="Unknown" /> 
+		<option code="z"   name="Other" /> 
+		<option code="|"   name="No attempt to code" /> 
+	</dataElement>
+	
+	<dataElement pos="f008_MP_33_34" name="008/33-34 · Caract. especiales de formato" label-eng="Special format characteristics" multiple="multiple" maxcodes="2">
+		<option code="#"   name="No specified special format characteristics" />
+		<option code="e"   name="Manuscript" />
+		<option code="j"   name="Picture card, post card" />
+		<option code="k"   name="Calendar" />
+		<option code="l"   name="Puzzle" />
+		<option code="n"   name="Game" />
+		<option code="o"   name="Wall map" />
+		<option code="p"   name="Playing cards" />
+		<option code="r"   name="Loose-leaf" />
+		<option code="z"   name="Other" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+	
+</marc008-MAP>
+
+
+<!-- ======================================================================= -->
+<marc008-CR name="008 [para recursos continuos]" label-eng="008 [continuing resources]">
+<!-- ======================================================================= -->
+	<dataElement pos="f008_CR_18" name="008/18 · Frecuencia" label-eng="Frequency">
+		<option code="#"   name="Sin frecuencia determinable" name-eng="No determinable frequency" />
+		<option code="a"   name="Anual" name-eng="Annual" />
+		<option code="b"   name="Bimestral" name-eng="Bimonthly" />
+		<option code="c"   name="Dos veces por semana" name-eng="Semiweekly" />
+		<option code="d"   name="Diaria" name-eng="Daily" />
+		<option code="e"   name="Quincenal" name-eng="Biweekly" />
+		<option code="f"   name="Semestral" name-eng="Semiannual" />
+		<option code="g"   name="Cada dos años" name-eng="Biennial" />
+		<option code="h"   name="Cada tres años" name-eng="Triennial" />
+		<option code="i"   name="Tres veces por semana" name-eng="Three times a week" />
+		<option code="j"   name="Tres veces por mes" name-eng="Three times a month" />
+		<option code="k"   name="Actualizado en forma continua" name-eng="Continuously updated" />
+		<option code="m"   name="Mensual" name-eng="Monthly" />
+		<option code="q"   name="Trimestral" name-eng="Quarterly" />
+		<option code="s"   name="Dos veces por mes" name-eng="Semimonthly" />
+		<option code="t"   name="Tres veces al año" name-eng="Three times a year" />
+		<option code="u"   name="Desconocida" name-eng="Unknown" />
+		<option code="w"   name="Semanal" name-eng="Weekly" />
+		<option code="z"   name="Otra" name-eng="Other" />
+		<option code="|"   name="No se codifica" name-eng="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_CR_19" name="008/19 · Regularidad" label-eng="Regularity">
+		<option code="n"   name="Normalized irregular" />
+		<option code="r"   name="Regular" name-eng="Regular" />
+		<option code="u"   name="Desconocida" name-eng="Unknown" />
+		<option code="x"   name="Completamente irregular" name-eng="Completely irregular" />
+		<option code="|"   name="No se codifica" name-eng="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_CR_21" name="008/21 · Tipo de recurso continuo" label-eng="Type of continuing resource">
+		<option code="#"   name="None of the following" />
+		<option code="d"   name="Updating database" />
+		<option code="l"   name="Updating loose-leaf" />
+		<option code="m"   name="Monographic series" />
+		<option code="n"   name="Newspaper" />
+		<option code="p"   name="Periodical" />
+		<option code="w"   name="Updating Web site" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_CR_22" name="008/22 · Forma del ítem original" label-eng="Form of original item">
+		<option code="#"   name="None of the following" />
+		<option code="a"   name="Microfilm" />
+		<option code="b"   name="Microfiche" />
+		<option code="c"   name="Microopaque" />
+		<option code="d"   name="Large print" />
+		<option code="e"   name="Newspaper format" />
+		<option code="f"   name="Braille" />
+		<option code="s"   name="Electronic" />
+	</dataElement>
+
+	<dataElement pos="f008_CR_24" name="008/24 · Naturaleza de la obra completa" label-eng="Nature of entire work">
+		<option code="#"   name="No specified nature of entire work" />
+		<option code="a"   name="Abstracts/summaries" />
+		<option code="b"   name="Bibliographies" />
+		<option code="c"   name="Catalogs" />
+		<option code="d"   name="Dictionaries" />
+		<option code="e"   name="Encyclopedias" />
+		<option code="f"   name="Handbooks" />
+		<option code="g"   name="Legal articles" />
+		<option code="h"   name="Biography" />
+		<option code="i"   name="Indexes" />
+		<option code="k"   name="Discographies" />
+		<option code="l"   name="Legislation" />
+		<option code="m"   name="Theses" />
+		<option code="n"   name="Surveys of literature in a subject area" />
+		<option code="o"   name="Reviews" />
+		<option code="p"   name="Programmed texts" />
+		<option code="q"   name="Filmographies" />
+		<option code="r"   name="Directories" />
+		<option code="s"   name="Statistics" />
+		<option code="t"   name="Technical reports" />
+		<option code="u"   name="Standards/specifications" />
+		<option code="v"   name="Legal cases and case notes" />
+		<option code="w"   name="Law reports and digests" />
+		<option code="z"   name="Treaties" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_CR_25_27" name="008/25-27 · Naturaleza del contenido" label-eng="Nature of contents" multiple="multiple" maxcodes="3">
+		<option code="#"   name="No specified nature of contents" />
+		<option code="a"   name="Abstracts/summaries" />
+		<option code="b"   name="Bibliographies" />
+		<option code="c"   name="Catalogs" />
+		<option code="d"   name="Dictionaries" />
+		<option code="e"   name="Encyclopedias" />
+		<option code="f"   name="Handbooks" />
+		<option code="g"   name="Legal articles" />
+		<option code="h"   name="Biography" />
+		<option code="i"   name="Indexes" />
+		<option code="k"   name="Discographies" />
+		<option code="l"   name="Legislation" />
+		<option code="m"   name="Theses" />
+		<option code="n"   name="Surveys of literature in a subject area" />
+		<option code="o"   name="Reviews" />
+		<option code="p"   name="Programmed texts" />
+		<option code="q"   name="Filmographies" />
+		<option code="r"   name="Directories" />
+		<option code="s"   name="Statistics" />
+		<option code="t"   name="Technical reports" />
+		<option code="u"   name="Standards/specifications" />
+		<option code="v"   name="Legal cases and case notes" />
+		<option code="w"   name="Law reports and digests" />
+		<option code="z"   name="Treaties" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+	
+	<dataElement pos="f008_CR_33" name="008/33 · Alfabeto original" label-eng="Original alphabet or script of title">
+		<option code="#"   name="No alphabet or script given/no key title" />
+		<option code="a"   name="Basic Roman" />
+		<option code="b"   name="Extended Roman" />
+		<option code="c"   name="Cyrillic" />
+		<option code="d"   name="Japanese" />
+		<option code="e"   name="Chinese" />
+		<option code="f"   name="Arabic" />
+		<option code="g"   name="Greek" />
+		<option code="h"   name="Hebrew" />
+		<option code="i"   name="Thai" />
+		<option code="j"   name="Devanagari" />
+		<option code="k"   name="Korean" />
+		<option code="l"   name="Tamil" />
+		<option code="u"   name="Unknown" />
+		<option code="z"   name="Other" />
+		<option code="|"   name="No attempt to code" />
+	</dataElement>
+
+	<dataElement pos="f008_CR_34" name="008/34 · Convención de entrada" label-eng="Entry convention">
+		<option code="0"   name="Entrada sucesiva" label-eng="Successive entry" />
+		<option code="1"   name="Entrada más reciente" label-eng="Latest entry" />
+		<option code="2"   name="Entrada integrada" label-eng="Integrating entry" />
+		<option code="|"   name="No se codifica" label-eng="No attempt to code" />
+	</dataElement>
+	
+</marc008-CR>
+
+
+</marcControlFields>

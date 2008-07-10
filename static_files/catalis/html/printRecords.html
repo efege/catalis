@@ -1,0 +1,32 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+    <title>Catalis - Impresión de registros</title>
+    <link rel="stylesheet" type="text/css" href="../css/search.css">
+    <link rel="stylesheet" type="text/css" href="../css/print.css">
+    
+    <script type="text/javascript">
+        function init() {
+            // Fill a container in this page with the content of a hidden container in the application page. 
+            var records = opener.document.getElementById('printContainer').innerHTML;
+            document.getElementById('printContainer').innerHTML = records;
+            
+            // Wait before showing the browser's print dialog
+            //setTimeout(window.print, 1500);
+            
+            // TO-DO: show also date, database name, total results, etc
+            // TO-DO: extract information from Ext objects, not from HTML elements.
+            // TO-DO: use Lang.xxx for page title and extra info
+        }
+        
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+
+    <div id="printContainer"></div>
+
+</body>

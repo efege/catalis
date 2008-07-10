@@ -1,0 +1,454 @@
+/* 
+ *  CSS para el panel de edición
+ */
+
+/*
+ *  Botones para verificar ISBN, URIs, etc.
+ */
+ 
+button.checkButton {
+    border: 1px solid #666;
+    background: #E2DFD0;
+    color: #333;
+    font-family: verdana, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    height: 1.4em;
+    line-height: 1.2;
+    margin-left: 0.5em;
+    padding: 0px 0px 2px 0px;
+    width: 5em;
+    /*position: absolute;
+    right: 4px;
+    bottom: 2px;*/
+}
+
+#recordDiv {
+    background: #ECFBEC; /* #F7F7F7 */ /* #FAFAFA */ /* #F0F4F0 */
+    /*border: 1px solid #999;*/
+    padding: 0px 3px 2px 3px; /* top: 0px normalmente */
+    margin-left: 1px;
+    /*margin-top: -4px;*/ /* para compensar el espacio sobre el 1er TH */
+    /*height: 484px;*/ /* final height dinamically set onload */
+    /*overflow-y: scroll;*/ /* forzamos una scrollbar vertical, independientemente del contenido (IE only?) */
+    /*scrollbar-face-color: #C9C7BA;*/
+}
+
+/*#recordDiv table {
+    width: 99.9%; This value should be lower for IE, to avoid the horizontal toolbar
+}*/
+
+.indSeparator {
+    color: #AAA;
+}
+
+/* Cabeceras para los fieldblocks */
+#biblioRecordDiv th, #autoRecordDiv th {
+    font-size: 13px;
+    font-weight: bold;
+    background: #ECFBEC;
+    color: #FED;
+    border-top: 8px solid #ECFBEC;
+    border-bottom: 3px solid #908470;
+    /*padding-top: 3px;*/
+    text-align: left;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+}
+
+#biblioRecordDiv th span, #autoRecordDiv th span {
+    background: #908470;
+    padding: 2px 12px 0 12px;
+    display: block;
+}
+
+/* TO-DO: use different classes so that users on different platforms can choose their preferred font settings */
+textarea.subfieldBox {
+    background: transparent; /*#ECFBEC*/ /*#FAFAFA*/ /* el mismo color que el fondo */
+    /*width: 100%;*/ /* si usamos un valor fijo en px, solucionamos el
+                         problema de los textos largos, como p.ej. URLs.
+                         Ver catalis.js */
+    border-bottom: 1px solid #ECFBEC; /*#FAFAFA*/
+    border-right: 1px solid #ECFBEC; /*#FAFAFA*/
+    border-top: 0;
+    border-left: 0;
+    font-family: verdana, "bitstream vera sans", "lucida console", "courier new", monospace;
+    /* Relaciones font-size/line-height: 13px/19px, 12px/18px */
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.35; /*18px;*/
+    margin-left: 2px;
+    margin-top: -1px; /* seems necessary to keep the top of the textarea aligned with the top of the label */
+    min-height: 1.5em;
+    overflow: hidden; /* hides the scrollbars */
+    padding: 2px 1px;
+}
+
+/* autosizing of texteareas */
+/* VERY IMPORTANT: this must be kept in sync with the textareas' styles above */
+.x-form-grow-sizer {
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 0;
+    border-left: 0;
+    font-family: verdana, "bitstream vera sans", "lucida console", "courier new", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.35;
+    padding: 2px 1px;
+}
+
+ 
+td.subfieldBoxCell {
+    vertical-align: top;
+    height: 24px; /* esto resuelve el problema de la variacion de altura en textareas vacíos */
+}
+
+col#biblioFieldTagColumn, col#autoFieldTagColumn {
+    width: 2.85em; /*37px;*/
+}
+
+col#biblioIndicatorsColumn, col#autoIndicatorsColumn {
+    width: 2.7em; /*34px;*/
+}
+
+td.tagCell {
+    /*width: 36px;*/
+}
+
+td.indCell {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+td.subfieldsCell table {
+    width: 100%;
+}
+
+td.tagCell, td.indCell, td.subfieldsCell {
+    border-bottom: 1px solid #D0D0D0;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    vertical-align: top;
+}
+
+div.indicators {
+    background: #E9E9E9;
+    border: 1px solid #777;
+    color: black;
+    cursor: pointer;
+    font: 13px verdana, sans-serif;
+    height: 1.3em; /*18px;*/
+    padding: 0.12em 0;
+    text-align: center;
+}
+
+.indicatorsDisabled {
+    cursor: default;
+    border-width: 0;
+    /*background: #F9F9F9;
+    color: #F9F9F9;*/
+    /*background: #F7F7F7;
+    color: #F7F7F7;*/
+    visibility: hidden;
+}
+
+td.tagCell div {
+    background: ButtonFace;
+    border: 1px solid #777;
+    color: black;
+    cursor: pointer;
+    font: bold 13px verdana, sans-serif;
+    height: 1.3em; /*16px;*/
+    line-height: 1.3;
+    padding: 0.12em 0;
+    text-align: center;
+    width: 2.7em;
+}
+
+
+/*-------------------------------------*\
+   SUBCAMPOS
+\*-------------------------------------*/
+
+/*col.subfieldCodeColumn {
+    width: 20px;
+}
+
+col.subfieldLabelColumn {
+    width: 150px;
+}*/
+
+td.codeCell {
+    vertical-align: top;
+    width: 1.6em;
+    /*padding-top: 2px; */ /* para nivelar con el textarea */
+}
+
+td.codeCell div {
+    background: #E0EEE0; /*ButtonFace*/
+    border: 1px solid #777;
+    color: black;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    height: 1.55em; /*20px;*/
+    line-height: 1.4; /*18px;*/
+    text-align: center;
+    /*width: 18px;*/
+    width: 18px;
+}
+
+td.subfieldLabelCell {
+    padding-left: 2px;
+    vertical-align: top;
+    width: 11.5em;
+}
+
+td.subfieldLabelCell div {
+    background: #E0EEE0; /*#8B8378*/
+    border: 1px solid #D3D3D3;
+    font-family: verdana, "trebuchet ms", arial, sans-serif;
+    font-size: 11px; /* arial 13px ; verdana 11px*/
+    height: 1.8em; /*20px;*/
+    line-height: 1.75; /*19px;*/
+    overflow: hidden;
+    padding: 0 0.2em;
+    /*width: 90%;*/
+}
+
+/* ---------------------------------------------------
+ *  PANEL DERECHO
+ * ---------------------------------------------------
+ */
+
+table.control {
+    border-bottom: 1px solid #A0A0A0;
+    border-left: 1px solid #A0A0A0;
+    /*border: 1px solid #888;*/
+    font-family: verdana, "trebuchet ms", arial, sans-serif;
+    font-size: 11px; /* arial 13px ; verdana 11px */
+    width: 15.2em; /* así llegamos a los 168px de la versión original */
+}
+ 
+table.control td {
+    /*text-align: right;*/
+    background: #FED;
+    border-top: 1px solid #A0A0A0;
+    border-right: 1px solid #A0A0A0;
+    cursor: default;
+    padding: 1px 4px;
+}
+
+table.control td.system {
+    /* Datos no modificables por el catalogador */
+    background: #ECECEC;
+}
+
+table.control th.controlBlockHeader {
+    background: #908470;
+    color: #FED;
+    font-weight: bold;
+}
+
+table.control tbody#f008BK td, table.control tbody#f008VM td, table.control tbody#f008MU td, table.control tbody#f008CR td, table.control tbody#f008CF td {
+    width: 48.5%;
+}
+
+/* Textboxes para campos de control */
+table.control input {
+    border: 0px solid #BBB;
+    /*border-bottom-width: 1px;
+    border-right-width: 1px;*/
+    background: transparent;
+    color: #606060;
+    font-family: "lucida console", "courier new", monospace;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* FIXME -- afecta a todos los combos! */
+.x-combo-list-item {
+    /*font-family: monospace;*/
+}
+
+#f001 {
+    background: #ECECEC;
+    border-width: 0;
+    font-weight: bold;
+    font-family: verdana, sans-serif;
+    font-size: 13px;
+    width: 90px;
+}
+
+#f008_00_05_nice {
+    border-width: 0;
+    color: #333;
+    font-family: verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    width: 70%; /*86px;*/
+}
+
+#createdBy {
+    border-width: 0;
+    font-family: verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    width: 15%;
+}
+
+#f005_nice {
+    border-width: 0;
+    color: #333;
+    font-family: verdana, sans-serif;
+    font-size: 11px;
+    font-weight: normal;
+    width: 85%;
+}
+
+#f008_07_10 {
+    background: #ECFBEC;
+    border: 1px solid #CCC;
+}
+
+#f008_11_14 {
+    background: #ECFBEC;
+    border: 1px solid #CCC;
+    margin-left: 1px;
+}
+
+button.additionalCodes {
+    background: #E2DFD0;
+    border: 1px solid #666;
+    display: none;
+    height: 17px;
+    line-height: 14px;
+    margin: 0 0 0px 2px;
+    width: 13px;
+}
+
+#f008_VM_18_20 {
+    background: #ECFBEC;
+    border: 1px solid #CCC;
+}
+
+/* Links a la documentación de MARC 21 */
+.docLink {
+    /*color: #000;*/
+    cursor: pointer;
+}
+
+select#docSource {
+    font-family: verdana, sans-serif;
+    font-size: 11px;
+}
+
+input#docItem {
+    font-family: verdana, sans-serif;
+    font-size: 13px;
+    width: 36px;
+    border: 1px solid #666;
+}
+
+
+/* estilos de catalis-demo-devel para el panel derecho */
+div.control {
+    clear: both;
+    font-family: verdana, "trebuchet ms", arial, sans-serif;
+    font-size: 11px; /* arial 13px ; verdana 11px */
+    padding-top: 2px;
+    /*border-bottom: 1px solid #A0A0A0;
+    border-left: 1px solid #A0A0A0;*/
+    /*border: 1px solid #888;*/
+}
+
+div.control ul {
+    list-style: none;
+    /*border-right: 1px solid black;*/
+}
+
+div.control li {
+    background: #FED;
+    border-bottom: 1px solid #A0A0A0;
+    border-right: 1px solid #A0A0A0;
+    cursor: default;
+    float: left;
+    height: 1.6em; /*19px;*/
+    line-height: 18px;
+    padding: 1px 3px 1px 2px;
+    text-align: right;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 6.8em; /*77px;*/
+}
+
+div.control li.system {
+    /* Datos no modificables por el catalogador */
+    background: #ECECEC;
+}
+
+div.control li.twocol {
+    /*width: 160px;*/
+    width: 14em;
+    clear: both;
+}
+
+div.control h3.controlBlockHeader {
+    background: #908470;
+    color: #FED;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 1px 2px;
+    /*width: 162px;*/
+    width: 98%;
+}
+
+/* Textboxes para campos de control */
+div.control input {
+    background: transparent;
+    border: 0px solid #BBB;
+    color: rgb(96,96,96);
+    font-family: "lucida console", "courier new", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    padding: 0;
+    padding-bottom: 2px;
+    /*border: 1px solid red !important;*/
+}
+
+div.control li.system input {
+    line-height: 18px;
+}
+/* fin estilos de catalis-demo-devel para el panel derecho */
+
+
+#ejemplaresBtn {
+    height: 2.25em; /*25px;*/
+    margin: 0;
+    width: 13.9em;
+}
+
+#postItNoteBtn {
+    height: 2.25em; /*25px;*/
+    margin: 0;
+    width: 13.9em;
+}
+
+.datafield {
+    border-bottom: 1px solid #D0D0D0;
+}
+.datafield table {
+    width: 99.9%;
+}
+.datafield td {
+    vertical-align: top;
+}
+.active textarea {
+    background-color: #E2DFD0;
+    border-color: #AAA;
+}
+.ind-undefined {
+    visibility: hidden;
+}
