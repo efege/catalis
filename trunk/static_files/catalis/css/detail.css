@@ -1,0 +1,33 @@
+/*-----------------------------------------------------*\
+   Visualización del listado de campos (MARC tagged)
+\*-----------------------------------------------------*/
+
+.marcTaggedTable {
+    font-family: "lucida console", "courier new", monospace;
+    font-size: 14px;
+    /*table-layout: fixed;*/
+}
+
+.marcTaggedTable td {
+    border-bottom: 1px solid #D6D6D6;
+    line-height: 1.3em;
+    vertical-align: top;
+}
+
+.marcTaggedTable td.marctag {
+    width: 30px;
+    padding-right: 0; /* como necesitamos un espacio "real", usamos &nbsp; */
+    font-weight: bold;
+    text-align: right;
+}
+
+.marcTaggedTable td.indicator {
+    width: 10px;
+}
+
+.marcTaggedTable td.fieldContent {
+    padding-left: 8px;
+    /*width: 100%;*/
+    /*word-wrap: break-word;*/ /* IE only -- soluciona el problema de URLs largas */
+    /*word-break: break-all;*/ /* IE only -- necesita table-layout: fixed; también soluciona el problema de URLs largas, y hasta luce un poco mejor */
+}

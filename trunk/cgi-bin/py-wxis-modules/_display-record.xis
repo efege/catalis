@@ -1,0 +1,58 @@
+<!--
+    JSON display for a single record.
+    
+    Output:
+        {
+            "mfn": mfn,
+            "fields": [{"tag": "<field_tag>", "value": "<field_value>"}, ...]
+        }
+        
+    NOTE: there's a maximum tag number, fixed arbitrarily
+-->
+
+<!-- Create a list of all the fields present in the record -->
+<field action="replace" tag="20000" split="flddir">ALL</field>
+
+<!-- Escape the two forbidden non-control characters in a JSON string. -->
+<field action="replace" tag="20001"><pft>replace(replace(v20000, '\', '\\"'), '"', '\"')</pft></field>
+
+<!-- Load each field as an ocurrence of a repeatable field -->
+<field action="replace" tag="20001" split="occ"><pft>(v20001/)</pft></field>
+
+<!-- Maximum tag number (TO-DO: move this to a config file)-->
+<field action="replace" tag="10000">999</field>
+
+<!-- Filter fields by tag, so that we know exactly how many 'useful' fields we have -->
+<!-- FIXME - Esto es muy costoso! -->
+<!--list action="load" type="list"><pft>(v20001/)</pft></list>
+<do task="list">
+    <field action="define" tag="20001">Isis_Item</field>
+    <loop>
+        <field action="import" tag="list">10000,20002</field>
+        <field action="add" tag="20002"><pft>if val(v20001.5) <= val(v10000) then v20001 fi</pft></field>
+        <field action="export" tag="list">20002</field>
+    </loop>
+</do-->
+<!--display><pft>(v20002/)</pft></display-->
+
+<display><pft>
+    '{',
+        '"mfn":"', mfn(1), '",'
+        '"fields":['
+        
+	        /* Generate output for each field */
+		    (,
+		        if val(v20001.5) < val(v10000[1]) then
+    	            '{'
+    	                '"tag":"',   f(val(v20001.5), 1, 0), '",'
+    	                '"value":"', v20001*6,               '"'
+    	            '}'
+    	            /* FIXME: Skipping the last trailing comma is tricky because not all fields are being displayed! */
+    	            if iocc < nocc(v20001) then ',' fi
+    	        fi,
+		    ),
+		    
+	    ']'
+    '}'
+    ',' /* TO-DO: remove the last trailing comma */
+</pft></display>

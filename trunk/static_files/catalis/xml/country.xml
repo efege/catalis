@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Contenido generado con:
+if v1<>'' then
+  '<country code="',if size(v1)=2 or v1.1:'-' then v1'#' else v1, fi,
+  '" name="',v2,'"/>'/
+fi
+-->
+
+<!-- Ordenados alfabéticamente por nombre -->
+<!-- ¿Cómo conviene ubicar los códigos obsoletos? -->
+
+<!-- Ver orden regional: http://www.loc.gov/marc/countries/cou_pt3region.html -->
+
+<countryCodes>
+
+<country code="xx#" name="No place, unknown, or undetermined"/>
+<country code="ag#" name="Argentina"/>
+<country code="at#" name="Australia"/>
+<country code="au#" name="Austria"/>
+<country code="be#" name="Belgium"/>
+<country code="bo#" name="Bolivia "/>
+<country code="bl#" name="Brazil"/>
+<country code="cau" name="California"/>
+<country code="xxc" name="Canada"/>
+<country code="cl#" name="Chile"/>
+<country code="cc#" name="China"/>
+<country code="ch#" name="China (Republic : 1949- )"/>
+<country code="ck#" name="Colombia"/>
+<country code="ctu" name="Connecticut"/>
+<country code="cr#" name="Costa Rica"/>
+<country code="cu#" name="Cuba"/>
+<country code="xr#" name="Czech Republic"/>
+<country code="dk#" name="Denmark"/>
+<country code="dcu" name="District of Columbia"/>
+<country code="enk" name="England"/>
+<country code="flu" name="Florida"/>
+<country code="fr#" name="France"/>
+<country code="gw#" name="Germany"/>
+<country code="hu#" name="Hungary"/>
+<country code="ilu" name="Illinois"/>
+<country code="ii#" name="India"/>
+<country code="inu" name="Indiana"/>
+<country code="io#" name="Indonesia"/>
+<country code="ie#" name="Ireland"/>
+<country code="is#" name="Israel"/>
+<country code="it#" name="Italy"/>
+<country code="ja#" name="Japan"/>
+<country code="mau" name="Massachusetts"/>
+<country code="mx#" name="Mexico"/>
+<country code="ne#" name="Netherlands"/>
+<country code="nju" name="New Jersey"/>
+<country code="nyu" name="New York (State)"/>
+<country code="ncu" name="North Carolina"/>
+<country code="ohu" name="Ohio"/>
+<country code="pn#" name="Panama"/>
+<country code="py#" name="Paraguay"/>
+<country code="pau" name="Pennsylvania"/>
+<country code="pe#" name="Peru"/>
+<country code="pl#" name="Poland"/>
+<country code="po#" name="Portugal"/>
+<country code="riu" name="Rhode Island"/>
+<country code="rm#" name="Romania"/>
+<country code="ru#" name="Russia (Federation)"/>
+<country code="stk" name="Scotland"/>
+<country code="yu#" name="Serbia and Montenegro"/>
+<country code="si#" name="Singapore"/>
+<country code="sp#" name="Spain"/>
+<country code="sw#" name="Sweden"/>
+<country code="sz#" name="Switzerland"/>
+<country code="xxk" name="United Kingdom"/>
+<country code="xxu" name="United States"/>
+<country code="uy#" name="Uruguay"/>
+<country code="ve#" name="Venezuela"/>
+
+<!--country code="   " name="============================="/-->
+
+<country code="af#" name="Afghanistan"/>
+<country code="alu" name="Alabama"/>
+<country code="aku" name="Alaska"/>
+<country code="aa#" name="Albania"/>
+<country code="abc" name="Alberta"/>
+<country code="ae#" name="Algeria"/>
+<country code="as#" name="American Samoa"/>
+<country code="an#" name="Andorra"/>
+<country code="ao#" name="Angola"/>
+<country code="-ai#" name="Anguilla"/>
+<country code="am#" name="Anguilla"/>
+<country code="ay#" name="Antarctica"/>
+<country code="aq#" name="Antigua and Barbuda"/>
+
+<country code="azu" name="Arizona"/>
+<country code="aru" name="Arkansas"/>
+<country code="ai#" name="Armenia (Republic)"/>
+<country code="-air#" name="Armenian S.S.R."/>
+<country code="aw#" name="Aruba"/>
+<country code="-ac#" name="Ashmore and Cartier Islands"/>
+
+
+<country code="aj#" name="Azerbaijan"/>
+<country code="-ajr#" name="Azerbaijan S.S.R."/>
+<country code="bf#" name="Bahamas"/>
+<country code="ba#" name="Bahrain"/>
+<country code="bg#" name="Bangladesh"/>
+<country code="bb#" name="Barbados"/>
+<country code="bw#" name="Belarus"/>
+
+<country code="bh#" name="Belize"/>
+<country code="dm#" name="Benin"/>
+<country code="bm#" name="Bermuda Islands"/>
+<country code="bt#" name="Bhutan"/>
+
+<country code="bn#" name="Bosnia and Hercegovina"/>
+<country code="bs#" name="Botswana"/>
+<country code="bv#" name="Bouvet Island"/>
+
+<country code="bcc" name="British Columbia"/>
+<country code="bi#" name="British Indian Ocean Territory"/>
+<country code="vb#" name="British Virgin Islands"/>
+<country code="bx#" name="Brunei"/>
+<country code="bu#" name="Bulgaria"/>
+<country code="uv#" name="Burkina Faso"/>
+<country code="br#" name="Burma"/>
+<country code="bd#" name="Burundi"/>
+<country code="-bwr#" name="Byelorussian S.S.R."/>
+
+<country code="cb#" name="Cambodia"/>
+<country code="cm#" name="Cameroon"/>
+<country code="-cn#" name="Canada"/>
+
+<country code="-cz#" name="Canal Zone"/>
+<country code="-cp#" name="Canton and Enderbury Islands"/>
+<country code="cv#" name="Cape Verde"/>
+<country code="cj#" name="Cayman Islands"/>
+<country code="cx#" name="Central African Republic"/>
+<country code="-ln#" name="Central and Southern Line Islands"/>
+<country code="cd#" name="Chad"/>
+
+
+
+<country code="xa#" name="Christmas Island (Indian Ocean)"/>
+<country code="xb#" name="Cocos (Keeling) Islands"/>
+
+<country code="cou" name="Colorado"/>
+<country code="cq#" name="Comoros"/>
+<country code="cf#" name="Congo (Brazzaville)"/>
+<country code="cg#" name="Congo (Democratic Republic)"/>
+
+<country code="cw#" name="Cook Islands"/>
+
+<country code="ci#" name="Croatia"/>
+
+<country code="cy#" name="Cyprus"/>
+
+<country code="-cs#" name="Czechoslovakia"/>
+<country code="iv#" name="Côte d'Ivoire"/>
+<country code="deu" name="Delaware"/>
+
+
+<country code="ft#" name="Djibouti"/>
+<country code="dq#" name="Dominica"/>
+<country code="dr#" name="Dominican Republic"/>
+<country code="ec#" name="Ecuador"/>
+<country code="ua#" name="Egypt"/>
+<country code="es#" name="El Salvador"/>
+
+<country code="eg#" name="Equatorial Guinea"/>
+<country code="ea#" name="Eritrea"/>
+<country code="er#" name="Estonia"/>
+<country code="-err#" name="Estonia"/>
+<country code="et#" name="Ethiopia"/>
+<country code="fk#" name="Falkland Islands"/>
+<country code="fa#" name="Faroe Islands"/>
+<country code="fj#" name="Fiji"/>
+<country code="fi#" name="Finland"/>
+
+
+<country code="fg#" name="French Guiana"/>
+<country code="fp#" name="French Polynesia"/>
+<country code="go#" name="Gabon"/>
+<country code="gm#" name="Gambia"/>
+<country code="gz#" name="Gaza Strip"/>
+<country code="gau" name="Georgia"/>
+<country code="gs#" name="Georgia (Republic)"/>
+<country code="-gsr#" name="Georgian S.S.R."/>
+
+<country code="-ge#" name="Germany (East)"/>
+<country code="gh#" name="Ghana"/>
+<country code="gi#" name="Gibraltar"/>
+<country code="-gn#" name="Gilbert and Ellice Islands"/>
+<country code="gr#" name="Greece"/>
+<country code="gl#" name="Greenland"/>
+<country code="gd#" name="Grenada"/>
+<country code="gp#" name="Guadeloupe"/>
+<country code="gu#" name="Guam"/>
+<country code="gt#" name="Guatemala"/>
+<country code="gv#" name="Guinea"/>
+<country code="pg#" name="Guinea-Bissau"/>
+<country code="gy#" name="Guyana"/>
+<country code="ht#" name="Haiti"/>
+<country code="hiu" name="Hawaii"/>
+<country code="hm#" name="Heard and McDonald Islands"/>
+<country code="ho#" name="Honduras"/>
+<country code="-hk#" name="Hong Kong"/>
+
+<country code="ic#" name="Iceland"/>
+<country code="idu" name="Idaho"/>
+
+
+
+
+<country code="iau" name="Iowa"/>
+<country code="ir#" name="Iran"/>
+<country code="iq#" name="Iraq"/>
+<country code="iy#" name="Iraq-Saudi Arabia Neutral Zone"/>
+
+
+<country code="-iw#" name="Israel-Jordan Demilitarized Zones"/>
+<country code="-iu#" name="Israel-Syria Demilitarized Zones"/>
+
+<country code="jm#" name="Jamaica"/>
+<country code="-jn#" name="Jan Mayen"/>
+
+<country code="ji#" name="Johnston Atoll"/>
+<country code="jo#" name="Jordan"/>
+<country code="ksu" name="Kansas"/>
+<country code="-kzr#" name="Kazakh S.S.R."/>
+<country code="kz#" name="Kazakhstan"/>
+<country code="kyu" name="Kentucky"/>
+<country code="ke#" name="Kenya"/>
+<country code="-kgr#" name="Kirghiz S.S.R."/>
+<country code="gb#" name="Kiribati"/>
+<country code="kn#" name="Korea (North)"/>
+<country code="ko#" name="Korea (South)"/>
+<country code="ku#" name="Kuwait"/>
+<country code="kg#" name="Kyrgyzstan"/>
+<country code="ls#" name="Laos"/>
+<country code="lv#" name="Latvia"/>
+<country code="-lvr#" name="Latvia"/>
+<country code="le#" name="Lebanon"/>
+<country code="lo#" name="Lesotho"/>
+<country code="lb#" name="Liberia"/>
+<country code="ly#" name="Libya"/>
+<country code="lh#" name="Liechtenstein"/>
+<country code="li#" name="Lithuania"/>
+<country code="-lir#" name="Lithuania"/>
+<country code="lau" name="Louisiana"/>
+<country code="lu#" name="Luxembourg"/>
+<country code="-mh#" name="Macao"/>
+<country code="xn#" name="Macedonia"/>
+<country code="mg#" name="Madagascar"/>
+<country code="meu" name="Maine"/>
+<country code="mw#" name="Malawi"/>
+<country code="my#" name="Malaysia"/>
+<country code="xc#" name="Maldives"/>
+<country code="ml#" name="Mali"/>
+<country code="mm#" name="Malta"/>
+<country code="mbc" name="Manitoba"/>
+<country code="xe#" name="Marshall Islands"/>
+<country code="mq#" name="Martinique"/>
+<country code="mdu" name="Maryland"/>
+
+<country code="mu#" name="Mauritania"/>
+<country code="mf#" name="Mauritius"/>
+<country code="ot#" name="Mayotte"/>
+
+<country code="miu" name="Michigan"/>
+<country code="fm#" name="Micronesia (Federated States)"/>
+<country code="xf#" name="Midway Islands"/>
+<country code="mnu" name="Minnesota"/>
+<country code="msu" name="Mississippi"/>
+<country code="mou" name="Missouri"/>
+<country code="-mvr#" name="Moldavian S.S.R."/>
+<country code="mv#" name="Moldova"/>
+<country code="mc#" name="Monaco"/>
+<country code="mp#" name="Mongolia"/>
+<country code="mtu" name="Montana"/>
+<country code="mj#" name="Montserrat"/>
+<country code="mr#" name="Morocco"/>
+<country code="mz#" name="Mozambique"/>
+<country code="sx#" name="Namibia"/>
+<country code="nu#" name="Nauru"/>
+<country code="nbu" name="Nebraska"/>
+<country code="np#" name="Nepal"/>
+
+<country code="na#" name="Netherlands Antilles"/>
+<country code="nvu" name="Nevada"/>
+<country code="nkc" name="New Brunswick"/>
+<country code="nl#" name="New Caledonia"/>
+<country code="nhu" name="New Hampshire"/>
+
+<country code="nmu" name="New Mexico"/>
+
+<country code="nz#" name="New Zealand"/>
+<country code="nfc" name="Newfoundland"/>
+<country code="nq#" name="Nicaragua"/>
+<country code="ng#" name="Niger"/>
+<country code="nr#" name="Nigeria"/>
+<country code="xh#" name="Niue"/>
+
+<country code="nx#" name="Norfolk Island"/>
+
+<country code="ndu" name="North Dakota"/>
+<country code="nik" name="Northern Ireland"/>
+<country code="-nm#" name="Northern Mariana Islands"/>
+<country code="nw#" name="Northern Mariana Islands"/>
+<country code="ntc" name="Northwest Territories"/>
+<country code="no#" name="Norway"/>
+<country code="nsc" name="Nova Scotia"/>
+<country code="nuc" name="Nunavut"/>
+
+<country code="oku" name="Oklahoma"/>
+<country code="mk#" name="Oman"/>
+<country code="onc" name="Ontario"/>
+<country code="oru" name="Oregon"/>
+<country code="pk#" name="Pakistan"/>
+<country code="pw#" name="Palau"/>
+
+<country code="pp#" name="Papua New Guinea"/>
+<country code="pf#" name="Paracel Islands"/>
+
+
+
+<country code="ph#" name="Philippines"/>
+<country code="pc#" name="Pitcairn Island"/>
+
+
+<country code="-pt#" name="Portuguese Timor"/>
+<country code="pic" name="Prince Edward Island"/>
+<country code="pr#" name="Puerto Rico"/>
+<country code="qa#" name="Qatar"/>
+<country code="quc" name="Qubec (Province)"/>
+
+
+<country code="re#" name="Runion"/>
+
+<country code="-rur#" name="Russian S.F.S.R."/>
+<country code="rw#" name="Rwanda"/>
+<country code="-ry#" name="Ryukyu Islands, Southern"/>
+<country code="xj#" name="Saint Helena"/>
+<country code="xd#" name="Saint Kitts-Nevis"/>
+<country code="-xi#" name="Saint Kitts-Nevis-Anguilla"/>
+<country code="xk#" name="Saint Lucia"/>
+<country code="xl#" name="Saint Pierre and Miquelon"/>
+<country code="xm#" name="Saint Vincent and the Grenadines"/>
+<country code="ws#" name="Samoa"/>
+<country code="sm#" name="San Marino"/>
+<country code="sf#" name="Sao Tome and Principe"/>
+<country code="snc" name="Saskatchewan"/>
+<country code="su#" name="Saudi Arabia"/>
+
+<country code="sg#" name="Senegal"/>
+<country code="se#" name="Seychelles"/>
+<country code="sl#" name="Sierra Leone"/>
+<country code="-sk#" name="Sikkim"/>
+
+<country code="xo#" name="Slovakia"/>
+<country code="xv#" name="Slovenia"/>
+<country code="bp#" name="Solomon Islands"/>
+<country code="so#" name="Somalia"/>
+<country code="sa#" name="South Africa"/>
+<country code="scu" name="South Carolina"/>
+<country code="sdu" name="South Dakota"/>
+<country code="xs#" name="South Georgia and the South Sandwich Islands"/>
+<country code="-ur#" name="Soviet Union"/>
+<country code="-xxr#" name="Soviet Union"/>
+
+<country code="sh#" name="Spanish North Africa"/>
+<country code="xp#" name="Spratly Island"/>
+<country code="ce#" name="Sri Lanka"/>
+<country code="sj#" name="Sudan"/>
+<country code="sr#" name="Surinam"/>
+<country code="-sb#" name="Svalbard"/>
+<country code="-sv#" name="Swan Islands"/>
+<country code="sq#" name="Swaziland"/>
+
+
+<country code="sy#" name="Syria"/>
+<country code="-tar#" name="Tajik S.S.R."/>
+<country code="ta#" name="Tajikistan"/>
+<country code="tz#" name="Tanzania"/>
+<country code="tnu" name="Tennessee"/>
+<country code="fs#" name="Terres australes et antarctiques"/>
+<country code="txu" name="Texas"/>
+<country code="th#" name="Thailand"/>
+<country code="tg#" name="Togo"/>
+<country code="tl#" name="Tokelau"/>
+<country code="to#" name="Tonga"/>
+<country code="tr#" name="Trinidad and Tobago"/>
+<country code="-tt#" name="Trust Territory of the Pacific Islands"/>
+<country code="ti#" name="Tunisia"/>
+<country code="tu#" name="Turkey"/>
+<country code="-tkr#" name="Turkmen S.S.R."/>
+<country code="tk#" name="Turkmenistan"/>
+<country code="tc#" name="Turks and Caicos Islands"/>
+<country code="tv#" name="Tuvalu"/>
+<country code="ug#" name="Uganda"/>
+<country code="un#" name="Ukraine"/>
+<country code="-unr#" name="Ukraine"/>
+<country code="ts#" name="United Arab Emirates"/>
+<country code="-uk#" name="United Kingdom"/>
+
+<country code="-ui#" name="United Kingdom Misc. Islands"/>
+<country code="uik" name="United Kingdom Misc. Islands"/>
+<country code="-us#" name="United States"/>
+
+<country code="uc#" name="United States Misc. Caribbean Islands"/>
+<country code="up#" name="United States Misc. Pacific Islands"/>
+
+<country code="utu" name="Utah"/>
+<country code="-uzr#" name="Uzbek S.S.R."/>
+<country code="uz#" name="Uzbekistan"/>
+<country code="nn#" name="Vanuatu"/>
+<country code="vp#" name="Various places"/>
+<country code="vc#" name="Vatican City"/>
+
+<country code="vtu" name="Vermont"/>
+<country code="vm#" name="Vietnam"/>
+<country code="-vn#" name="Vietnam, North"/>
+<country code="-vs#" name="Vietnam, South"/>
+<country code="vi#" name="Virgin Islands of the United States"/>
+<country code="vau" name="Virginia"/>
+<country code="wk#" name="Wake Island"/>
+<country code="wlk" name="Wales"/>
+<country code="wf#" name="Wallis and Futuna"/>
+<country code="wau" name="Washington (State)"/>
+<country code="wj#" name="West Bank of the Jordan River"/>
+<country code="-wb#" name="West Berlin"/>
+<country code="wvu" name="West Virginia"/>
+<country code="ss#" name="Western Sahara"/>
+<country code="wiu" name="Wisconsin"/>
+<country code="wyu" name="Wyoming"/>
+<country code="ye#" name="Yemen"/>
+<country code="-ys#" name="Yemen (People's Democratic Republic)"/>
+
+<country code="ykc" name="Yukon Territory"/>
+<country code="za#" name="Zambia"/>
+<country code="rh#" name="Zimbabwe"/>
+
+</countryCodes>

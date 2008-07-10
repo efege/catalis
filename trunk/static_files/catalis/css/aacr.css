@@ -1,0 +1,201 @@
+/* =============================================================================
+ * Catalis - aacr.css
+ *
+ * (c) 2003-2005 Fernando J. Gómez - CONICET - INMABB
+ * Véase el archivo LICENCIA.TXT incluido en la distribución de Catalis
+ * =============================================================================
+ */
+
+
+/* ------- Begin Container (obsoleto?) ------- */
+#XXaacrDiv,
+#XXaacrDisplayDiv {
+	background: #FEFEF0; /*#FFF8DC*/
+	font-family: georgia, "times new roman", serif;
+	font-size: 15px; /* 16px times new roman ; 15px georgia */
+	line-height: 0.7em;
+	padding: 12px 24px;
+	/*border: 1px solid #999;*/
+	/*height: 302px;
+	overflow: auto;*/
+}
+
+#XXaacrDiv a,
+#XXaacrDisplayDiv a {
+	text-decoration: none;
+}
+
+#XXaacrDiv a:hover,
+#XXaacrDisplayDiv a:hover {
+	text-decoration: underline;
+}
+/* ------- End Container (obsoleto?) ------- */
+
+
+
+/* ----------------------------------------
+ * La tabla principal
+ * ----------------------------------------
+ */
+
+.aacrTable {
+	/*width: 100%;*/
+	/*table-layout: fixed;*/
+}
+
+/* Columna izquierda, para acceso al documento */
+.aacrTable td.documentLocationCell {
+	text-align: left;
+	vertical-align: top;
+	width: 65px;
+	border-right: 1px dashed #C0C0C0;
+	padding-right: 0.5em;
+	padding-top: 6px;
+	font-family: verdana;
+	font-size: 13px;
+	line-height: 1.2em;
+	font-weight: 500;
+}
+
+/* Columna derecha, descripción + puntos de acceso */
+.aacrTable td.aacrCell {
+	vertical-align: top;
+	font-family: georgia, "times new roman", serif;
+	font-size: 15px; /* 16px times new roman ; 15px georgia */
+	line-height: 0.7em;
+	padding-left: 0.7em;
+}
+
+
+/* -------------------------------------
+ * Bibliographic description
+ * -------------------------------------
+ */
+ 
+div.aacrTitleParagraph {
+	margin: 0.1em 0 0.2em 0;
+	padding: 2px;
+	/*text-indent: 10px;*/
+	font-size: 15px;
+	line-height: 1.3em;
+	/*border: 1px solid #FFF;*/
+}
+
+div.aacrPhysDescParagraph {
+	margin: 0.5em 0;
+	padding: 2px;
+	/*text-indent: 10px;*/
+	line-height: 1.3em;
+	font-size: 12px;
+	/*border: 1px solid #FFF;*/
+}
+
+div.aacrNotesParagraphs {
+	margin: 0.5em 0;
+	/*text-indent: 10px;*/
+	line-height: 1.3em;
+	font-size: 12px;
+}
+
+div.aacrNote {
+	margin: 0.1em 0;
+	padding: 2px;
+	/*border-width: 1px;
+	border-style: solid;*/
+	/*border: 1px solid #FFF;*/
+}
+
+span.mdash {
+	/* En Georgia un &mdash; es más corto que en Times New Roman; nos quedamos pues con Times New Roman */
+	font-family: "times new roman", georgia, serif;
+}
+
+span.displayConstant {
+	font-style: italic;
+}
+
+
+
+/* --------------------------------------
+ * Access points
+ * --------------------------------------
+ */
+ 
+.mainEntryHeading,
+.uniformTitle {
+	font-size: 15px;
+	font-weight: normal;
+	line-height: 1.3em;
+	padding: 2px;
+	color: #555;
+	/*font-size: 12px;*/
+	/*border: 1px solid #FFF;*/
+}
+
+table.tracings {
+	width: 100%;
+	font-family: georgia, "times new roman", serif;
+	line-height: 1.3em;
+	font-size: 12px;
+	margin-top: 0.7em;
+	color: #555;
+}
+
+td.tracingCounter {
+	text-align: right;
+	vertical-align: top;
+	width: 2em;
+	padding-right: 4px;
+}
+
+td.tracingCell {
+	padding-left: 0px;
+	/*border-width: 1px;*/
+	/*border-style: solid;*/
+	/*border: 1px solid #FFF;*/
+}
+
+/*
+#tracingDiv ul {
+	margin: 0;
+	padding: 0;
+}
+
+#tracingDiv li {
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+*/
+
+
+/* ----------------------------------------
+ * Números de identificación del registro
+ * ----------------------------------------
+ */
+
+table.recordNumbers {
+	width: 100%;
+}
+
+table.recordNumbers td {
+	color: #666;
+	font-size: 11px;
+	font-style: italic;
+}
+
+
+/* ------------------------------
+ * Resaltado de campos
+ * ------------------------------
+ */
+ 
+.aacrHighlight {
+	background: #FFF8DC;
+	/*border: 1px solid #999;*/
+}
+
+####.aacrLowlight {  DISABLED 2008-05-30
+	background: #FEFEF0;  /* ATENCION: debe coincidir con #aacrDiv, #aacrDisplayDiv */
+	/*border: 1px solid #FEFEF0;*/
+}

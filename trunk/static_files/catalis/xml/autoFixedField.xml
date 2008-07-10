@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<marcControlFields>
+
+<!-- ======================================================================= -->
+<marcLeader name="Cabecera" label-eng="Leader">
+<!-- ======================================================================= -->
+
+  <dataElement pos="LDR_05" name="LDR/05 · Status" label-eng="Record status">
+    <option code="a" name="Aumento en el nivel de codificación" />
+    <option code="c" name="Corregido o revisado" />
+    <option code="d" name="Borrado" />
+    <option code="n" name="Nuevo" />
+    <option code="o" name="Obsoleto" />
+    <option code="s" name="Suprimido; el encabezamiento se dividió en dos o más encabezamientos." />
+    <option code="x" name="Suprimido; el encabezamiento ha sido reemplazado por otro." />
+  </dataElement>
+
+  <dataElement pos="LDR_06" name="LDR/06 · Tipo de registro" label-eng="Type of record">
+    <option code="z" name="Registro con datos de autoridades" />
+  </dataElement>
+
+  <dataElement pos="LDR_09" name="LDR/09 · Esquema de codificación de caracteres" label-eng="Character coding scheme">
+    <option code="#" name="MARC-8" />
+    <option code="a" name="UCS/Unicode" />
+  </dataElement>
+
+  <dataElement pos="LDR_17" name="LDR/17 · Nivel de codificación" label-eng="Encoding level">
+    <option code="n" name="Registro de autoridad completo" />
+    <option code="o" name="Registro de autoridad incompleto" />
+  </dataElement>
+
+</marcLeader>
+
+<!-- ======================================================================= -->
+<marc008-all name="008 [general]" label-eng="008 [all materials]">
+<!-- ======================================================================= -->
+
+  <!-- 00-05 · Date entered on file : dato generado por el sistema -->
+
+  <dataElement pos="008_06" name="008/06 · Subdivisión geográfica directa o indirecta" label-eng="Direct or indirect geographic subdivision">
+    <option code="#" name="No se subdivide geográficamente" />
+    <option code="d" name="Subdivisión geográfica - directa" />
+    <option code="i" name="Subdivisión geográfica - indirecta"/>
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_07" name="008/07 · Esquema de latinización" label-eng="Romanization scheme">
+    <option code="a" name="Norma internacional" />
+    <option code="b" name="Norma nacional" />
+    <option code="c" name="Norma de una asociación bibliotecaria nacional"/>
+    <option code="d" name="Norma de un biblioteca o agencia bibliotecaria nacional" />
+    <option code="e" name="Norma Local" />
+    <option code="f" name="Norma de origen desconicido" />
+    <option code="g" name="Latinización convencional o forma convencional de un nombre en el idioma de la agencia catalogadora" />
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_08" name="008/08 · Idioma de la catalogación" label-eng="Language of catalog">
+    <option code="#" name="No se provee información" />
+    <option code="b" name="Inglés y francés" />
+    <option code="e" name="Inglés solamente"/>
+    <option code="f" name="Francés solamente" />
+  </dataElement>
+
+  <dataElement pos="008_09" name="008/09 · Clase del registro" label-eng="Kind of record">
+    <option code="a" name="Encabezamiento establecido" />
+    <option code="b" name="Referencia no trazada" />
+    <option code="c" name="Referencia trazada"/>
+    <option code="d" name="Subdivisión" />
+    <option code="e" name="Etiqueta de nodo" />
+    <option code="f" name="Encabezamiento y subdivisión establecidos" />
+    <option code="g" name="Referencia y subdivisión" />
+  </dataElement>
+
+  <dataElement pos="008_10" name="008/10 · Reglas de catalogación descriptiva" label-eng="Descriptive cataloging rules">
+    <option code="a" name="Primeras reglas" />
+    <option code="b" name="RCA1" />
+    <option code="c" name="RCA2"/>
+    <option code="d" name="Encabezamiento compatible con RCA2" />
+    <option code="n" name="No se aplica" />
+    <option code="z" name="Otro" />
+  </dataElement>
+
+  <dataElement pos="008_11" name="008/11 · Sistema de encabezamientos de materia/tesauro" label-eng="Subject heading system/thesaurus">
+    <option code="a" name="Library of Congress Subject Headings" />
+    <option code="b" name="LC subject headings for children's literature" />
+    <option code="c" name="Medical Subject Headings"/>
+    <option code="d" name="National Agricultural Library subject authority file" />
+    <option code="k" name="Canadian Subject Headings" />
+    <option code="n" name="No se aplica"/>
+    <option code="r" name="Art and Architecture Thesaurus" />
+    <option code="s" name="Sears List of Subject Headings" />
+    <option code="v" name="Repertoire des vedettes-matiere"/>
+    <option code="z" name="Otro" />
+  </dataElement>
+
+  <dataElement pos="008_12" name="008/12 · Tipo de serie" label-eng="Type of series">
+    <option code="a" name="Serie monográfica" />
+    <option code="b" name="Ítem en varias partes" />
+    <option code="c" name="Frase parecida a una serie"/>
+    <option code="n" name="No se aplica" />
+    <option code="z" name="Otro" />
+  </dataElement>
+
+  <dataElement pos="008_13" name="008/13 · Serie numerada o no numerada" label-eng="Numbered of unnumbered series">
+    <option code="a" name="Serie numerada" />
+    <option code="b" name="Serie no numerada" />
+    <option code="c" name="Serie con numeración variable"/>
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_14" name="008/14 · Uso del encabezamiento - Asiento principal o secundario" label-eng="Heading use - main or added entry">
+    <option code="a" name="Apropiado" />
+    <option code="b" name="No apropiado" />
+  </dataElement>
+
+  <dataElement pos="008_15" name="008/15 · Uso del encabezamiento - Asiento secundario de materia" label-eng="Heading use - subject added entry">
+    <option code="a" name="Apropiado" />
+    <option code="b" name="No apropiado" />
+  </dataElement>
+
+  <dataElement pos="008_16" name="008/16 · Uso del encabezamiento - Asiento secundario de serie" label-eng="Heading use - series added entry">
+    <option code="a" name="Apropiado" />
+    <option code="b" name="No apropiado" />
+  </dataElement>
+
+  <dataElement pos="008_17" name="008/17 · Tipo de subdivisión temática" label-eng="Type of subject subdivision">
+    <option code="a" name="Temática" />
+    <option code="b" name="De forma" />
+    <option code="c" name="Cronológica" />
+    <option code="d" name="Geográfica" />
+    <option code="e" name="De idioma" />
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_28" name="008/28 · Tipo de agencia gubernamental" label-eng="Type of government agency">
+    <option code="#" name="No es una agencia gubernamental" />
+    <option code="a" name="Componente autónomo o semiautónomo" />
+    <option code="c" name="Multilocal" />
+    <option code="f" name="Federal/Nacional" />
+    <option code="i" name="Internacional/Intergubernamental" />
+    <option code="l" name="Local" />
+    <option code="m" name="Multiestatal" />
+    <option code="o" name="Agencia gubernamental - Tipo no determinado" />
+    <option code="s" name="Estado/provincia" />
+    <option code="u" name="No se ha determinado si el encabezamiento es una agencia gubernamental" />
+    <option code="z" name="Otro" />
+  </dataElement>
+
+  <dataElement pos="008_29" name="008/29 · Evaluación de las referencias" label-eng="Reference evaluation">
+    <option code="a" name="Las referencias son consistentes con el encabezamiento " />
+    <option code="b" name="Las referencias no necesariamente son consistentes con el encabezamiento" />
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_31" name="008/31 · Registro en proceso de actualización" label-eng="Record update in progress">
+    <option code="a" name="El registro puede ser utilizado" />
+    <option code="b" name="El registro está bajo proceso de actualización" />
+  </dataElement>
+
+  <dataElement pos="008_32" name="008/32 · Nombre personal no diferenciado" label-eng="Undifferentiated personal name">
+    <option code="a" name="Nombre personal diferenciado" />
+    <option code="b" name="Nombre personal no diferenciado" />
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_33" name="008/33 · Nivel de formulación" label-eng="Level of establishment">
+    <option code="a" name="Establecido en forma completa" />
+    <option code="b" name="Memorándum" />
+    <option code="c" name="Provisional" />
+    <option code="d" name="Preliminar" />
+    <option code="n" name="No se aplica" />
+  </dataElement>
+
+  <dataElement pos="008_38" name="008/38 · Registro modificado" label-eng="Modified record">
+    <option code="#" name="Sin modificación" />
+    <option code="s" name="Recortado" />
+    <option code="x" name="Caracteres faltantes" />
+  </dataElement>
+
+  <dataElement pos="008_39" name="008/39 · Fuente de la catalogación" label-eng="Cataloging source">
+    <option code="#" name="Agencia bibliográfica nacional" />
+    <option code="c" name="Programa de catalogación cooperativa" />
+    <option code="d" name="Otra" />
+    <option code="u" name="Fuente desconocida" />
+  </dataElement>
+
+</marc008-all>
+
+</marcControlFields>

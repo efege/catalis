@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ordenados alfabéticamente por nombre -->
+
+<languageCodes>
+
+<language code="und" name="No determinado" name-eng="Undetermined"/>
+<language code="mul" name="Idiomas múltiples" name-eng="Multiple languages"/>
+<language code="ger" name="Alemán" name-eng="German"/>
+<language code="cat" name="Catalán" name-eng="Catalan"/>
+<language code="cze" name="Checo" name-eng="Czech"/>
+<language code="chi" name="Chino" name-eng="Chinese"/>
+<language code="scr" name="Croata" name-eng="Croatian"/>
+<language code="dan" name="Danés" name-eng="Danish"/>
+<language code="spa" name="Español" name-eng="Spanish"/>
+<language code="fre" name="Francés" name-eng="French"/>
+<language code="glg" name="Gallego" name-eng="Galician"/>
+<language code="grc" name="Griego antiguo (hasta 1453)" name-eng="Greek, Ancient (to 1453)"/>
+<language code="gre" name="Griego moderno (1453- )" name-eng="Greek, Modern (1453- )"/>
+<language code="heb" name="Hebreo" name-eng="Hebrew"/>
+<language code="dut" name="Holandés" name-eng="Dutch"/>
+<language code="hun" name="Húngaro" name-eng="Hungarian"/>
+<language code="eng" name="Inglés" name-eng="English"/>
+<language code="ita" name="Italiano" name-eng="Italian"/>
+<language code="jpn" name="Japonés" name-eng="Japanese"/>
+<language code="lat" name="Latín" name-eng="Latin"/>
+<language code="arn" name="Mapuche" name-eng="Mapuche"/>
+<language code="pol" name="Polaco" name-eng="Polish"/>
+<language code="por" name="Portugués" name-eng="Portuguese"/>
+<language code="que" name="Quechua" name-eng="Quechua"/>
+<language code="rum" name="Rumano" name-eng="Romanian"/>
+<language code="rus" name="Ruso" name-eng="Russian"/>
+<language code="swe" name="Sueco" name-eng="Swedish"/>
+<language code="baq" name="Vasco" name-eng="Basque"/>
+
+<!--language code="   " name="================================"/-->
+
+<!--language code="abk" name="Abkhaz"/>
+<language code="ace" name="Achinese"/>
+<language code="ach" name="Acoli"/>
+<language code="ada" name="Adangme"/>
+<language code="ady" name="Adygei"/>
+<language code="aar" name="Afar"/>
+<language code="afh" name="Afrihili (Artificial language)"/>
+<language code="afr" name="Afrikaans"/>
+<language code="afa" name="Afroasiatic (Other)"/>
+<language code="aka" name="Akan"/>
+<language code="akk" name="Akkadian"/>
+<language code="alb" name="Albanian"/>
+<language code="ale" name="Aleut"/>
+<language code="alg" name="Algonquian (Other)"/>
+<language code="-ajm" name="Aljamía"/>
+<language code="tut" name="Altaic (Other)"/>
+<language code="amh" name="Amharic"/>
+<language code="apa" name="Apache languages"/>
+<language code="ara" name="Arabic"/>
+<language code="arg" name="Aragonese Spanish"/>
+<language code="arc" name="Aramaic"/>
+<language code="arp" name="Arapaho"/>
+<language code="arw" name="Arawak"/>
+<language code="arm" name="Armenian"/>
+<language code="art" name="Artificial (Other)"/>
+<language code="asm" name="Assamese"/>
+<language code="ath" name="Athapascan (Other)"/>
+<language code="aus" name="Australian languages"/>
+<language code="map" name="Austronesian (Other)"/>
+<language code="ava" name="Avaric"/>
+<language code="ave" name="Avestan"/>
+<language code="awa" name="Awadhi"/>
+<language code="aym" name="Aymara"/>
+<language code="aze" name="Azerbaijani"/>
+<language code="ast" name="Bable"/>
+<language code="ban" name="Balinese"/>
+<language code="bat" name="Baltic (Other)"/>
+<language code="bal" name="Baluchi"/>
+<language code="bam" name="Bambara"/>
+<language code="bai" name="Bamileke languages"/>
+<language code="bad" name="Banda"/>
+<language code="bnt" name="Bantu (Other)"/>
+<language code="bas" name="Basa"/>
+<language code="bak" name="Bashkir"/>
+
+<language code="btk" name="Batak"/>
+<language code="bej" name="Beja"/>
+<language code="bel" name="Belarusian"/>
+<language code="bem" name="Bemba"/>
+<language code="ben" name="Bengali"/>
+<language code="ber" name="Berber (Other)"/>
+<language code="bho" name="Bhojpuri"/>
+<language code="bih" name="Bihari"/>
+<language code="bik" name="Bikol"/>
+<language code="bis" name="Bislama"/>
+<language code="bos" name="Bosnian"/>
+<language code="bra" name="Braj"/>
+<language code="bre" name="Breton"/>
+<language code="bug" name="Bugis"/>
+<language code="bul" name="Bulgarian"/>
+<language code="bua" name="Buriat"/>
+<language code="bur" name="Burmese"/>
+<language code="cad" name="Caddo"/>
+<language code="car" name="Carib"/>
+
+<language code="cau" name="Caucasian (Other)"/>
+<language code="ceb" name="Cebuano"/>
+<language code="cel" name="Celtic (Other)"/>
+<language code="cai" name="Central American Indian (Other)"/>
+<language code="chg" name="Chagatai"/>
+<language code="cmc" name="Chamic languages"/>
+<language code="cha" name="Chamorro"/>
+<language code="che" name="Chechen"/>
+<language code="chr" name="Cherokee"/>
+<language code="chy" name="Cheyenne"/>
+<language code="chb" name="Chibcha"/>
+
+<language code="chn" name="Chinook jargon"/>
+<language code="chp" name="Chipewyan"/>
+<language code="cho" name="Choctaw"/>
+<language code="chu" name="Church Slavic"/>
+<language code="chv" name="Chuvash"/>
+<language code="cop" name="Coptic"/>
+<language code="cor" name="Cornish"/>
+<language code="cos" name="Corsican"/>
+<language code="cre" name="Cree"/>
+<language code="mus" name="Creek"/>
+<language code="crp" name="Creoles and Pidgins (Other)"/>
+<language code="cpe" name="Creoles and Pidgins, English-based (Other)"/>
+<language code="cpf" name="Creoles and Pidgins, French-based (Other)"/>
+<language code="cpp" name="Creoles and Pidgins, Portuguese-based"/>
+<language code="crh" name="Crimean Tatar"/>
+
+<language code="cus" name="Cushitic (Other)"/>
+
+<language code="dak" name="Dakota"/>
+
+<language code="dar" name="Dargwa"/>
+<language code="day" name="Dayak"/>
+<language code="del" name="Delaware"/>
+<language code="din" name="Dinka"/>
+<language code="div" name="Divehi"/>
+<language code="doi" name="Dogri"/>
+<language code="dgr" name="Dogrib"/>
+<language code="dra" name="Dravidian (Other)"/>
+<language code="dua" name="Duala"/>
+
+<language code="dum" name="Dutch, Middle (ca. 1050-1350)"/>
+<language code="dyu" name="Dyula"/>
+<language code="dzo" name="Dzongkha"/>
+<language code="bin" name="Edo"/>
+<language code="efi" name="Efik"/>
+<language code="egy" name="Egyptian"/>
+<language code="eka" name="Ekajuk"/>
+<language code="elx" name="Elamite"/>
+
+<language code="enm" name="English, Middle (1100-1500)"/>
+<language code="ang" name="English, Old (ca. 450-1100)"/>
+<language code="-esk" name="Eskimo languages"/>
+<language code="epo" name="Esperanto"/>
+<language code="-esp" name="Esperanto"/>
+<language code="est" name="Estonian"/>
+<language code="-eth" name="Ethiopic"/>
+<language code="gez" name="Ethiopic"/>
+<language code="ewe" name="Ewe"/>
+<language code="ewo" name="Ewondo"/>
+<language code="fan" name="Fang"/>
+<language code="fat" name="Fanti"/>
+<language code="fao" name="Faroese"/>
+<language code="-far" name="Faroese"/>
+<language code="fij" name="Fijian"/>
+<language code="fin" name="Finnish"/>
+<language code="fiu" name="Finno-Ugrian (Other)"/>
+<language code="fon" name="Fon"/>
+
+<language code="frm" name="French, Middle (ca. 1400-1600)"/>
+<language code="fro" name="French, Old (ca. 842-1400)"/>
+<language code="-fri" name="Frisian"/>
+<language code="fry" name="Frisian"/>
+<language code="fur" name="Friulian"/>
+<language code="ful" name="Fula"/>
+<language code="-gag" name="Galician"/>
+
+<language code="lug" name="Ganda"/>
+<language code="gay" name="Gayo"/>
+<language code="gba" name="Gbaya"/>
+<language code="geo" name="Georgian"/>
+
+<language code="gmh" name="German, Middle High (ca. 1050-1500)"/>
+<language code="goh" name="German, Old High (ca. 750-1050)"/>
+<language code="gem" name="Germanic (Other)"/>
+<language code="gil" name="Gilbertese"/>
+<language code="gon" name="Gondi"/>
+<language code="gor" name="Gorontalo"/>
+<language code="got" name="Gothic"/>
+<language code="grb" name="Grebo"/>
+
+
+<language code="grn" name="Guarani"/>
+<language code="-gua" name="Guarani"/>
+<language code="guj" name="Gujarati"/>
+<language code="gwi" name="Gwich'in"/>
+<language code="gaa" name="Gã"/>
+<language code="hai" name="Haida"/>
+<language code="hat" name="Haitian French Creole"/>
+<language code="hau" name="Hausa"/>
+<language code="haw" name="Hawaiian"/>
+
+<language code="her" name="Herero"/>
+<language code="hil" name="Hiligaynon"/>
+<language code="him" name="Himachali"/>
+<language code="hin" name="Hindi"/>
+<language code="hmo" name="Hiri Motu"/>
+<language code="hit" name="Hittite"/>
+<language code="hmn" name="Hmong"/>
+
+<language code="hup" name="Hupa"/>
+<language code="iba" name="Iban"/>
+<language code="ice" name="Icelandic"/>
+<language code="ido" name="Ido"/>
+<language code="ibo" name="Igbo"/>
+<language code="ijo" name="Ijo"/>
+<language code="ilo" name="Iloko"/>
+<language code="smn" name="Inari Sami"/>
+<language code="inc" name="Indic (Other)"/>
+<language code="ine" name="Indo-European (Other)"/>
+<language code="ind" name="Indonesian"/>
+<language code="inh" name="Ingush"/>
+<language code="ina" name="Interlingua (International Auxiliary Language"/>
+<language code="-int" name="Interlingua (International Auxiliary Language"/>
+<language code="ile" name="Interlingue"/>
+<language code="iku" name="Inuktitut"/>
+<language code="ipk" name="Inupiaq"/>
+<language code="ira" name="Iranian (Other)"/>
+<language code="gle" name="Irish"/>
+<language code="-iri" name="Irish"/>
+<language code="mga" name="Irish, Middle (ca. 1100-1550)"/>
+<language code="sga" name="Irish, Old (to 1100)"/>
+<language code="iro" name="Iroquoian (Other)"/>
+
+
+<language code="jav" name="Javanese"/>
+<language code="jrb" name="Judeo-Arabic"/>
+<language code="jpr" name="Judeo-Persian"/>
+<language code="kbd" name="Kabardian"/>
+<language code="kab" name="Kabyle"/>
+<language code="kac" name="Kachin"/>
+<language code="xal" name="Kalmyk"/>
+<language code="kal" name="Kalâtdlisut"/>
+<language code="kam" name="Kamba"/>
+<language code="kan" name="Kannada"/>
+<language code="kau" name="Kanuri"/>
+<language code="kaa" name="Kara-Kalpak"/>
+<language code="kar" name="Karen"/>
+<language code="kas" name="Kashmiri"/>
+<language code="kaw" name="Kawi"/>
+<language code="kaz" name="Kazakh"/>
+<language code="kha" name="Khasi"/>
+<language code="-cam" name="Khmer"/>
+<language code="khm" name="Khmer"/>
+<language code="khi" name="Khoisan (Other)"/>
+<language code="kho" name="Khotanese"/>
+<language code="kik" name="Kikuyu"/>
+<language code="kmb" name="Kimbundu"/>
+<language code="kin" name="Kinyarwanda"/>
+<language code="kom" name="Komi"/>
+<language code="kon" name="Kongo"/>
+<language code="kok" name="Konkani"/>
+<language code="kor" name="Korean"/>
+<language code="kpe" name="Kpelle"/>
+<language code="kro" name="Kru"/>
+<language code="kua" name="Kuanyama"/>
+<language code="kum" name="Kumyk"/>
+<language code="kur" name="Kurdish"/>
+<language code="kru" name="Kurukh"/>
+<language code="kos" name="Kusaie"/>
+<language code="-kus" name="Kusaie"/>
+<language code="kut" name="Kutenai"/>
+<language code="kir" name="Kyrgyz"/>
+<language code="lad" name="Ladino"/>
+<language code="lah" name="Lahnda"/>
+<language code="lam" name="Lamba"/>
+<language code="lao" name="Lao"/>
+
+<language code="lav" name="Latvian"/>
+<language code="ltz" name="Letzeburgesch"/>
+<language code="lez" name="Lezgian"/>
+<language code="lim" name="Limburgish"/>
+<language code="lin" name="Lingala"/>
+<language code="lit" name="Lithuanian"/>
+<language code="nds" name="Low German"/>
+<language code="loz" name="Lozi"/>
+<language code="lub" name="Luba-Katanga"/>
+<language code="lua" name="Luba-Lulua"/>
+<language code="lui" name="Luiseño"/>
+<language code="smj" name="Lule Sami"/>
+<language code="lun" name="Lunda"/>
+<language code="luo" name="Luo (Kenya and Tanzania)"/>
+<language code="lus" name="Lushai"/>
+<language code="mac" name="Macedonian"/>
+<language code="mad" name="Madurese"/>
+<language code="mag" name="Magahi"/>
+<language code="mai" name="Maithili"/>
+<language code="mak" name="Makasar"/>
+<language code="-mla" name="Malagasy"/>
+<language code="mlg" name="Malagasy"/>
+<language code="may" name="Malay"/>
+<language code="mal" name="Malayalam"/>
+<language code="mlt" name="Maltese"/>
+<language code="mnc" name="Manchu"/>
+<language code="mdr" name="Mandar"/>
+<language code="man" name="Mandingo"/>
+<language code="mni" name="Manipuri"/>
+<language code="mno" name="Manobo languages"/>
+<language code="glv" name="Manx"/>
+<language code="-max" name="Manx"/>
+<language code="mao" name="Maori"/>
+
+<language code="mar" name="Marathi"/>
+<language code="chm" name="Mari"/>
+<language code="mah" name="Marshallese"/>
+<language code="mwr" name="Marwari"/>
+<language code="mas" name="Masai"/>
+<language code="myn" name="Mayan languages"/>
+<language code="men" name="Mende"/>
+<language code="mic" name="Micmac"/>
+<language code="min" name="Minangkabau"/>
+<language code="mis" name="Miscellaneous languages"/>
+<language code="moh" name="Mohawk"/>
+<language code="mol" name="Moldavian"/>
+<language code="mkh" name="Mon-Khmer (Other)"/>
+<language code="lol" name="Mongo-Nkundu"/>
+<language code="mon" name="Mongolian"/>
+<language code="mos" name="Mooré"/>
+
+<language code="mun" name="Munda (Other)"/>
+<language code="nah" name="Nahuatl"/>
+<language code="nau" name="Nauru"/>
+<language code="nav" name="Navajo"/>
+<language code="nbl" name="Ndebele (South Africa)"/>
+<language code="nde" name="Ndebele (Zimbabwe)"/>
+<language code="ndo" name="Ndonga"/>
+<language code="nap" name="Neapolitan Italian"/>
+<language code="nep" name="Nepali"/>
+<language code="new" name="Newari"/>
+<language code="nia" name="Nias"/>
+<language code="nic" name="Niger-Kordofanian (Other)"/>
+<language code="ssa" name="Nilo-Saharan (Other)"/>
+<language code="niu" name="Niuean"/>
+<language code="nog" name="Nogai"/>
+<language code="nai" name="North American Indian (Other)"/>
+<language code="sme" name="Northern Sami"/>
+<language code="nso" name="Northern Sotho"/>
+<language code="nor" name="Norwegian"/>
+<language code="nob" name="Norwegian (Bokmål)"/>
+<language code="nno" name="Norwegian (Nynorsk)"/>
+<language code="nub" name="Nubian languages"/>
+<language code="nym" name="Nyamwezi"/>
+<language code="nya" name="Nyanja"/>
+<language code="nyn" name="Nyankole"/>
+<language code="nyo" name="Nyoro"/>
+<language code="nzi" name="Nzima"/>
+<language code="-lan" name="Occitan (post-1500)"/>
+<language code="oci" name="Occitan (post-1500)"/>
+<language code="oji" name="Ojibwa"/>
+<language code="non" name="Old Norse"/>
+<language code="peo" name="Old Persian (ca. 600-400 B.C.)"/>
+<language code="ori" name="Oriya"/>
+<language code="-gal" name="Oromo"/>
+<language code="orm" name="Oromo"/>
+<language code="osa" name="Osage"/>
+<language code="oss" name="Ossetic"/>
+<language code="oto" name="Otomian languages"/>
+<language code="pal" name="Pahlavi"/>
+<language code="pau" name="Palauan"/>
+<language code="pli" name="Pali"/>
+<language code="pam" name="Pampanga"/>
+<language code="pag" name="Pangasinan"/>
+<language code="pan" name="Panjabi"/>
+<language code="pap" name="Papiamento"/>
+<language code="paa" name="Papuan (Other)"/>
+<language code="per" name="Persian"/>
+<language code="phi" name="Philippine (Other)"/>
+<language code="phn" name="Phoenician"/>
+
+<language code="pon" name="Ponape"/>
+
+<language code="pra" name="Prakrit languages"/>
+<language code="pro" name="Provençal (to 1500)"/>
+<language code="pus" name="Pushto"/>
+
+<language code="roh" name="Raeto-Romance"/>
+<language code="raj" name="Rajasthani"/>
+<language code="rap" name="Rapanui"/>
+<language code="rar" name="Rarotongan"/>
+<language code="roa" name="Romance (Other)"/>
+<language code="rom" name="Romani"/>
+
+<language code="run" name="Rundi"/>
+
+<language code="sal" name="Salishan languages"/>
+<language code="sam" name="Samaritan Aramaic"/>
+<language code="-lap" name="Sami"/>
+<language code="smi" name="Sami"/>
+<language code="-sao" name="Samoan"/>
+<language code="smo" name="Samoan"/>
+<language code="sad" name="Sandawe"/>
+<language code="sag" name="Sango (Ubangi Creole)"/>
+<language code="san" name="Sanskrit"/>
+<language code="sat" name="Santali"/>
+<language code="srd" name="Sardinian"/>
+<language code="sas" name="Sasak"/>
+<language code="sco" name="Scots"/>
+<language code="-gae" name="Scottish Gaelic"/>
+<language code="gla" name="Scottish Gaelic"/>
+<language code="sel" name="Selkup"/>
+<language code="sem" name="Semitic (Other)"/>
+<language code="scc" name="Serbian"/>
+<language code="srr" name="Serer"/>
+<language code="shn" name="Shan"/>
+<language code="-sho" name="Shona"/>
+<language code="sna" name="Shona"/>
+<language code="iii" name="Sichuan Yi"/>
+<language code="sid" name="Sidamo"/>
+<language code="sgn" name="Sign languages"/>
+<language code="bla" name="Siksika"/>
+<language code="snd" name="Sindhi"/>
+<language code="sin" name="Sinhalese"/>
+<language code="-snh" name="Sinhalese"/>
+<language code="sit" name="Sino-Tibetan (Other)"/>
+<language code="sio" name="Siouan (Other)"/>
+<language code="sms" name="Skolt Sami"/>
+<language code="den" name="Slave"/>
+<language code="sla" name="Slavic (Other)"/>
+<language code="slo" name="Slovak"/>
+<language code="slv" name="Slovenian"/>
+<language code="sog" name="Sogdian"/>
+<language code="som" name="Somali"/>
+<language code="son" name="Songhai"/>
+<language code="snk" name="Soninke"/>
+<language code="wen" name="Sorbian languages"/>
+<language code="sot" name="Sotho"/>
+<language code="-sso" name="Sotho"/>
+<language code="sai" name="South American Indian (Other)"/>
+<language code="sma" name="Southern Sami"/>
+
+<language code="suk" name="Sukuma"/>
+<language code="sux" name="Sumerian"/>
+<language code="sun" name="Sundanese"/>
+<language code="sus" name="Susu"/>
+<language code="swa" name="Swahili"/>
+<language code="ssw" name="Swazi"/>
+<language code="-swz" name="Swazi"/>
+
+<language code="syr" name="Syriac"/>
+<language code="-tag" name="Tagalog"/>
+<language code="tgl" name="Tagalog"/>
+<language code="tah" name="Tahitian"/>
+<language code="tai" name="Tai (Other)"/>
+<language code="-taj" name="Tajik"/>
+<language code="tgk" name="Tajik"/>
+<language code="tmh" name="Tamashek"/>
+<language code="tam" name="Tamil"/>
+<language code="-tar" name="Tatar"/>
+<language code="tat" name="Tatar"/>
+<language code="tel" name="Telugu"/>
+<language code="tem" name="Temne"/>
+<language code="ter" name="Terena"/>
+<language code="tet" name="Tetum"/>
+<language code="tha" name="Thai"/>
+<language code="tib" name="Tibetan"/>
+<language code="tir" name="Tigrinya"/>
+<language code="tig" name="Tigré"/>
+<language code="tiv" name="Tiv"/>
+<language code="tli" name="Tlingit"/>
+<language code="tpi" name="Tok Pisin"/>
+<language code="tkl" name="Tokelauan"/>
+<language code="tog" name="Tonga (Nyasa)"/>
+<language code="ton" name="Tongan"/>
+<language code="chk" name="Truk"/>
+<language code="-tru" name="Truk"/>
+<language code="tsi" name="Tsimshian"/>
+<language code="tso" name="Tsonga"/>
+<language code="tsn" name="Tswana"/>
+<language code="-tsw" name="Tswana"/>
+<language code="tum" name="Tumbuka"/>
+<language code="tup" name="Tupi languages"/>
+<language code="tur" name="Turkish"/>
+<language code="ota" name="Turkish, Ottoman"/>
+<language code="tuk" name="Turkmen"/>
+<language code="tvl" name="Tuvaluan"/>
+<language code="tyv" name="Tuvinian"/>
+<language code="twi" name="Twi"/>
+<language code="udm" name="Udmurt"/>
+<language code="uga" name="Ugaritic"/>
+<language code="uig" name="Uighur"/>
+<language code="ukr" name="Ukrainian"/>
+<language code="umb" name="Umbundu"/>
+
+<language code="urd" name="Urdu"/>
+<language code="uzb" name="Uzbek"/>
+<language code="vai" name="Vai"/>
+<language code="ven" name="Venda"/>
+<language code="vie" name="Vietnamese"/>
+<language code="vol" name="Volapük"/>
+<language code="vot" name="Votic"/>
+<language code="wak" name="Wakashan languages"/>
+<language code="wal" name="Walamo"/>
+<language code="wln" name="Walloon"/>
+<language code="war" name="Waray"/>
+<language code="was" name="Washo"/>
+<language code="wel" name="Welsh"/>
+<language code="wol" name="Wolof"/>
+<language code="xho" name="Xhosa"/>
+<language code="sah" name="Yakut"/>
+<language code="yao" name="Yao (Africa)"/>
+<language code="yap" name="Yapese"/>
+<language code="yid" name="Yiddish"/>
+<language code="yor" name="Yoruba"/>
+<language code="ypk" name="Yupik languages"/>
+<language code="znd" name="Zande"/>
+<language code="zap" name="Zapotec"/>
+<language code="zen" name="Zenaga"/>
+<language code="zha" name="Zhuang"/>
+<language code="zul" name="Zulu"/>
+<language code="zun" name="Zuni"/-->
+
+</languageCodes>

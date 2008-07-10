@@ -1,0 +1,238 @@
+<!-- MODIFICADO PARA USO CON PYTHON, 2008-03-04 -->
+
+<!--
+    Realiza una de estas 4 tareas, de acuerdo con el valor del parámetro 'function':
+
+    status: informa el estado de la base
+    
+    unlock: desbloquea el archivo maestro (unlock = 'control') y cada uno de los registros (unlock <> 'control')
+    
+    invert: genera el archivo invertido  <== BUG? no usa actab, uctab, stw
+    
+    create: crea una base, o sólo el archivo maestro, o sólo el invertido
+            NOTE: en este caso, no sería un método de la base!
+            NOTE: el usuario bajo el cual corre el servidor web (e.g. www-data) debe tener permiso para escribir en el directorio.
+                  Ver http://catalis.uns.edu.ar/doku/doku.php/permisos
+    
+    Parameters:
+    
+        name      mandat.    default    comments
+        -----------------------------------------------------------------------------------------------
+        database    X
+        function    X                   Values: 'status', 'unlock', 'invert' or 'create'
+        unlock                          Optional value: 'control'
+        create                          Values: 'database', 'master' or 'inverted'
+        
+
+    Output:
+        {"meta": {}, etc}
+         
+-->
+
+
+<IsisScript name="control">
+
+<include>py-wxis-modules/_common.xis</include>
+
+<function name="status" action="replace" tag="2001">
+	<field action="statusdb" tag="1091"><pft>v2001</pft></field>
+	<field action="replace" tag="1092">
+		<pft>
+		'^m',if v1091^s : 'm' then 'exist' else 'not found' fi
+		'^i',if v1091^s : 'i' then 'exist' else 'not found' fi
+		if p(v1091^n) then '^t',f(val(v1091^n) - 1,1,0) fi
+		"^d"v1091^d,
+		"^e"v1091^e,
+		</pft>
+	</field>
+	<display><pft>
+	    '{'
+	        '"database": {'
+        	    '"status":',
+        	    '{',
+        	      '"master":"',               v1092^m, '",'
+        	      '"inverted":"',             v1092^i, '",'
+        	      '"total":"',                v1092^t, '",'
+                  '"data_entry_lock":"',      v1092^d, '",'
+                  '"exclusive_write_lock":"', v1092^e, '"'
+                '}'
+            '},'
+	</pft></display>
+</function>
+
+<function name="unlock" action="replace" tag="2001">
+	<file action="unlock" type="database"><pft>v2001</pft></file>
+	<field action="replace" tag="2011">unlocked</field>
+	<display><pft>
+	    '{'
+	        '"database": {'
+	            '"status":"', v2011, '"'
+	        '},'
+	</pft></display>
+
+	<field action="cgi" tag="2003">unlock</field>
+	<return action="replace" tag="2003"><pft>if v2003 = 'control' then v2003 fi</pft></return>
+
+	<do task="mfnrange">
+
+		<parm name="db"><pft>v2001</pft></parm>
+
+		<field action="define" tag="1091">Isis_Status</field>
+
+        <display>"records": [</display>
+        
+		<loop>
+			<flow action="skip"><pft>if v1091 <> '-2' then 'Next' fi</pft></flow>
+			<field action="import" tag="list">2001</field>
+
+			<do task="update">
+
+				<parm name="db"><pft>v2001</pft></parm>
+				<parm name="mfn"><pft>mfn(1)</pft></parm>
+				<parm name="expire">0</parm>
+				<parm name="lockid"><pft>'control.xis: ',getenv('REMOTE_ADDR')</pft></parm>
+
+				<field action="define" tag="1101">Isis_Lock</field>
+				<field action="define" tag="1102">Isis_Status</field>
+
+				<update>
+					<write>Unlock</write>
+					<display><pft>
+					    '{'
+					        '"mfn":"',         mfn(1), '",'
+					        '"Isis_Status":"', v1102,  '"'
+					    '},'
+					</pft></display>
+				</update>
+
+			</do>
+		</loop>
+		
+        <display>],</display>
+
+	</do>
+	
+	<return action="replace" tag="2003"><pft>v2003</pft></return>
+</function>
+
+<function name="invert" action="replace" tag="2001">
+	<do task="fullinvertion">
+
+		<parm name="db"><pft>v2001</pft></parm>
+
+		<field action="cgi" tag="2019">fst</field>
+		<parm name="fst"><pft>if p(v2019) then cat(v2019) else cat(v2001,'.fst') fi</pft></parm>
+		
+		<field action="cgi" tag="2021">stw</field>
+		<parm name="stw"><pft>if p(v2021) then cat(v2021) else cat(v2001,'.stw') fi</pft></parm>
+		
+		<field action="cgi" tag="2022">actab</field>
+		<parm name="actab"><pft>cat(v2022)</pft></parm>
+		
+		<field action="cgi" tag="2023">uctab</field>
+		<parm name="uctab"><pft>cat(v2023)</pft></parm>
+		
+		<field action="define" tag="1102">Isis_Status</field>
+
+		<loop>
+		</loop>
+
+		<field action="replace" tag="2011">inverted</field>
+		<display><pft>
+    	    '{'
+    	        '"database": {'
+    	            '"status":"', v2011, '"'
+    	        '},'
+		</pft></display>
+
+	</do>
+
+	<return action="replace" tag="2004"><pft>v2004</pft></return>
+</function>
+
+<!-- The 'create' parameter admits one of these values: database, master, inverted -->
+<function name="create" action="replace" tag="2001">
+	<field action="cgi" tag="2005">create</field>
+	<flow action="jump"><pft>v2005</pft></flow>
+	<call name="error">wrong parameter: create</pft></call>
+
+	<label>database</label>
+	<file action="create" type="database"><pft>v2001</pft></file>
+	<flow action="jump">DONE</flow>
+
+	<label>master</label>
+	<file action="create" type="master"><pft>v2001</pft></file>
+	<flow action="jump">DONE</flow>
+
+	<label>inverted</label>
+	<file action="create" type="inverted"><pft>v2001</pft></file>
+	<flow action="jump">DONE</flow>
+
+	<label>DONE</label>
+	<display><pft>
+	    '{'
+	        '"database": {'
+        	    '"created":"', v2005, '"'
+	        '},'
+	</pft></display>
+	<return action="replace" tag="2005"><pft>v2005</pft></return>
+</function>
+
+
+<section name="control">
+
+	<display>
+		<pft>
+			'Content-type:text/plain'##
+		</pft>
+	</display>
+	<trace>xOn</trace>
+
+	<field action="cgi" tag="2">IsisScript</field>
+	<field action="replace" tag="3"><pft>date</pft></field>
+	<field action="replace" tag="4"><pft>'^d',v3.8,'^t',v3*9.6</pft></field>
+
+	<field action="cgi" tag="2001">database</field>
+	<call name="error"><pft>"missing parameter: database"n2001</pft></call>
+
+	<field action="cgi" tag="2002">function</field>
+	<flow action="jump"><pft>v2002</pft></flow>
+	<call name="error">missing parameter: function</pft></call>
+	
+	<label>status</label>
+	<call name="status"><pft>v2001</pft></call>
+	<flow action="jump">END</flow>
+
+	<label>unlock</label>
+	<call name="unlock"><pft>v2001</pft></call>
+	<flow action="jump">END</flow>
+
+	<label>invert</label>
+	<call name="invert"><pft>v2001</pft></call>
+	<flow action="jump">END</flow>
+
+	<label>create</label>
+	<call name="create"><pft>v2001</pft></call>
+	<flow action="jump">END</flow>
+
+	<label>END</label>
+    <display><pft>
+        '"meta": {'
+            '"server": {',
+                '"date":"', v4^d, '",'
+                '"time":"', v4^t, '"'
+            '},'
+            '"database":"', replace(replace(v2001, '\', '\\'), '"', '\"'), '",'
+            '"function":"', v2002, '",'
+            '"unlock":"',   v2003, '",'
+            '"fst":"',      replace(replace(v2004, '\', '\\'), '"', '\"'), '",'
+            '"create":"',   v2005, '"'
+        '}'
+    </pft></display>
+    
+    <display>}</display>
+
+</section>
+
+</IsisScript>
+

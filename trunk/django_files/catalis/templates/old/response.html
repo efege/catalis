@@ -1,0 +1,72 @@
+{% load catalis_extras %}
+
+<html>
+<head>
+
+<title>Catalis/Django response</title>
+<style type="text/css">
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0.3em 0;
+    }
+    li {
+        padding: 0.5em;
+    }
+    li.odd {
+        background-color: #DDD;
+    }
+    li.even {
+        background-color: #EEE;
+    }
+</style>
+
+</head>
+
+<body>
+
+<h1>Response</h1>
+
+{% if meta.query or meta.function %}
+
+    <h2>Found {{meta.Isis_Total}} results for query: <i>{{ meta.query }}</i></h2>
+    
+    {% ifnotequal meta.Isis_Total '0' %}
+    
+        <h3>Showing first {{data|length}}</h3>
+        
+        <ol>
+            {% for rec in data %}
+                <li class="{% cycle odd,even %}">
+                    {% for field in rec.fields %}
+                        {% ifequal field.tag '245' %}
+                            {{ field.value|cleanmarc }}
+                        {% endifequal %}
+                        {% ifequal field.tag '250' %}
+                            &mdash; {{ field.value|cleanmarc }}
+                        {% endifequal %}
+                        {% ifequal field.tag '260' %}
+                            &mdash; {{ field.value|cleanmarc }}
+                        {% endifequal %}
+                        {% ifequal field.tag '300' %}
+                            &mdash; {{ field.value|cleanmarc }}
+                        {% endifequal %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ol>
+    {% endifnotequal %}
+    
+{% endif %}
+
+{% if terms %}
+    <h2>Showing {{ meta.count }} terms starting with <i>{{ meta.from }}</i></h2>
+    <pre>{{terms|pprint}}</pre>
+{% endif %}
+
+<h2>WXIS metadata</h2>
+
+<pre>{{meta|pprint}}</pre>
+
+</body>
+</html>

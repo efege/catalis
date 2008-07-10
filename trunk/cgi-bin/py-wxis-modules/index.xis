@@ -1,0 +1,122 @@
+<!-- MODIFICADO PARA USO CON PYTHON, 2008-03-04 -->
+
+<!--
+    Devuelve un rango de términos del archivo invertido.
+
+    Parameters:
+    
+        name      mandat.    default    comments
+        -----------------------------------------------------------------------------------------------
+        database    X
+        from                            Initial term.
+        to                              Last term (or first term not retrieved?)  -- CHECK THIS
+        count                           Number of terms.
+        reverse                         If 'On', the inverted file is walked backwards.
+        posting
+        posttag
+
+    Output:
+        {
+            "terms": [...list of terms...],
+            "meta":  [...list of metadata...]
+        }
+        
+    FIXME: meta server info is empty! (2008-04-16)
+-->
+
+<IsisScript name="index">
+
+<include>py-wxis-modules/_common.xis</include>
+
+<section name="index">
+
+	<display>
+		<pft>
+		    'Content-type: text/plain'##
+		</pft>
+	</display>
+	<trace>xOn</trace>
+
+	<field action="cgi" tag="2">IsisScript</field>
+	<field action="replace" tag="3"><pft>date</pft></field>
+	<field action="replace" tag="4"><pft>'^d',v3.8,'^t',v3*9.6</pft></field>
+	
+	<do task="keyrange">
+
+		<field action="cgi" tag="2001">database</field>
+		<call name="error"><pft>"missing parameter: database"n2001</pft></call>
+		<parm name="db"><pft>v2001</pft></parm>
+
+		<field action="cgi" tag="2002">from</field>
+		<parm name="from"><pft>v2002</pft></parm>
+
+		<field action="cgi" tag="2003">to</field>
+		<parm name="to"><pft>v2003</pft></parm>
+
+		<field action="cgi" tag="2004">count</field>
+		<parm name="count"><pft>v2004</pft></parm>
+
+		<field action="cgi" tag="2006">reverse</field>
+		<parm name="reverse"><pft>v2006</pft></parm>
+
+		<field action="cgi" tag="2007">posting</field>
+		<parm name="posting"><pft>v2007</pft></parm>
+
+		<field action="cgi" tag="2008">posttag</field>
+		<field action="replace" tag="2009" split="occ"><pft>replace(v2008,' ',s(#))</pft></field>
+		<field action="replace" tag="2009" split="occ"><pft>replace(s(v2009/),',',s(#))</pft></field>
+		<parm name="posttag"><pft>(v2009/)</pft></parm>
+
+		<field action="define" tag="1">Isis_Key</field>
+		<field action="define" tag="2">Isis_Postings</field>
+		<field action="define" tag="3">Isis_Posting</field>
+		<field action="define" tag="4">Isis_Current</field>
+
+		<display>{"terms": [</display>
+		<loop>
+		    <field action="import" tag="list">2004</field>
+			<display><pft>
+			    '{'
+    			    '"Isis_Key":',      '"', replace(replace(v1, '\', '\\"'), '"', '\"'), '",'  /* JSON cleaning */
+    			    '"Isis_Postings":', '"', v2, '"'
+    			    /* TO-DO: REVISAR cómo funciona Isis_Posting */
+    			    if v3 : '^' then
+    				    ','
+    				    '"Isis_Posting": {',
+    				        '"entry":', v3^i, ','
+    				        '"mfn":',   v3^m, ','
+    				        '"tag":',   v3^t, ','
+    				        '"occ":',   v3^o, ','
+    				        '"count":', v3^c,
+    				    '}'
+    				fi,
+			    '}'
+			    /*if val(v4) < val(v2004) then ',' fi*/  /* FIXME: no sale la coma si está ausente v2004 (count) */
+			    ','
+			</pft></display>
+		</loop>
+		<display>],</display>
+
+        <display><pft>
+            '"meta": {'
+                '"server": {',
+                    '"date":"', v4^d, '",'
+                    '"time":"', v4^t, '"'
+                '},'
+                '"database":"', replace(replace(v2001, '\', '\\'), '"', '\"'), '",'
+                '"from":"',     v2002, '",'
+                '"to":"',       v2003, '",'
+                '"posttag":"',  v2008, '",'
+                '"posting":"',  v2007, '",'
+                '"count":"',    v2004, '",'
+                '"reverse":"',  v2006, '"'
+            '}'
+        </pft></display>
+        
+        <display>}</display>
+	</do>
+
+</section>
+
+</IsisScript>
+

@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+
+{% block title %}Login - {{ settings.TITLE }}{% endblock %}
+
+{% block content %}
+    <script type="text/javascript">
+    // Detección del navegador
+    var isMoz = ( document.implementation && document.implementation.createDocument );
+    var isIE = window.ActiveXObject;
+    
+    function handleLoginSubmit(form) {
+        var username = form.username.value;
+        var password = form.pw.value;
+        if ( username == "" || password == "" ) { 
+            //Ext.MessageBox.alert("","Por favor, ingrese su nombre de usuario y su contraseña"); // Ext no está disponible en la pág. de login
+            alert("Por favor, ingrese su nombre de usuario y su contraseña");
+        } else {
+            form.submit();
+        }
+    };
+    
+    function init() {
+        document.getElementById("loginForm").onsubmit = function(){
+            handleLoginSubmit(this);
+            return false;
+        };
+        
+        if (window.opener !== null && document.getElementById("closeBtn")) {
+            document.getElementById("closeBtn").style.display = "block";
+            document.getElementById("closeBtn").onclick = function(){
+                window.close();
+                return false;
+            }
+        }
+        
+        document.getElementById("loginForm").username.focus();
+    };
+    
+    window.onload = init;
+    </script>
+    
+    <div id="login" align="center">
+    
+        <div style="width: 75%; background-color: brown; color: #FED; padding: 6px; /*border: 1px solid brown;*/ margin-top: 2em;">
+            <h1 style="font-size: 48px; margin-top: 2px; margin-bottom: 0px; border: 0px solid black; font-family: georgia, 'times new roman', serif;">
+                Catalis
+            </h1>
+            <h4 style="font-family: 'trebuchet ms', arial, sans-serif; font-size: 16px; font-weight: 600; border-top: 2px solid #fed; padding-top: 6px; line-height: 1.2em; margin-top: 0px; margin-bottom: 4px;">
+                Una herramienta web para crear catálogos basados en MARC&nbsp;21 y AACR2
+            </h4>
+        </div>
+    
+        <div style="width: 75%; background: brown; /*#CC6600*/ ; /*border: 1px solid #F0F0F0;*/ padding: 12px 6px; xmargin: 6px 0;">
+            
+            <form name="loginForm" id="loginForm" action="." method="post" style="margin: 0;">
+                <input type="hidden" name="debug" value="{{ settings.DEBUG|lower }}">
+                <input type="hidden" name="next" value="{{ next|escape }}" />
+                
+                <table style="color: #F0F0F0; font-size: 13px;" cellpadding="3" cellspacing="0" border="0">
+                    
+                    {% if form.errors %}
+                        <tr>
+                            <td colspan="2" style="text-align: center; /*border-bottom: 1px solid #EEE;*/">
+                                <b><i>Hubo un error en su nombre de usuario o en su contraseña.
+                                Por favor, inténtelo nuevamente.</i></b>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    
+                    <!--tr>
+                        <td rowspan="4" style="color: #FFA; font-size: 14px; text-align: left; vertical-align: top; border-right: 1px solid #EEE;">
+                            <b>ATENCION:<br> Debido a ..., el acceso a Catalis estará deshabilitado hasta ...</b>
+                            <span style="font-size: 11px;">[Fecha - hora]</span>
+                        </td>
+                    </tr-->
+                    
+                    <tr>
+                        <td style="text-align: right;">
+                            <b>Usuario:</b>
+                        </td>
+                        <td>
+                            <input type="text" id="username" name="username" value="{{ username }}" size="10" maxlength="8" style="font-family: verdana, sans-serif; font-size: 13px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align: right;">
+                            <b>Contraseña:</b>
+                        </td>
+                        <td>
+                            <input type="password" id="password" name="password" size="10" maxlength="12" style="font-family: verdana, sans-serif; font-size: 13px;">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align: right;">
+                            <b>Idioma:</b>
+                        </td>
+                        <td style="text-align: left;">
+                            <select name="lang">
+                                <option value="en" {% ifequal lang 'en' %}selected="selected"{% endifequal %}>English (translation in progress)</option>
+                                <option value="es" {% ifequal lang 'es' %}selected="selected"{% endifequal %}>Español</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" class="marcEditButton" style="height:2.2em; padding: 0 1em;" value="Entrar">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        
+        <div id="mensaje" style="display: none;">
+            <h3>Bienvenidos al demo de la versión en desarrollo de Catalis.</h3>
+            
+            <p>Estos son los datos necesarios para ingresar: usuario <b>xx</b>, contraseña <b>test</b>. </p>
+            
+            <p>ATENCION: si ya visitó este demo antes, <b>recuerde vaciar el cache del navegador</b> antes de volver a ingresar. También
+            se recomienda <b>eliminar las cookies</b> que almacene en su navegador asociadas al dominio catalis.uns.edu.ar. Estas medidas son
+            para evitar que acceda a una versión antigua de alguno de los archivos de la aplicación.</p>
+            
+            <p>Actualmente, la prioridad es terminar de reimplementar la funcionalidad que ya estaba presente en la versión 2005.06.09,
+            para que funcione correctamente en Firefox; luego habrá que corregir algunos detalles que traen problemas en Internet Explorer.
+            Por lo tanto, se agradece todo tipo de <b>testeo en diferentes versiones de navegadores de la familia Mozilla</b> (Firefox, SeaMonkey),
+            y sobre cualquier plataforma Linux o Windows (o incluso Mac, si alguien tiene una a mano).</p>
+            
+            <p>Para la mayor parte de la funcionalidad, la referencia es la <a href="http://inmabb.criba.edu.ar/catalis/catalis.php?p=demo" target="_blank" title="Demo de Catalis 2005.06.09">versión 2005.06.09</a>
+            sobre IE6 en Windows. Un cambio a tener en cuenta es que, para seleccionar una plantilla al crear un nuevo registro,
+            ahora se utiliza un <i>menú</i>, en lugar de un diálogo.<p>
+            
+            <p>La funcionalidad nueva incluye:</p>
+            <ul>
+                <li>Ajuste automático de la interfaz a ventanas de diferentes tamaños.</li>
+                <li>Organización de la interfaz en solapas (pestañas, <i>tabs</i>), con la posibilidad de acceder a sitios web externos, p.ej. Library of Congress.</li>
+                <li>Un nuevo mecanismo que permite importar registros de LC de manera más simple.</li>
+                <li><i>Splitbars</i> para modificar el tamaño de los paneles.</li>
+                <li>Interfaz en más de un idioma.</li>
+                <li>Botón para imprimir listas de registros.</li>
+                <li>Listado de búsquedas realizadas durante la sesión actual.</li>
+                <li>Tabla para insertar caracteres especiales (símbolos y letras con diacríticos).</li>
+                <li>Una nueva barra de paginación para recorrer las listas de resultados.</li>
+                <li>Ajuste de la interfaz a cambios en el tamaño del texto (en Firefox, y con algunas reservas por ahora).</li>
+            </ul>
+            
+            <p>Los colores están a medio camino entre los de la versión original de Catalis, y estos que provee <a href="http://extjs.com/" target="_blank">Ext JS</a>, el <i>framework</i> utilizado
+            para desarrollar la nueva versión. Podemos hacer el esfuerzo de adaptar cada elemento de la interfaz a los viejos colores que
+            tan familiares nos resultan, o bien podemos migrar de manera completa a esta nueva gama. ¿Qué prefieren?</p>
+            
+            <p>¡Gracias por colaborar con el testeo!</p>
+            
+            <p style="margin-top: 2em; font-style: italic;">Fernando Gómez, 10 de noviembre de 2007</p>
+        </div>
+    </div>
+    
+    <!--div id="news" align="center">
+        <div style="border: 1px solid brown; width: 75%; background: brown; color: #FED; text-align: center; padding: 0.2em; font-size: 17px; font-weight: 600; margin-top: 10px;">
+            Novedades
+        </div>
+        <iframe src="[pft]v6003^h[/pft]catalis/html/news.htm" frameborder="0" style="width: 75%; height: 280px; border: 1px solid #999;"></iframe>
+    </div-->
+    
+    
+    <div align="center" style="margin-top: 1em;">
+        <button class="marcEditButton" id="closeBtn" style="display: none; height: 2.2em;" accesskey="C">&nbsp;<u>C</u>errar esta ventana&nbsp;</button>
+    </div>
+{% endblock %}

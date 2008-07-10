@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<marc21_authority>
+
+    <datafield tag="100" repet="NR" label-spa="Nombre personal" label-eng="Heading -- Personal name" template="">
+        <indicator pos="1" label-eng="Type of personal name entry element" label-spa="">
+            <i value="0" label-eng="Forename" label-spa="" />
+            <i value="1" label-eng="Surname" label-spa="" />
+            <i value="3" label-eng="Family name" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="Undefined" label-spa="" >
+            <i value="#" label-eng="Undefined" label-spa="" />
+        </indicator>
+        <subfield code="a" repet="NR" lite="lite" label-spa="Nombre personal"    label-eng="Personal name" oblig="ALL" />
+        <subfield code="b" repet="NR" lite="lite" label-spa="Numeración" label-eng="Numeration" />
+        <subfield code="c" repet="R"  lite="lite" label-spa="Títulos, etc." label-eng="Titles, etc." />
+        <subfield code="d" repet="NR" lite="lite" label-spa="Fechas" label-eng="Dates" />
+        <subfield code="e" repet="R"  lite="lite" label-spa="Relación (término)" label-eng="Relator term" />
+        <subfield code="f" repet="NR"             label-spa="Fecha de una obra"    label-eng="Date of a work" />
+        <subfield code="g" repet="NR"             label-spa="Información miscelánea" label-eng="Miscellaneous information" />
+        <subfield code="h" repet="NR"             label-spa="" label-eng="Medium" />
+        <subfield code="j" repet="R"              label-spa="Calificador de atrib." label-eng="Attribution qualifier" />
+        <subfield code="k" repet="R"              label-spa="Subencab. de forma" label-eng="Form subheading" />
+        <subfield code="l" repet="NR"             label-spa="Idioma" label-eng="Language of a work" />
+        <subfield code="m" repet="R"              label-spa="" label-eng="Medium of performance for music" />
+        <subfield code="n" repet="R"              label-spa="Número de parte" label-eng="Number of part/section of a work" />
+        <subfield code="o" repet="NR"             label-spa="" label-eng="Arranged statement for music" />
+        <subfield code="p" repet="R"              label-spa="Nombre de parte" label-eng="Name of part/section of a work" />
+        <subfield code="q" repet="NR" lite="lite" label-spa="Nombre completo" label-eng="Fuller form of name" />
+        <subfield code="t" repet="NR"             label-spa="Título de una obra" label-eng="Title of a work" />
+        <subfield code="u" repet="NR" lite="lite" label-spa="Afiliación" label-eng="Affiliation" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+    <datafield tag="" repet="" label-spa="" label-eng="" template="">
+        <indicator pos="1" label-eng="" label-spa="">
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <indicator pos="2" label-eng="" label-spa="" >
+            <i value="" label-eng="" label-spa="" />
+        </indicator>
+        <subfield code="" repet="" label-eng="" label-spa="" />
+    </datafield>
+
+</marc21_authority>

@@ -1,0 +1,80 @@
+<!--
+    Applies the built-in mechanism for extracting keys to some input data.
+    Used to clean a user query, before constructing the final search expression for WXIS.
+    
+    Parameters:
+        - data
+        - tech (default: 4)
+        - stw
+        - actab
+        - uctab
+-->
+
+<IsisScript name="extract">
+
+<include>py-wxis-modules/_common.xis</include>
+
+<section name="extract">
+
+	<display>
+		<pft>
+		    'Content-type: text/plain'##
+		</pft>
+	</display>
+	<trace>xOn</trace>
+	
+	<field action="cgi" tag="2">IsisScript</field>
+	<field action="replace" tag="3"><pft>date</pft></field>
+	<field action="replace" tag="4"><pft>'^d',v3.8,'^t',v3*9.6</pft></field>
+	
+    <do>
+        <parm name="count">1</parm>
+      
+        <field action="cgi" tag="3001">data</field>
+      
+        <field action="cgi" tag="3002">tech</field>
+        <field action="replace" tag="3002"><pft>"4"n3002</pft></field> <!-- default technique: 4 (each word is a key) -->
+        <parm name="fst"><pft>'1 ', v3002,' v3001'</pft></parm>
+      
+        <field action="cgi" tag="3003">stw</field>
+        <parm name="stw"><pft>cat(v3003)</pft></parm>
+      
+        <field action="cgi" tag="3004">actab</field>
+        <parm name="actab"><pft>cat(v3004)</pft></parm>
+      
+        <field action="cgi" tag="3005">uctab</field>
+        <parm name="uctab"><pft>cat(v3005)</pft></parm>
+      
+        <loop>
+            <field action="import" tag="list">3001</field>
+            <extract>this</extract>
+            <display><pft>
+                '{'
+                '"terms":['
+                    (
+                        '"', replace(replace(v1^*, '\', '\\'), '"', '\"'), '"'  /* escaping for JSON strings */
+                        if iocc < nocc(v1) then ',' fi
+                    )
+                ']'
+                ','
+            </pft></display>
+        </loop>
+    </do>
+    <display><pft>
+        '"meta": {'
+            '"server": {',
+                '"date":"', v4^d, '",'
+                '"time":"', v4^t, '"'
+            '},'
+            '"database":"',   replace(replace(v2001, '\', '\\'), '"', '\"'), '",'
+            '"data":"',       replace(replace(v3001, '\', '\\'), '"', '\"'), '",'
+            '"tech":"',       v3002, '",'
+            '"stw":"',        replace(replace(v3003, '\', '\\'), '"', '\"'), '",'
+            '"actab":"',      replace(replace(v3004, '\', '\\'), '"', '\"'), '",'
+            '"uctab":"',      replace(replace(v3005, '\', '\\'), '"', '\"'), '"'
+        '}'
+        '}'
+    </pft></display>
+    
+</section>
+</IsisScript>

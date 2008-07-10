@@ -1,0 +1,77 @@
+{% if settings.DEBUG %}
+
+    {# Uncompressed JS for debugging #}
+    
+    <!-- Ext -->
+    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Ext JS...';</script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/ext-all-debug.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/source/locale/ext-lang-{{lang}}.js"></script>
+    
+    <!-- Modifications and additions to Ext -->
+    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Ext JS additions...';</script>
+    <!--script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ext-overrides.js"></script-->
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/SelectBox.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/IFrameComponent.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/Wiz/CardLayout.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/Wiz/Wizard.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/Wiz/Header.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext.ux/Wiz/Card.js"></script>
+    
+    <!-- Application config -->
+    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Config...';</script>
+    <script type="text/javascript" src="/catalis/config.js?lang={{lang}}"></script>
+    
+    <!-- Application code -->
+    <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Catalis code...';</script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/Catalis.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/MarcRecord.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/util/MARC21.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/util/AACR2.js"></script>
+
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ListBrowser.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/SearchForm.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ResultsToolbar.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/SearchHistory.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DetailPanel.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DictionaryBrowser.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DatabaseAdminPanel.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DatabasePanel.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/SaveRecordsWizard.js"></script>
+    
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/RecordEditor.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DataFieldsPanel.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DataField.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/Indicators.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/Subfield.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/SubfieldBox.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ControlFieldsPanel.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/LocalDataPanel.js"></script>
+    
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/DocPanel.js"></script>
+    
+    <!--script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/marc2marcTagged.js"></script-->
+    <!--script type="text/javascript" src="{{ settings.MEDIA_URL }}common/js/marc2aacr.js"></script-->
+    
+    <!-- Language dependent texts -->
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/catalis-lang-{{lang}}.js"></script>
+
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/test.js"></script>
+    
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/firebug/firebug.js"></script>
+    
+{% else %}
+
+    {# Compressed JS for production #}
+    
+    <!--script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/extjs/ext-base.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/extjs/ext-all.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/extjs/source/locale/ext-lang-{{ lang2 }}.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ext-overrides.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/ext-SelectBox.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/lang/lang-{{ lang }}.js"></script>
+    <script type="text/javascript" src="/catalis/config.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/BaseExtensions.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/catalis-all-min.js"></script-->
+    
+{% endif %}
