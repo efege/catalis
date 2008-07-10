@@ -2,6 +2,10 @@ La presente versión de desarrollo de Catalis es software libre / open source,
 y se distribuye de acuerdo con los términos de la siguiente licencia
 (llamada a veces, aunque con poca precisión, "The MIT License").
 
+The present development version of Catalis is free/open source software,
+and is distributed under the terms of the following license (sometimes
+called, though not very accurately, "The MIT License").
+
 
 
 Copyright (c) 2003-2008 Fernando J. Gómez, CONICET, and Instituto de

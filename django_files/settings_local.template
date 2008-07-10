@@ -3,8 +3,8 @@
 # settings defined in settings.py.
 
 # used for the LC proxy
-PROXY_HOST = 'proxy.uns.edu.ar'
-PROXY_PORT = 1280
+#PROXY_HOST = ''
+#PROXY_PORT = 
 
 # Host, port and path to access wxis via HTTP.
 WXIS_HOST = '127.0.0.1'
