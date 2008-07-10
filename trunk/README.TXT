@@ -1,6 +1,7 @@
 Esta es una versión de desarrollo de Catalis.
+This is a development version of Catalis.
 
-Para información actualizada, visite http://...
+Para instrucciones e información actualizada, visite http://code.google.com/p/catalis/
+For instructions and up-to-date information, visit http://code.google.com/p/catalis/
 
-Instrucciones para la instalación: http://catalis.uns.edu.ar/doku/doku.php/instalacion_de_catalis_con_django
 
