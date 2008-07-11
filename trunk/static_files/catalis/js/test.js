@@ -109,7 +109,9 @@ function getAllItems(dbList) {
             title: dbList[i].name
         });
         panels.push(dp);
-        dp.listPanel.showNewRecords();
+        dp.on("render", function(){  // otherwise we get errors for referencing non-rendered components
+            this.listPanel.showNewRecords();
+        });
         //dp.dictPanel.load();
     }
     var docPanel = new Catalis.DocPanel({
@@ -129,7 +131,7 @@ function getAllItems(dbList) {
     var items = [{
         xtype: 'toolbar',
         region: 'north',
-        items: ['<b>Catalis [Ext & Django]</b>', ' ', ' ', '-', {
+        items: ['<b>Catalis</b>', ' ', ' ', '-', {
             text: 'Nuevo'
             ,handler: function() {Ext.Msg.alert('', 'Nuevo registro')}
         }, '-', {

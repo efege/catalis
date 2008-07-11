@@ -450,7 +450,9 @@ Catalis.ListBrowser = Ext.extend(Ext.Panel, {
         
         // Disable / enable some elements
         // TO-DO: use public methods of resultsToolbar?
-        // FIXME -- throws error (this.resultsToolbar.saveBtn has no properties) when using Catalis inside an Ext.Window
+        // FIXME -- throws error "this.resultsToolbar.saveBtn has no properties" when toolbar has not been rendered
+        // (e.g. inside a hidden Ext.Window or tab). To fix this, the list should not be loaded until the container
+        // has been rendered.
         this.resultsToolbar.printBtn.setDisabled(totalCount == 0 || action != 'search');
         this.resultsToolbar.saveBtn.setDisabled(totalCount == 0 || action != 'search');
         this.resultsToolbar.sortByBtn.setDisabled(totalCount < 2 || action != 'search');
