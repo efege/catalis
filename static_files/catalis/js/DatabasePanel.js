@@ -49,7 +49,7 @@ Catalis.DatabasePanel = Ext.extend(Ext.Panel, {
                                 })
                             }
                             ,scope: this
-                            ,interval: 30000  // milliseconds between refreshes
+                            ,interval: 60000 * 100  // milliseconds between refreshes
                             ,nocache: true
                         });
                     }
@@ -140,7 +140,7 @@ Catalis.DatabasePanel = Ext.extend(Ext.Panel, {
     
     // Register event handlers for inter-component communication
     initEvents: function() {
-        // call the superclass's initEvents implementation
+        // Call the superclass's initEvents implementation
         Catalis.DatabasePanel.superclass.initEvents.call(this);
         
         // Events in the ListPanel

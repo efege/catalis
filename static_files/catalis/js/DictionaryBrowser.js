@@ -243,7 +243,9 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
         );
         
         if (this.initialTerm) {
-            this.loadData(this.initialTerm);
+            this.on('render', function(){
+                this.loadData(this.initialTerm);
+            });
         }
     },  // end of initComponent
     
