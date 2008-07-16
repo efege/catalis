@@ -153,7 +153,8 @@ function getAllItems(dbList) {
         region: 'center',
         border: false,
         items: panels,
-        activeTab: 0
+        activeTab: 0,
+        plugins: new Ext.ux.TabCloseMenu()  // FIXME -- add appropriate behavior
     }]
     
     return items;
