@@ -1,7 +1,6 @@
 ﻿/**
  * DatabasePanel
  *
- * TO-DO: contextual menu for the tab (here or at the TabPanel level?)
  */
 
 Catalis.DatabasePanel = Ext.extend(Ext.Panel, {
