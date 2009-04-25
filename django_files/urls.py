@@ -1,3 +1,5 @@
+# coding: utf-8
+
 '''
 URLconfs for Catalis
 '''
@@ -6,6 +8,16 @@ from django.conf.urls.defaults import *
 from django.contrib.auth.views import login, logout
 from django.conf import settings
 from catalis import views
+
+# The next two lines enable the admin and load each admin.py file:
+from django.contrib import admin
+admin.autodiscover()
+
+
+# TO-DO (2008-12-11):
+# Why are we using a common prefix "catalis" for all URLs?
+# We could assume that a virtual host has been set up just for Catalis, and so
+# all URLs are implicitly associated with Catalis. 
 
 urlpatterns = patterns('',
     # Example:
@@ -55,8 +67,8 @@ urlpatterns = patterns('',
     # (r'^(?P<db_name>[^/]+)/(?P<function>search)/(?P<query>.+)/$', views.handle_db_access),
 
 
-    # Enable access to the Admin UI:
-    (r'^catalis/admin/', include('django.contrib.admin.urls')),
+    # Enable access to the Admin UI
+    (r'^catalis/admin/(.*)', admin.site.root),
     
     # User login & logout    
     (r'^catalis/accounts/login/$', login),

@@ -44,8 +44,8 @@
 		    (,
 		        if val(v20001.5) < val(v10000[1]) then
     	            '{'
-    	                '"tag":"',   f(val(v20001.5), 1, 0), '",'
-    	                '"value":"', v20001*6,               '"'
+    	                '"tag" : "',   f(val(v20001.5), 1, 0), '",'
+    	                '"value" : u"', v20001*6,               '"'    /* Generate unicode strings for Python */
     	            '}'
     	            /* FIXME: Skipping the last trailing comma is tricky because not all fields are being displayed! */
     	            if iocc < nocc(v20001) then ',' fi

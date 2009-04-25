@@ -1,8 +1,10 @@
 /**
  * DictionaryBrowser
  *
+ * Doc: http://catalis.uns.edu.ar/doku/doku.php/notas/catalis-con-ext#dictionarybrowser
+ *
  * TO-DO: 
- *        Control style of terms: lowercase vs uppercase vs capitalized, bold vs normal
+ *        Control style of terms (CSS): lowercase vs uppercase vs capitalized; bold vs normal
  *        FIXME -- show '3' => shows 4
  *        FIXME -- terms with quotes, e.g. http://127.0.0.1:8000/db/bibima/?action=index&start=~ADVANCED%20RESEARCH%20WORKSHOP%20%22NEW%20TRENDS%20IN%20INTEGRABILITY%20AND!&limit=20&xhr=1
  *        FIXME -- Use of special characters, e.g. ~DAIS¯U, KIKA.
@@ -10,7 +12,9 @@
  *                                                 ~ICME~(8º :~1996 :~SEVILLA, ESPANA).~TG-11.
  *                 This affects retrieval as well as browsing.
  *
- *        FIXME -- paging toolbar: "prev" in first page (empty list); "last" does not go to the last page; "next" in last page (error)
+ *        FIXME -- paging toolbar: "prev" in first page (empty list);
+ *                                 "last" does not go to the last page;
+ *                                 "next" in last page (error)
  *
  * Prefixes: biblio vs auto. 
  */
@@ -49,7 +53,7 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
     
         // FIXME -- the prefixes depend on this.type
         // TO-DO: how to easily add extra prefixes when the FST changes?
-        this.prefixes = [
+        this.prefixes = this.prefixes || [
             ['-F=', this.text.prefixPubDate]
             ,['-INV=', this.text.prefixAccessionNo]
             ,['-LANG=', this.text.prefixLanguage]
@@ -66,6 +70,7 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
             baseParams: {
                 action: 'index'
                 ,limit: this.pageSize
+                ,borders: 'On' 
             },
             reader: new Ext.data.JsonReader({
                 root: 'terms',
@@ -171,12 +176,16 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
                
                this.afterTextEl.el.innerHTML = String.format(this.afterPageText, d.pages);
                this.field.dom.value = ap;
+               var prevTerm = store.reader.jsonData.meta.prev;
+               var nextTerm = store.reader.jsonData.meta.next;
                //this.first.setDisabled(ap == 1);
                //this.prev.setDisabled(ap == 1);
-               this.first.setDisabled(false);  // impedimos que quede deshabilitado (para salir del paso nomás -- FIXME)
-               this.prev.setDisabled(false);   // ídem - FIXME
-               this.next.setDisabled(ap == ps);
-               this.last.setDisabled(ap == ps);
+               this.first.setDisabled(prevTerm == 'false');  // impedimos que quede deshabilitado (para salir del paso nomás -- FIXME)
+               this.prev.setDisabled(prevTerm == 'false');   // ídem - FIXME
+               //this.next.setDisabled(ap == ps);
+               //this.last.setDisabled(ap == ps);
+               this.next.setDisabled(nextTerm == 'false');
+               this.last.setDisabled(nextTerm == 'false');
                this.loading.enable();
                this.updateInfo();
             },
@@ -201,7 +210,7 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
                         //var extra = total % this.pageSize;
                         //var lastStart = extra ? (total - extra) : total-this.pageSize;
                         //this.doLoad(lastStart);  // CHANGE: start: ?, reverse: 1
-                        this.doLoad('~~~~~~~~~~', true);
+                        this.doLoad('\xFE\xFE', true);  // '\xFE' = 'þ' = Latin Small Letter Thorn
                     break;
                     case "refresh":
                         this.doLoad(this.cursor); // we don't need this one
@@ -223,7 +232,7 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
         });
     
         Ext.apply(this, {
-            title: this.text.panelTitle
+            title: this.title || this.text.panelTitle
             ,autoScroll: true
             ,tbar: this.toolbar
             ,items: [this.view]
@@ -249,17 +258,19 @@ Catalis.DictionaryBrowser = Ext.extend(Ext.Panel, {
         }
     },  // end of initComponent
     
+    // Useful if rendered as child of a TabPanel
     initEvents: function() {
         this.on('activate', function(){
             this.textfield.focus();
         })
     },
     
+    
     /**
-     * Loads a list of terms
+     * Loads a list of terms.
      */
     loadData: function(term) {
-        var term = term || '!'; 
+        var term = term || '!';   // default term: the first one in the dictionary
         this.store.load({params: {
             start: term
             //,limit: this.pageSize

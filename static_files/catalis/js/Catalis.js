@@ -3,7 +3,7 @@ Ext.ns('Catalis', 'Catalis.util');
 
 Ext.QuickTips.init();
 
-Ext.BLANK_IMAGE_URL = Config.HTDOCS + "ext-2.1/resources/images/default/s.gif";
+Ext.BLANK_IMAGE_URL = Config.HTDOCS + "ext-2.2/resources/images/default/s.gif";
 
 // TO-DO: state manager
 

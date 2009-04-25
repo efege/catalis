@@ -4,9 +4,9 @@
     
     <!-- Ext -->
     <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Ext JS...';</script>
-    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/adapter/ext/ext-base.js"></script>
-    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/ext-all-debug.js"></script>
-    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.1/source/locale/ext-lang-{{lang}}.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.2/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.2/ext-all-debug.js"></script>
+    <script type="text/javascript" src="{{ settings.MEDIA_URL }}ext-2.2/source/locale/ext-lang-{{lang}}.js"></script>
     
     <!-- Modifications and additions to Ext -->
     <script type="text/javascript">document.getElementById('loading-msg').innerHTML = 'Loading Ext JS additions...';</script>
@@ -57,8 +57,11 @@
     <!-- Language dependent texts -->
     <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/locale/catalis-lang-{{lang}}.js"></script>
 
+    <!-- For testing individual components -->
     <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/test.js"></script>
     
+    <!-- Firebug console for IE -->
+    <!-- FIXME - See http://remysharp.com/2007/03/13/firebug-in-ie-for-any-web-site/ -->
     <script type="text/javascript" src="{{ settings.MEDIA_URL }}catalis/js/firebug/firebug.js"></script>
     
 {% else %}

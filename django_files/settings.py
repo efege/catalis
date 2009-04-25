@@ -25,7 +25,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'ado_mssql'.
-DATABASE_NAME = os.path.join(CATALIS_DIR, 'bases/sql/catalis.sqlite')   # Or path to database file if using sqlite3.
+DATABASE_NAME = os.path.join(CATALIS_DIR, 'data/sql/catalis.sqlite')   # Or path to database file if using sqlite3.
 DATABASE_USER = ''             # Not used with sqlite3.
 DATABASE_PASSWORD = ''         # Not used with sqlite3.
 DATABASE_HOST = ''             # Set to empty string for localhost. Not used with sqlite3.
@@ -101,13 +101,14 @@ INSTALLED_APPS = (
 
 AUTH_PROFILE_MODULE = 'catalis.UserProfile'
 
+LOGIN_URL = '/catalis/accounts/login/' 
+
 
 # ---------------------------------------------------------------------
 # Catalis settings (non-Django)
 # TO-DO: copy more settings from catalis.conf
 # TO-DO: move these settings to another file and import it
 # ---------------------------------------------------------------------
-CATALIS_LOGIN_URL = '/catalis/accounts/login/' 
 TITLE = 'Catalis 2008'
 DEFAULT_LANGUAGE = 'es'
 LOADING_MESSAGE_es = 'Cargando Catalis...'
@@ -156,7 +157,7 @@ WXIS_MODULES_DIR = 'py-wxis-modules'
 
 
 # Path to the isis databases (used in models.py)
-PATH_ISIS_DB = os.path.join(CATALIS_DIR, 'bases/isis')
+PATH_ISIS_DB = os.path.join(CATALIS_DIR, 'data/isis')
 
 
 # Import local settings that override some of the settings in this file

@@ -100,7 +100,7 @@ Catalis.SearchForm = Ext.extend(Ext.Toolbar, {
 /**
  * The history combo is not working as expected. We'll use a SearchField,
  * and a separate panel for the search history.
- * (Ext.app.SearchField, from ext-2.1/examples/form/SearchField.js)
+ * (Ext.app.SearchField, from ext-2.2/examples/form/SearchField.js)
  *
  * NOTE: the two handlers assumed originally the existence of a data store.
  */

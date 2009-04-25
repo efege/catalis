@@ -1,3 +1,5 @@
+# coding=utf-8
+
 '''
 View functions for Catalis.
 Started on 2008-04-14
@@ -53,8 +55,8 @@ def _build_wxis_params(params, db):
 
     action = params['action']
     
-    # this is relevant only for 'search' and 'mfnrange'
-    if 'start' in params and params['start'].isdigit():   # 'start' is also used to browse the index
+    # this is relevant only for 'search' and 'do_list'
+    if 'start' in params and params['start'].isdigit() and action in ('search', 'do_list'):   # 'start' is also used to browse the index
         params['start'] = int(params['start']) + 1  # FIMXE -- This is related to ExtJS. Should it be in another place?
         
     if 'limit' in params:
@@ -90,7 +92,7 @@ def _build_wxis_params(params, db):
             # "linear algebra" (title) => "linear/(9204) AND algebra/(9204)"
             suffixes = {'title': '9204', 'name': '9104', 'subj': '9604', 'note': '9504'}
             bool_op = ' AND '
-            params['original_query'] = params['query']
+            #params['original_query'] = params['query']  WARNING: if we need to use this param, then *don't* send it to wxis, to avoid an extra encoding problem
             query_terms = params['query'].split()
             if params['query_type'] == 'free':
                 params['query_type'] = 'any'  # FIXME
@@ -236,21 +238,14 @@ def _transform_output(result, format):
     return new_result
 
 
-# Define a custom decorator
-# This is a provisional trick that allows providing a custom login_url (since the LOGIN_URL setting is only available in Django svn)
-# Thanks to http://groups.google.com/group/django-es/browse_thread/thread/38a1127aa77e121f
-from django.contrib.auth.decorators import user_passes_test
-catalis_login_required = user_passes_test(lambda u: u.is_authenticated(), login_url=settings.CATALIS_LOGIN_URL) 
-
-
-@catalis_login_required
+@login_required
 def ui(request):
     '''Returns the HTML for the Catalis UI.'''
     lang = 'lang' in request.GET and request.GET['lang'] or settings.DEFAULT_LANGUAGE
     return render_to_response('catalis-ui.html', {'settings': settings, 'lang': lang})
 
 
-@catalis_login_required
+@login_required
 def js_config(request):
     '''Returns a JavaScript file with configuration settings.'''
     lang = 'lang' in request.GET and request.GET['lang'] or settings.DEFAULT_LANGUAGE
@@ -261,7 +256,7 @@ def js_config(request):
         context_instance=RequestContext(request))
 
 
-@catalis_login_required
+@login_required
 def handle_db_access(request, db_name, **params):
     '''
     A single function to handle access to the underlying Isis database.
@@ -282,24 +277,43 @@ def handle_db_access(request, db_name, **params):
 
     # TO-DO: if action == 'write' and request.method == 'POST': handle content
     
-    # Get the method we want to invoke. The 'action' parameter has been already validated by the URLconf.
+    # Get the method we want to invoke. The 'action' parameter has been already
+    # validated by the URLconf.
     db_method = getattr(db, params['action'])
     
     # Get the database response as a dictionary
-    # TO-DO: if action == 'search', use result caching. We need to generate a unique key for every
-    # search.
+    # TO-DO: if action == 'search', use result caching. We need to generate a
+    # unique key for every search.
     # if action == 'search':
     #     cache_key = <database + query|escaped + sortby> 
     #     result = cache.get(cache_key)
     #     if not result:
     #        result = db_method(**params)
     #        cache.set(cache_key, result)
+    
+    # FIXME -- por cambio de 0.96 a 1.0, relacionado con Unicode. (2008-12-11)
+    # La línea: result = db_method(**params)
+    # Error: TypeError. index() keywords must be strings  (index es un caso particular de db_method)
+    # Valor actual (da error): params = {u'action': u'index', 'count': u'20', u'start': u'io', u'xhr': u'1'}
+    # Valor esperado (testeado, no da error): params = {'action': u'index', 'count': u'20', 'start': u'io', 'xhr': u'1'}
+    
+    # Usamos este fix ad hoc, basado en
+    # http://groups.google.com/group/alchemist-dev/browse_thread/thread/b4c60370dfd72494/4272b43b9439b8a0?#4272b43b9439b8a0
+    def str_dict_keys(d):
+        "Converts to strings all the keys in dictionary d."
+        tmp={}
+        for (k, v) in d.items():
+            tmp[str(k)] = v
+        return tmp
+    params = str_dict_keys(params)
+    
     result = db_method(**params)
     
-    # We have the raw data from the database, and now we must decide which portions of that
-    # data will be sent to the client. For example, the client does not always need the full records;
-    # a brief version may be enough, especially when there are many records involved.
-    # Therefore, we need some criteria to decide which extra manipulations are needed before returning
+    # We have the raw data from the database, and now we must decide which
+    # portions of that data will be sent to the client. For example, the client
+    # does not always need the full records; a brief version may be enough,
+    # especially when there are many records involved. Therefore, we need some
+    # criteria to decide which extra manipulations are needed before returning
     # the response.
     
     if params['action'] in ('get_record', 'edit_record', 'search', 'do_list'):
@@ -329,7 +343,7 @@ def handle_db_access(request, db_name, **params):
     # TO-DO: add other ouput formats: marcxml, mrc, mods, rss?, zipped?
     
 
-@catalis_login_required
+@login_required
 def js_error(request):
     '''
     Processes a JS error report, sending an email and logging the report.
@@ -337,7 +351,11 @@ def js_error(request):
     pass
     
 # Test pages
-#def test_pages(request, page):
-#    lang = 'lang' in request.GET and request.GET['lang'] or 'es'
-#    return direct_to_template(request, template="test/%s.html" % page, extra_context={'settings': settings, 'lang': lang})
+def test_pages(request, page):
+    lang = 'lang' in request.GET and request.GET['lang'] or 'es'
+    return direct_to_template(
+        request,
+        template="test/%s.html" % page,
+        extra_context={'settings': settings, 'lang': lang}
+    )
     

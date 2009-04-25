@@ -23,7 +23,8 @@ class MarcRecord():
     # Regular expressions
     re_selector = re.compile(r'(\d{1,3})(?:[_\$\^](\w))?')
     re_vselector = re.compile(r'v(\d{1,3})(?:[_\$\^](\w))?')
-    re_subfield_code = re.compile(r'\^\w')   # this must use the same subfield symbol used in the data (e.g. "^" in isis)
+    re_first_subfield_code = re.compile(r'^\^\w')   # this r.e. must use the same subfield symbol used in the data (e.g. "^" in isis)
+    re_any_subfield_code = re.compile(r'\^\w')
     re_indicators = re.compile(r'^[^\^]+(?=\^)')  # idem
     re_num_subfield = re.compile(r'\^\d[^\^]*')  # idem
     re_titleslash = re.compile(r' +/ *$')  # matches the "space-slash" preceding a statement of responsibility
@@ -187,7 +188,8 @@ class MarcRecord():
         '''
         data = re.sub(self.re_indicators , '', data)
         data = re.sub(self.re_num_subfield, '', data)
-        data = re.sub(self.re_subfield_code, ' ', data)  # FIXME: leaves an extra initial space when data begins with "^"
+        data = re.sub(self.re_first_subfield_code, '', data)  # FIXME: leaves an extra initial space when data begins with "^"
+        data = re.sub(self.re_any_subfield_code, ' ', data)
         return data
 
 
@@ -201,7 +203,9 @@ class MarcRecord():
 
     @property
     def title(self):
-        ti = '%s %s' % (self.v245_a, self.v245_b)
+        ti = self.v245_a
+        if self.v245_b:
+            ti = '%s %s' % (ti, self.v245_b)  # space is conditioned to the presence of 245$b
         return re.sub(self.re_titleslash, '', ti)
 
     @property
@@ -224,9 +228,9 @@ class MarcRecord():
     def isbn(self):
         isbns = self.v020_a   # NOTE: "020" is not allowed (unless we modify the code)
         if isinstance(isbns, list):  # TO-DO: replace this test by one not requiring the specific type "list"
-            return isbns[0]
+            return isbns[0][:10]
         else:
-            return isbns
+            return isbns[:10]
 
     @property
     def type(self):
@@ -253,3 +257,61 @@ class MarcRecord():
         else:
         	type = ''
         return type
+
+
+#######################################################
+# TESTS
+#######################################################
+
+__test__ = {
+
+    'test_record' : r"""
+        >>> rec = MarcRecord([
+        ...     {'tag': '001', 'value': u'000023'},
+        ...     {'tag': '020', 'value': u'##^a0123456789 (pbk.)'},
+        ...     {'tag': '100', 'value': u'1#^aPeters, John,^d1934-'},
+        ...     {'tag': '245', 'value': u'#0^aModern algebra :^ban introduction /^cby John Peters, Peter Jones, and Susan Smith.'},
+        ...     {'tag': '260', 'value': u'##^aBoston :^bMIT Press,^c1978.'},
+        ...     {'tag': '300', 'value': u'##^a256 p. :^bil. ;^c23 cm.'},
+        ...     {'tag': '504', 'value': u'##^aIncluye referencias bibliogr\xe1ficas.'},
+        ...     {'tag': '700', 'value': u'1#^aJones, Peter.'},
+        ...     {'tag': '700', 'value': u'1#^aSmith, Susan.'},
+        ... ])
+        
+        >>> rec.id
+        u'000023'
+        
+        >>> rec.title
+        u'Modern algebra : an introduction'
+        
+        >>> rec.isbn
+        u'0123456789'
+        
+        >>> rec['020'] == rec.v020 == rec.v('020') == u'##^a0123456789 (pbk.)'
+        True
+        
+        >>> rec['020_a'] == rec.v020_a == rec.v('020_a') == u'0123456789 (pbk.)'
+        True
+        
+        >>> rec.responsibility
+        u'by John Peters, Peter Jones, and Susan Smith.'
+        
+        >>> rec.edition
+        ''
+        
+        >>> rec.main_entry
+        u'Peters, John, 1934-'
+        
+        >>> rec.v504_a
+        u'Incluye referencias bibliogr\xe1ficas.'
+        
+        >>> rec.v700
+        [u'1#^aJones, Peter.', u'1#^aSmith, Susan.']
+            
+    """
+}
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+    
