@@ -1,4 +1,11 @@
-// Code to test individual components
+/**
+ * Code to test individual UI components.
+ *
+ * TO-DO:
+ *   - allow component selection through URL parameter
+ *   - display some data and/or documentation associated to each component
+ */
+
 
 // ------------------------------------------------------
 // List Panel
@@ -49,7 +56,7 @@ function test_dictPanel(db) {
             ['-F=', 'Pub. date'],
             ['-ST=', 'Call number']
         ]
-        ,initialTerm: 'a'
+        ,initialTerm: 't'
     });
     panel.render(document.body);
 }
@@ -275,14 +282,19 @@ function test_controlFieldsPanel() {
 }
 
 
-Ext.onReady(function(){
-    
+function removeLoadingMask() {
     // Remove loading mask
     // From: http://extjs.com/deploy/ext-2.0-alpha1/docs/resources/docs.js
     setTimeout(function(){
         Ext.fly('loading').remove();
         Ext.fly('loading-mask').fadeOut({remove:true});
     }, 500);
+}
+
+
+Ext.onReady(function(){
+    
+    removeLoadingMask();
 
     // Bibliographic database
     //var db_biblio = new Catalis.MarcDatabase('bibima', 'biblio');
@@ -295,9 +307,9 @@ Ext.onReady(function(){
     //var db_auto = new Catalis.MarcDatabase('auto', 'auto');
     
     // Uncomment only one of the lines below to test the corresponding component
-    //test_listBrowser(db_demo);
-    //test_dictPanel(db_demo);
-    //test_detailPanel(db_demo);
+    //test_listBrowser(db_celtic);
+    //test_dictPanel(db_celtic);
+    //test_detailPanel(db_celtic);
     //test_databasePanel(db_demo);
     //test_mainTabPanel(db_demo)
     //test_dataFieldsPanel();

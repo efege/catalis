@@ -35,7 +35,7 @@ from urllib import urlencode, urlopen
 def rename_key(oldkey, newkey, dict):
     """
     Replaces oldkey by newkey in dictionary dict.
-    NOTE -- modifies the passed dict object in-place.
+    WARNING -- modifies the passed dict object in-place.
     """
     try:
         dict[newkey] = dict[oldkey]
@@ -76,31 +76,43 @@ class WxisServer:
             'IsisScript': IsisScript,
         })
         
-        # TO-DO: convert encoding utf-8 to latin-1 before calling urlencode?
-        # Does not work; calling urlencode() gives errors like this:
-        # UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 2: ordinal not in range(128)
-        # For sending queries, it would be OK if we could apply some accent-removal
-        # method. But for sending data to be written, we need to do it right.
+        # Unicode strings must be encoded (as latin-1) before calling urlencode.
+        # Encoding as utf-8 does not give good results (not sure why).
+        # Calling urlencode() without encoding first gives errors like this:
+        #     UnicodeEncodeError: 'ascii' codec can't encode character u'\xe9' in position 2: ordinal not in range(128)
         # Read this thread: http://mail.python.org/pipermail/python-list/2006-April/376581.html
+        # and particularly this post: http://mail.python.org/pipermail/python-list/2006-April/376839.html
+        # And maybe also http://effbot.org/zone/unicode-convert.htm
+        # Well, it seems that the light is finally here: http://farmdev.com/talks/unicode/
+        # NOTE - if user input includes characters not in Latin-1, then we have:
+        #        UnicodeEncodeError: 'latin-1' codec can't encode character ...
+        #        That's why we use a second argument ('replace', 'ignore', etc.). 
         if 'query' in params:
-            params['query'] = params['query'].decode('utf8')
+            #import pprint
+            #pprint.pprint(params)
+            params['query'] = params['query'].encode('latin-1', 'replace')
+            #pprint.pprint(params)
+        if 'from' in params and 'index' in params['IsisScript']:
+            params['from'] = params['from'].encode('latin-1', 'replace')
         data = urlencode(params)
         
         # Get WXIS's response
         fp = urlopen(self.url, data, proxies=self.proxies)  # NOTE: 'POST' is implied when a second positional argument ('data') is used
         wxis_response = fp.read()
-        #print wxis_response
         
-        # Convert the data returned by WXIS from latin-1 to utf-8 (unicode).
+        # Should we convert the data returned by WXIS (bytes in a certain encoding) to unicode?
         # NOTE: this converts both the data retrieved from the database, and the wxis
         # metadata (including e.g. the query).
         # Removed after seeing records in Catalis (2008-04-22)  WHY??
         # Restored after upgrading to Ubuntu 8.04  WHY??
         # The situation is this:
-        #   - to read the results directly, e.g. http://127.0.0.1:8000/db/bibima_test/?function=search&query=monteiro
+        #   - to read the results directly, e.g. http://127.0.0.1:8000/catalis/db/celtic/?action=search&query=feil&query_type=any&xhr=1
         #     decode() is needed
-        #   - to view the records in the browser, decode() must not be used.
+        #   - to view the records in the browser (via Ext), decode() must not be used.
+        #   - 2008-12-19: doctests work ok with or without decode() 
         # TO-DO: understand this!
+        # 2008-12-19: after some changes, it seems that decode() is only needed
+        # when wxis's output does not use unicode strings, e.g. {"value": u"Field value"}.
         #wxis_response = wxis_response.decode('latin-1')
         
         # Now try to catch errors in the response
@@ -138,6 +150,7 @@ class WxisServer:
                 reason = response['error']
             except KeyError:
                 # There's no 'error' key in the response -- return the Python object
+                #import pprint; pprint.pprint(response)
                 return response
             else:
                 # We have an error of the 'soft' kind
@@ -244,7 +257,10 @@ class WxisDb:
             reverse  (Optional) Disabled by default.
             posting  (Optional)
             posttag  (Optional)
+            borders  (Optional)
         """
+        # See doctest in __test__ below.
+        
         rename_key('start', 'from', params)
         return self._request('index', params)
     
@@ -643,6 +659,147 @@ def test():
     display_records(resp)
 
 
-if __name__ == '__main__':
-    test()
+# This was my first use of doctest (2008-12-17)
+# NOTE: a raw string is convenient since some tests include escape backslashes.
+# NOTE: use unicode strings for all tests involving non-ascii characters.
+__test__ = { 
 
+    'test_index': r"""
+    
+        Input:
+            - A cds/isis dictionary of size N
+            - P = PageSize, a small integer (number of terms per page) 
+              
+        Test 1: given a string T, retrieve a list of terms.
+        TO-DO: test other parameters.
+        TO-DO: test using non-ascii strings
+        
+        First open a test database:
+        TO-DO: the test database should be in textual form (platform independent)
+              
+            >>> import pywxis
+            >>> db_path = '/home/fernando/dev/catalis/svn/data/isis/celtic/biblio'
+            >>> wxis_port = '81'
+            >>> wxis_path = '/catalis/cgi-bin/wxis1660-7.1'
+            >>> base = pywxis.WxisDb(db_path, pywxis.WxisServer(port=wxis_port, path=wxis_path))
+            >>> page_size = 5
+        
+        -----------------------------------------------------------------------
+        Index tests.
+        -----------------------------------------------------------------------
+        
+        Define an auxiliary function:
+        TO-DO: replace 'false' => '|', 'true' => '<' or '>'.
+               Using Python 2.5: '<' if result['meta']['prev'] == 'true' else '|'  
+                                 '>' if result['meta']['next'] == 'true' else '|'
+        
+            >>> def show_index_from(term, reverse=''):
+            ...     result = base.index(start=term, count=page_size, borders='On', reverse=reverse)
+            ...     return (result['meta']['prev'],
+            ...            [t['Isis_Key'] for t in result['terms']],
+            ...            result['meta']['next'])
+        
+        Test using some interesting strings.
+        
+        The empty string:
+        
+            >>> show_index_from('')
+            ('false', [u'-BIBLEVEL=S', u'-BIOGR=YES', u'-CREADO_POR=XX', u'-DEWEY=001..94', u'-DEWEY=016..941'], 'true')
+
+        A term in the dictionary (away from the borders):
+        
+            >>> show_index_from('GODS')
+            ('true', [u'GODS', u'GOODFELLOW', u'GOTEBORG', u'GOTEBORGS', u'GOTTFRIED'], 'true')
+        
+        A term *not* in the dictionary (away from the borders):
+        
+            >>> show_index_from('GUA')
+            ('true', [u'GUEST', u'GUIDE', u'GUIDEBOOKS', u'GUITAR', u'GULER'], 'true')
+        
+        The n-th term, with 1 < n < P (i.e., a term within the first page):
+        
+            >>> show_index_from('-CREADO_POR=XX')
+            ('true', [u'-CREADO_POR=XX', u'-DEWEY=001..94', u'-DEWEY=016..941', u'-DEWEY=133..3/2424', u'-DEWEY=133..4/3/089916'], 'true')
+        
+        The (N+1-n)-th term, for some 1 < n < P (i.e., a term within the last page):
+        
+            >>> show_index_from('~WORSHIP PROGRAMS.')
+            ('true', [u'~WORSHIP PROGRAMS.', u'~WRITTEN ON THE BODY :~THE TATTOO IN EUROPEAN AND AMERICAN H', u'~YOUNG, JOHN R.,~1967-'], 'false')
+        
+        The first term in the dictionary:
+        
+            >>> show_index_from('-BIBLEVEL=S')
+            ('false', [u'-BIBLEVEL=S', u'-BIOGR=YES', u'-CREADO_POR=XX', u'-DEWEY=001..94', u'-DEWEY=016..941'], 'true')
+        
+        The last term in the dictionary (should return the full 'last page'?):
+        
+            >>> show_index_from('~YOUNG, JOHN R.,~1967-')
+            ('true', [u'~YOUNG, JOHN R.,~1967-'], 'false')
+        
+        A string less than the first term:
+        
+            >>> show_index_from('#')
+            ('false', [u'-BIBLEVEL=S', u'-BIOGR=YES', u'-CREADO_POR=XX', u'-DEWEY=001..94', u'-DEWEY=016..941'], 'true')
+
+        A string greater than the last term (should return the full 'last page'?):
+        
+            >>> show_index_from('~Z')
+            ('true', [], 'false')
+
+        The last page, in reverse order
+        u'\xFE' = u'\u00FE' =  þ = Latin Small Letter Thorn
+        NOTE: using u'\xFF' = 'ÿ' is like using 'Y'
+        
+            >>> show_index_from(u'\xFE\xFE', reverse='On')
+            ('true', [u'~YOUNG, JOHN R.,~1967-', u'~WRITTEN ON THE BODY :~THE TATTOO IN EUROPEAN AND AMERICAN H', u'~WORSHIP PROGRAMS.', u'~WORLD MYTHOLOGY SERIES', u'~WORK~PRAYER-BOOKS AND DEVOTIONS~ENGLISH.'], 'false')
+        
+        Latin-1 characters with accents (use unicode strings for all tests!):
+        u'\xE9' = u'\u00e9' = Latin Small Letter E with acute
+        
+            >>> show_index_from(u'\xE9')
+            ('true', [u'E', u'EACH', u'EAIN', u'EARLY', u'EAST'], 'true')
+
+        Non Latin-1 characters with accents -- Replace them with '?'
+        Example: u'\u010D' = Latin Small Letter C with caron (č)
+        
+            >>> show_index_from(u'\u010D')
+            ('true', [u'A', u'ABBY', u'ABINGDON', u'ABOUT', u'ABRAMS'], 'true')
+
+
+        -----------------------------------------------------------------------
+        Search tests.
+        -----------------------------------------------------------------------
+        
+        Two terms combined with AND:
+        
+            >>> base.search(query='linguistics and celtic')['data'][0]['fields'][8]['value']
+            u'00^aCeltic linguistics =^bIeithyddiaeth Geltaidd : readings in the Brythonic languages : festschrift for T. Arwyn Watkins /^cedited by Martin J. Ball ... [et al.].'
+        
+        Ascii query matching a non-ascii word: 
+        
+            >>> base.search(query='feil')['data'][0]['fields'][9]['value']
+            u'00^aF\xe9il-sgr\xedbhinn E\xf3in Mhic N\xe9ill :^bessays and studies presented to Professor Eoin MacNeill /^cedited by John Ryan.'
+        
+        Non-ascii query:
+        u'\xE9' = u'\u00e9' = Latin Small Letter E with acute        
+        
+            >>> base.search(query=u'f\xE9il')['data'][0]['fields'][9]['value']
+            u'00^aF\xe9il-sgr\xedbhinn E\xf3in Mhic N\xe9ill :^bessays and studies presented to Professor Eoin MacNeill /^cedited by John Ryan.'
+        
+            >>> # NOTE: this search produces the expected output at the shell, but no results here
+            >>> #base.search(query=u'féil')['data'][0]['fields'][9]['value']
+            u'00^aF\xe9il-sgr\xedbhinn E\xf3in Mhic N\xe9ill :^bessays and studies presented to Professor Eoin MacNeill /^cedited by John Ryan.'
+
+        Count results:
+
+            >>> len(base.search(query='celtic')['data'])
+            100
+
+
+    """
+}
+
+if __name__ == '__main__':
+    #test()
+    import doctest
+    doctest.testmod()

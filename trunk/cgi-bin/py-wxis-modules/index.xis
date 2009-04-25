@@ -8,12 +8,15 @@
         name      mandat.    default    comments
         -----------------------------------------------------------------------------------------------
         database    X
-        from                            Initial term.
+        from                            Initial term. Defaults to the first key in the inverted file.
         to                              Last term (or first term not retrieved?)  -- CHECK THIS
         count                           Number of terms.
-        reverse                         If 'On', the inverted file is walked backwards.
+        reverse                         If 'On', the inverted file is walked backwards. Disabled by default.
         posting
         posttag
+        borders                         If 'On', the script finds out if this is a "border page", i.e. whether
+                                        there are previous and/or next terms. (Useful for enabling/disabling
+                                        navigation buttons in an interface for browsing the dictionary.)
 
     Output:
         {
@@ -30,73 +33,74 @@
 
 <section name="index">
 
-	<display>
-		<pft>
-		    'Content-type: text/plain'##
-		</pft>
-	</display>
-	<trace>xOn</trace>
+    <display>
+        <pft>
+            'Content-type: text/plain'##
+        </pft>
+    </display>
+    <trace>xOn</trace>
 
-	<field action="cgi" tag="2">IsisScript</field>
-	<field action="replace" tag="3"><pft>date</pft></field>
-	<field action="replace" tag="4"><pft>'^d',v3.8,'^t',v3*9.6</pft></field>
-	
-	<do task="keyrange">
+    <field action="cgi" tag="2">IsisScript</field>
+    <field action="replace" tag="3"><pft>date</pft></field>
+    <field action="replace" tag="4"><pft>'^d',v3.8,'^t',v3*9.6</pft></field>
 
-		<field action="cgi" tag="2001">database</field>
-		<call name="error"><pft>"missing parameter: database"n2001</pft></call>
-		<parm name="db"><pft>v2001</pft></parm>
+    <do task="keyrange">
 
-		<field action="cgi" tag="2002">from</field>
-		<parm name="from"><pft>v2002</pft></parm>
+        <field action="cgi" tag="2001">database</field>
+        <call name="error"><pft>"missing parameter: database"n2001</pft></call>
+        <parm name="db"><pft>v2001</pft></parm>
 
-		<field action="cgi" tag="2003">to</field>
-		<parm name="to"><pft>v2003</pft></parm>
+        <field action="cgi" tag="2002">from</field>
+        <parm name="from"><pft>v2002</pft></parm>
 
-		<field action="cgi" tag="2004">count</field>
-		<parm name="count"><pft>v2004</pft></parm>
+        <field action="cgi" tag="2003">to</field>
+        <parm name="to"><pft>v2003</pft></parm>
 
-		<field action="cgi" tag="2006">reverse</field>
-		<parm name="reverse"><pft>v2006</pft></parm>
+        <field action="cgi" tag="2004">count</field>
+        <parm name="count"><pft>v2004</pft></parm>
 
-		<field action="cgi" tag="2007">posting</field>
-		<parm name="posting"><pft>v2007</pft></parm>
+        <field action="cgi" tag="2006">reverse</field>
+        <parm name="reverse"><pft>v2006</pft></parm>
 
-		<field action="cgi" tag="2008">posttag</field>
-		<field action="replace" tag="2009" split="occ"><pft>replace(v2008,' ',s(#))</pft></field>
-		<field action="replace" tag="2009" split="occ"><pft>replace(s(v2009/),',',s(#))</pft></field>
-		<parm name="posttag"><pft>(v2009/)</pft></parm>
+        <field action="cgi" tag="2007">posting</field>
+        <parm name="posting"><pft>v2007</pft></parm>
 
-		<field action="define" tag="1">Isis_Key</field>
-		<field action="define" tag="2">Isis_Postings</field>
-		<field action="define" tag="3">Isis_Posting</field>
-		<field action="define" tag="4">Isis_Current</field>
+        <field action="cgi" tag="2008">posttag</field>
+        <field action="replace" tag="2009" split="occ"><pft>replace(v2008,' ',s(#))</pft></field>
+        <field action="replace" tag="2009" split="occ"><pft>replace(s(v2009/),',',s(#))</pft></field>
+        <parm name="posttag"><pft>(v2009/)</pft></parm>
 
-		<display>{"terms": [</display>
-		<loop>
-		    <field action="import" tag="list">2004</field>
-			<display><pft>
-			    '{'
-    			    '"Isis_Key":',      '"', replace(replace(v1, '\', '\\"'), '"', '\"'), '",'  /* JSON cleaning */
-    			    '"Isis_Postings":', '"', v2, '"'
-    			    /* TO-DO: REVISAR cómo funciona Isis_Posting */
-    			    if v3 : '^' then
-    				    ','
-    				    '"Isis_Posting": {',
-    				        '"entry":', v3^i, ','
-    				        '"mfn":',   v3^m, ','
-    				        '"tag":',   v3^t, ','
-    				        '"occ":',   v3^o, ','
-    				        '"count":', v3^c,
-    				    '}'
-    				fi,
-			    '}'
-			    /*if val(v4) < val(v2004) then ',' fi*/  /* FIXME: no sale la coma si está ausente v2004 (count) */
-			    ','
-			</pft></display>
-		</loop>
-		<display>],</display>
+        <field action="define" tag="1">Isis_Key</field>
+        <field action="define" tag="2">Isis_Postings</field>
+        <field action="define" tag="3">Isis_Posting</field>
+        <field action="define" tag="4">Isis_Current</field>
 
+        <display>{"terms": [</display>
+        <loop>
+            <field action="import" tag="list">2004</field>
+            <display><pft>
+                '{'
+                    '"Isis_Key" : ',      'u"', replace(replace(v1, '\', '\\"'), '"', '\"'), '",'  /* JSON cleaning, Unicode string */
+                    '"Isis_Postings":',   '"', v2, '"'
+                    /* TO-DO: REVISAR cómo funciona Isis_Posting */
+                    if v3 : '^' then
+                        ','
+                        '"Isis_Posting": {',
+                            '"entry":', v3^i, ','
+                            '"mfn":',   v3^m, ','
+                            '"tag":',   v3^t, ','
+                            '"occ":',   v3^o, ','
+                            '"count":', v3^c,
+                        '}'
+                    fi,
+                '}'
+                /*if val(v4) < val(v2004) then ',' fi*/  /* FIXME: no sale la coma si está ausente v2004 (count) */
+                ','
+            </pft></display>
+        </loop>
+        <display>],</display>
+
+        <!-- Metadata -->
         <display><pft>
             '"meta": {'
                 '"server": {',
@@ -104,19 +108,96 @@
                     '"time":"', v4^t, '"'
                 '},'
                 '"database":"', replace(replace(v2001, '\', '\\'), '"', '\"'), '",'
-                '"from":"',     v2002, '",'
-                '"to":"',       v2003, '",'
+                '"from": u"',   v2002, '",'    /* Unicode string */
+                '"to":   u"',   v2003, '",'    /* Unicode string */
                 '"posttag":"',  v2008, '",'
                 '"posting":"',  v2007, '",'
                 '"count":"',    v2004, '",'
                 '"reverse":"',  v2006, '"'
-            '}'
+                /* NOTE: closing braces appear below */
         </pft></display>
+    </do>
+
+
+    <!-- Abandon if borders is not 'On' -->
+    <field action="cgi" tag="2010">borders</field>
+    <flow action="jump"><pft>if v2010 <> 'On' then 'CLOSE_BRACES' fi</pft></flow>
+    
+    <!-- Otherwise, find out whether this is a "border page" -->
+    
+    <!-- TO-DO: is it necessary to check the condition "v2011 = '2'" whithin the loops?
+         It is used for the case when the value of "from" is not a term in the dictionary.
+    -->    
+    
+    <!-- Case 1: is there a PREVIOUS term?
+           Case 1a: if reverse = Off, a previous term is found using reverse = On, count = 2
+           Case 1b: if reverse = On, a previous term is found using reverse = On, count = count + 1
+    -->
+    <do task="keyrange">
+        <parm name="db"><pft>v2001</pft></parm>
+        <parm name="from"><pft>v2002</pft></parm>
+        <parm name="reverse">On</parm>
+        <field action="replace" tag="2011"><pft>
+            if v2006 = 'On' then
+                f(val(v2004) + 1, 1, 0)
+            else
+                '2'
+            fi
+        </pft></field>
+        <parm name="count"><pft>v2011</pft></parm>
         
-        <display>}</display>
-	</do>
+        <field action="define" tag="1">Isis_Key</field>
+        <field action="define" tag="4">Isis_Current</field>
+        <!--display><pft>'Finding PREV'/</pft></display-->
+        <loop>
+            <field action="import" tag="list">2002,2011</field>
+            <!--display><pft>x3,v4,x3,v1/</pft></display-->
+            <field action="replace" tag="2012"><pft>if v2011 = '2' and s(mpu,v1) < s(mpu,v2002,mpl) or val(v4) = val(v2011) then 'true' fi</pft></field>
+            <field action="export" tag="list">2012</field>
+        </loop>
+    </do>
+
+    <!-- Case 2: is there a NEXT term?
+           Case 2a: if reverse = Off, a next term is found using count = count + 1
+           Case 2b: if reverse = On, a next term is found using count = 2
+    --> 
+    <do task="keyrange">
+        <parm name="db"><pft>v2001</pft></parm>
+        <parm name="from"><pft>v2002</pft></parm>
+        <parm name="reverse"></parm>
+        <field action="replace" tag="2011"><pft>
+            if v2006 = 'On' then
+                '2'
+            else
+                f(val(v2004) + 1, 1, 0)
+            fi
+        </pft></field>
+        <parm name="count"><pft>v2011</pft></parm>
+        
+        <field action="define" tag="1">Isis_Key</field>
+        <field action="define" tag="4">Isis_Current</field>
+        <!--display><pft>'Finding NEXT'/</pft></display-->
+        <loop>
+            <!--display><pft>x3,v4,x3,v1/</pft></display-->
+            <field action="import" tag="list">2002,2011</field>
+            <field action="replace" tag="2013"><pft>if v2011 = '2' and s(mpu,v1) > s(mpu,v2002,mpl) or val(v4) = val(v2011) then 'true' fi</pft></field>
+            <field action="export" tag="list">2013</field>
+        </loop>
+    </do>
+    
+    <!-- If not true, then false ;-) -->
+    <field action="replace" tag="2012"><pft>if a(v2012) then 'false' else v2012 fi</pft></field>
+    <field action="replace" tag="2013"><pft>if a(v2013) then 'false' else v2013 fi</pft></field>
+    
+    <display><pft>
+        ', "prev":"',  v2012, '"'
+        ', "next":"',  v2013, '"'
+    </pft></display>
+
+
+    <label>CLOSE_BRACES</label>
+    <display>}}</display>
 
 </section>
 
 </IsisScript>
-

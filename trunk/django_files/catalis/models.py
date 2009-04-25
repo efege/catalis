@@ -23,21 +23,16 @@ class Institution(models.Model):
     TO-DO: sometimes databases are associated with an event or meeting,
     such as a "Catalis Workshop".
     '''
-    short_name = models.CharField(maxlength=30)
-    long_name  = models.CharField(maxlength=100, blank=True)
+    short_name = models.CharField(max_length=30)
+    long_name  = models.CharField(max_length=100, blank=True)
     
-    def __str__(self):
+    def __unicode__(self):
         return self.short_name
 
     class Meta:    
         verbose_name = 'institución'
         verbose_name_plural = 'instituciones'
         
-    # Enable the admin interface for this model
-    class Admin:
-        list_display = ('short_name', 'long_name')
-
-
 
 
 # This model represents a MARC database, with either bibliographic or authority
@@ -70,10 +65,10 @@ class MarcDatabase(models.Model):
     # -----------------------------------------------------------------------
     # Fields of the model 
     # -----------------------------------------------------------------------
-    name        = models.CharField(maxlength=30)             # e.g. "abr" 
-    db_type     = models.CharField(maxlength=10, choices=DB_TYPE_CHOICES, default='biblio')
+    name        = models.CharField(max_length=30)             # e.g. "abr" 
+    db_type     = models.CharField(max_length=10, choices=DB_TYPE_CHOICES, default='biblio')
     institution = models.ForeignKey(Institution)             # e.g. "Biblioteca Bernardino Rivadavia"
-    description = models.CharField(maxlength=200)            # e.g. "Libros, videos, CDs"
+    description = models.CharField(max_length=200)            # e.g. "Libros, videos, CDs"
     notes       = models.TextField(blank=True)               # annotations, e.g. about the database's history
     active      = models.BooleanField(default=True)          # is the database available for use?
 
@@ -115,7 +110,7 @@ class MarcDatabase(models.Model):
     # "Special" methods
     # -----------------------------------------------------------------------
     
-    def __str__(self):
+    def __unicode__(self):
         return self.name
     
     def __getattr__(self, name):
@@ -180,7 +175,7 @@ class MarcDatabase(models.Model):
         path = self._get_dirname()
         try:
             # We have a permissions problem while attempting to create the db files.
-            # The directory is created by the Python user (fernando), 
+            # The directory is created by the Python user (e.g. fernando), 
             # but the database files are created by the Apache user (www-data).
             # FIXME -- check this using both Django dev server and Apache.
             os.mkdir(path)
@@ -217,9 +212,10 @@ class MarcDatabase(models.Model):
     # Public methods
     # -----------------------------------------------------------------------
     
-    # Override the default save() method (see Django Book, p. 326)
+    # Override the default save() method (see Django Book, p. 326).
+    # force_insert, force_update added in Django 1.0.
     # TO-DO: consider exceptions that may arise if there are problems with the isis directory/files.
-    def save(self):
+    def save(self, force_insert=False, force_update=False):
         '''
         Creates the associated Isis database if it does not exist, and then saves the object.
         '''
@@ -228,12 +224,16 @@ class MarcDatabase(models.Model):
         else:
             # For an existent database, check if the name has been changed, and
             # if so update the Isis directory.
-            old = self.__class__.objects.get(id=self.id) 
-            if self.name != old.name:
-                self._rename_isis(old.name, self.name)
+            try:
+                old = MarcDatabase.objects.get(id=self.id)
+            except MarcDatabase.DoesNotExist:
+                pass
+            else:
+                if self.name != old.name:
+                    self._rename_isis(old.name, self.name)
             
         # Call the "real" save() method 
-        super(MarcDatabase, self).save()
+        super(MarcDatabase, self).save(force_insert, force_update)
 
 
     # Override the default delete() method (see Django Book, p. 326)
@@ -276,11 +276,6 @@ class MarcDatabase(models.Model):
         verbose_name = 'base MARC'
         verbose_name_plural = 'bases MARC'
         
-
-    class Admin:
-        list_display = ('name', 'db_type', 'institution', 'description', 'total', 'active')
-        list_filter = ('institution', 'db_type', 'active')
-
         
 
 # Many to Many relationships with attributes:
@@ -297,7 +292,7 @@ class UserDbPermission(models.Model):
     )
     #user = models.ForeignKey('UserProfile', edit_inline=models.STACKED)
     database = models.ForeignKey(MarcDatabase)
-    permission = models.CharField(maxlength=1, choices=PERM_CHOICES, default='1', core=True)
+    permission = models.CharField(max_length=1, choices=PERM_CHOICES, default='1')  # 0.96: core=True
 
 
 # Here we store additional data about each user, beyond the default Django admin fields.
@@ -309,11 +304,8 @@ class UserDbPermission(models.Model):
 #   http://code.google.com/p/django-profiles/
 class UserProfile(models.Model):
     '''Additional data for users.'''
-    user         = models.ForeignKey(User, unique=True, edit_inline=models.STACKED)
+    user         = models.ForeignKey(User, unique=True)  # 0.96: edit_inline=models.STACKED
     institution  = models.ForeignKey(Institution)  # TO-DO: should be optional, not every user will be affiliated with an institution 
-    phone_number = models.CharField(maxlength=30, blank=True, core=True)  # TO-DO: qué es esto de core=True? si no lo pongo da error; no está documentado en el Book
+    phone_number = models.CharField(max_length=30, blank=True)    # 0.96: core=True
     #databases    = models.ManyToManyField(MarcDatabase)
     databases    = models.ManyToManyField(UserDbPermission)
-    
-    #class Admin: pass
-
